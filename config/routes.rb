@@ -138,6 +138,7 @@ ActionController::Routing::Routes.draw do |map|
     app.resources :events, :member => {:attend => :post, :absent => :post}, :collection => { :recent => :get }, :except => [:destroy] do |event|
       event.resources :attendees, :only => [:update]
     end
+    app.resources :projects, :only => [:index, :show]
     app.resource :javascripts, :only => [], :member => {:application => :get}
   end
 
