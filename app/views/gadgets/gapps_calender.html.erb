@@ -1,0 +1,64 @@
+<% xml_doc = REXML::Document.new @calenders -%>
+<% record_date = Date.today -%>
+
+<table class="calender_header">
+  <col width="400px" />
+  <col />
+  <col width="300px" />
+  <tbody>
+    <tr>
+      <td></td>
+      <td><%= record_date.strftime('%Y年%m月%d日') %></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<table id="gapps_cal">
+  <col width="10%" />
+  <col width="10%" />
+  <col width="10%" />
+  <col width="10%" />
+  <col width="10%" />
+  <col width="10%" />
+  <col width="10%" />
+  <tbody>
+    <tr class="date">
+      <% for i in 0..6 -%>
+        <td class="<%= date2wday(record_date + i) %>">
+          <%= (record_date + i).day %>
+        </td>
+      <% end -%>
+    </tr>
+
+    <tr class="detail">
+      <%# TODO:曜日毎に全feedを確認しないように -%>
+      <% for i in 0..6 -%>
+        <td>
+          <ul>
+            <%# TODO:helperメソッドとしてロジックはviewから排除する -%>
+            <% xml_doc.elements.each("feed/entry") do |calender| -%>
+              <% st = ParseDate::parsedate(calender.elements['gd:when'].attribute('startTime').to_s) -%>
+              <% et = ParseDate::parsedate(calender.elements['gd:when'].attribute('endTime').to_s) -%>
+              <% start_time = Time::local(*st[0..-3]).strftime("%H:%M") %>
+              <% end_time = Time::local(*et[0..-3]).strftime("%H:%M") %>
+
+              <% if (Time::local(*st[0..-3]).day == (record_date + i).day || (Time::local(*st[0..-3]).day <= (record_date + i).day && (record_date + i).day < Time::local(*et[0..-3]).day)) -%>
+                <li>
+                  <%# TODO:linkのhrefが複数あることを考慮すること -%>
+                  <%= link_to(h(truncate(calender.elements['title'].text, 20)), calender.elements['link'].attribute('href').to_s) -%>
+                  <% if (start_time == "00:00" && end_time == "00:00") -%>
+                    <%= "終日" %>
+                  <% else -%>
+                    <%= start_time %> - <%= end_time %>
+                  <% end -%>
+                </li>
+              <% end -%>
+            <% end -%>
+          </ul>
+          <span><%= icon_tag("page_edit") %></span>
+        </td>
+      <% end -%>
+    </tr>
+  </tbody>
+</table>

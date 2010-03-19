@@ -1,0 +1,10 @@
+<% xml_doc = REXML::Document.new @mails -%>
+
+<div class="ui-corner-all" id="questions_wrapper">
+  <h2 class="ui-corner-top"><%= link_to("メール") %></h2>
+  <div id="gapps_mail" style="text-align: left">
+    <% xml_doc.elements.each("feed/entry") do |mail| -%>
+      <div><%= link_to(h(truncate(mail.elements['title'].text, 30)), mail.elements['link'].attribute("href").to_s) %> - <%= h(truncate(mail.elements['author/name'].text, 10)) %></div>
+    <% end -%>
+  </div>
+</div>
