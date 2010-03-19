@@ -1,3 +1,14 @@
+<style>
+  table#gapps_cal{border:1px solid #999999}
+  table#gapps_cal tr.date{text-align:center}
+  table#gapps_cal tr.date td.weekday{background-color:#FFFFCC}
+  table#gapps_cal tr.date td.saturday{background-color:#CCFFFF}
+  table#gapps_cal tr.date td.sunday{background-color:#FFCCCC}
+  table#gapps_cal tr.detail{height:6em}
+  table#gapps_cal tr.detail ul{list-style-position:inside}
+  table#gapps_cal td{border:1px solid #999999;vertical-align:top}
+</style>
+
 <% xml_doc = REXML::Document.new @calenders -%>
 <% record_date = Date.today -%>
 
