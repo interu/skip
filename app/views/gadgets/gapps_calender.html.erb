@@ -5,25 +5,16 @@
   table#gapps_cal tr.date td.saturday{background-color:#CCFFFF}
   table#gapps_cal tr.date td.sunday{background-color:#FFCCCC}
   table#gapps_cal tr.detail{height:6em}
-  table#gapps_cal tr.detail ul{list-style-position:inside}
+  table#gapps_cal tr.detail ul{list-style-position:inside;padding:0}
   table#gapps_cal td{border:1px solid #999999;vertical-align:top}
 </style>
 
 <% xml_doc = REXML::Document.new @calenders -%>
 <% record_date = Date.today -%>
 
-<table class="calender_header">
-  <col width="400px" />
-  <col />
-  <col width="300px" />
-  <tbody>
-    <tr>
-      <td></td>
-      <td><%= record_date.strftime('%Y年%m月%d日') %></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+<div style="text-align:center;">
+  <%= record_date.strftime('%Y年%m月%d日') %>
+</div>
 
 <table id="gapps_cal">
   <col width="10%" />

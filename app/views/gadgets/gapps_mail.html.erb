@@ -1,10 +1,27 @@
-<% xml_doc = REXML::Document.new @mails -%>
+<style>
+  div#gadget_wrapper{border:1px solid #E0E0FF;}
+  div#gadget_wrapper h2{background-color:#E0E0FF;font-size:15px;padding:2px 2px;margin:0;}
+  .ui-corner-all {-moz-border-radius-bottomleft:3px;-moz-border-radius-bottomright:3px;-moz-border-radius-topleft:3px;-moz-border-radius-topright:3px;}
+</style>
 
-<div class="ui-corner-all" id="questions_wrapper">
+<% xml_doc = REXML::Document.new @mails -%>
+<div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= link_to("メール") %></h2>
-  <div id="gapps_mail" style="text-align: left">
-    <% xml_doc.elements.each("feed/entry") do |mail| -%>
-      <div><%= link_to(h(truncate(mail.elements['title'].text, 30)), mail.elements['link'].attribute("href").to_s) %> - <%= h(truncate(mail.elements['author/name'].text, 10)) %></div>
-    <% end -%>
-  </div>
+  <table>
+    <col />
+    <col width="150px" />
+    <tbody>
+      <% xml_doc.elements.each("feed/entry") do |mail| -%>
+        <tr>
+          <td>
+            <%= link_to(h(truncate(mail.elements['title'].text, 30)), mail.elements['link'].attribute("href").to_s) %>
+          </td>
+          <td>
+            <%= h(truncate(mail.elements['author/name'].text, 10)) %>
+          </td>
+        </tr>
+      <% end -%>
+    </tbody>
+  </table>
 </div>
+
