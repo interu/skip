@@ -142,4 +142,25 @@ EOF
 
     render :layout => false
   end
+
+  def skip_question
+    # TODO:要改修
+    @questions = {
+      :id_name => 'questions',
+      :title_icon => "user_comment",
+      :title_name => _('Recent Questions'),
+      :pages => BoardEntry.from_recents.question.visible.accessible(current_user).order_new.scoped(:include => [:state, :user]),
+      :recent_day => 10
+    }
+
+    render :layout => false
+  end
+
+  def tenpo_notice
+    @entries = [
+      {:title => 'テスト登録', :title_url => '#', :status => '[重要]', :from => 'ネクスウェイ', :from_url => '#'},
+      {:title => 'wiki文書を使用したお知らせ', :title_url => '#', :status => '[通常]', :from => 'ネクスウェイ', :from_url => '#'}
+    ]
+    render :layout => false
+  end
 end

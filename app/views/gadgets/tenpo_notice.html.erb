@@ -1,0 +1,11 @@
+<style>
+  div#gadget_wrapper{border:1px solid #E0E0FF;}
+  div#gadget_wrapper h2{background-color:#E0E0FF;font-size:15px;padding:2px 2px;margin:0;}
+  .ui-corner-all {-moz-border-radius-bottomleft:3px;-moz-border-radius-bottomright:3px;-moz-border-radius-topleft:3px;-moz-border-radius-topright:3px;}
+</style>
+<div id="gadget_wrapper">
+  <h2>店舗matic (新着お知らせ)</h2>
+  <% @entries.each do |entry| -%>
+    <div><%= entry[:status] %><%= link_to(entry[:title], entry[:title_url]) %> - <%= link_to(entry[:from], entry[:from_url]) %></div>
+  <% end -%>
+</div>
