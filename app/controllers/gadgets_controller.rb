@@ -163,4 +163,8 @@ EOF
     ]
     render :layout => false
   end
+
+  def skip_notice
+
+  end
 end

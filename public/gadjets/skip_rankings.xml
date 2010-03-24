@@ -1,0 +1,79 @@
+<Module>
+    <ModulePrefs title="ランキング" description="SKIPランキング">
+        <Require feature="dynamic-height"/>
+        <Require feature="tabs"/>
+        <Require feature="setprefs"/>
+    </ModulePrefs>
+
+    <UserPref name="num_feed" display_name="表示するエントリー" datatype="enum" default_value="10">
+        <EnumValue value="5"/>
+        <EnumValue value="6"/>
+    </UserPref>
+
+    <Content type="html">
+<![CDATA[
+<script type="text/javascript">
+
+var tabs = new _IG_Tabs(__MODULE_ID__);
+var prefs = new _IG_Prefs(__MODULE_ID__);
+
+function init() {
+    var tabs = new _IG_Tabs(__MODULE_ID__, "entry_access");
+    tabs.addDynamicTab("entry_access", callbackGenerator("https://test.skipaas.jp/ranking_data/entry_access/2010/02"));
+    tabs.addDynamicTab("entry_comment", callbackGenerator("https://test.skipaas.jp/ranking_data/entry_comment/2010/02"));
+    tabs.addDynamicTab("user_access", callbackGenerator("https://test.skipaas.jp/ranking_data/user_access/2010/02"));
+}
+
+function callbackGenerator(feed_url) {
+    return function(tabId) {
+        callbackTab(tabId, feed_url);
+    }
+}
+
+function callbackTab(tabId, feed_url) {
+    _IG_FetchContent(feed_url, function(feed){_gel(tabId).innerHTML = feed;});
+}
+
+_IG_RegisterOnloadHandler(init);
+
+</script>
+
+<style type="text/css">
+<!--
+
+.feed {
+margin: 0px;
+padding: 0px;
+}
+
+.feed p {
+font-size: 80%;
+margin: 0px;
+padding: 0px;
+}
+
+.feed ul {
+list-style-type: circle;
+margin: 5px 0px 0px 15px;
+padding: 0px 0px 0px 0px;
+}
+
+.feed li {
+font-size: 80%;
+margin: 0px;
+padding: 0px 0px 3px 0px;
+}
+
+.feed a {
+text-decoration: none;
+}
+
+.feed img {
+border: 0px;
+}
+
+-->
+</style>
+]]>
+    </Content>
+</Module>
