@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Module>
+    <ModulePrefs title="sample-tab" scrolling="true">
+        <Require feature="dynamic-height"/>
+        <Require feature="tabs"/>
+        <Require feature="setprefs"/>
+        <Require feature="infoscoop"/>
+    </ModulePrefs>
+
+    <UserPref name="num_feed" display_name="表示するエントリー" datatype="enum" default_value="10">
+        <EnumValue value="5"/>
+        <EnumValue value="6"/>
+    </UserPref>
+
+    <Content type="html" view="home,canvas">
+<![CDATA[
+<script type="text/javascript">
+
+var tabs = new _IG_Tabs(__MODULE_ID__);
+var prefs = new gadgets.Prefs()
+
+function init() {
+    var tabs = new _IG_Tabs(__MODULE_ID__, "entry_access");
+    tabs.addDynamicTab("google", callbackGenerator("http://www.google.co.jp/"));
+    tabs.addDynamicTab("entry_access", callbackGenerator("https://test.skipaas.jp/ranking_data/entry_access/2010/02"));
+}
+
+function callbackGenerator(target_url) {
+    return function(tabId) {
+        callbackTab(tabId, target_url);
+    }
+}
+
+function callbackTab(tabId, target_url) {
+    _IG_FetchContent(target_url, function(html){
+        _gel(tabId).innerHTML = html;
+
+        var links = document.getElementsByTagName("a");
+        for(var i=0;i<links.length;i++){
+            links[i].onclick = function(){
+                try{
+                    _IS_OpenPortalIframe(this.href);
+                }catch(e){
+                    console.info(e);
+                }
+                return false;
+            }
+        }
+
+    });
+}
+gadgets.util.registerOnLoadHandler(init);
+
+</script>
+
+<style type="text/css">
+<!--
+-->
+</style>
+]]>
+    </Content>
+</Module>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="sample-nontab" scrolling="true">
+        <Require feature="infoscoop"/>
+    </ModulePrefs>
+
+    <Content type="html" view="home,canvas">
+    <![CDATA[
+    <script type="text/javascript">
+        function init() {
+            var url = "http://www.openskip.org/ja/";
+            _IG_FetchContent(url, function(html){
+                document.body.innerHTML = html;
+
+                var links = document.body.getElementsByTagName("a");
+                for(var i=0;i<links.length;i++){
+                    links[i].onclick = function(){
+                        try{
+                            _IS_OpenPortalIframe(this.href);
+                        }catch(e){
+                            console.info(e);
+                        }
+                        return false;
+                    }
+                }
+
+            });
+        }
+        gadgets.util.registerOnLoadHandler(init);
+    </script>
+    ]]>
+    </Content>
+</Module>
