@@ -24,14 +24,14 @@ function init() {
     tabs.addDynamicTab("user_access", callbackGenerator("https://test.skipaas.jp/ranking_data/user_access/2010/02"));
 }
 
-function callbackGenerator(feed_url) {
+function callbackGenerator(target_url) {
     return function(tabId) {
-        callbackTab(tabId, feed_url);
+        callbackTab(tabId, target_url);
     }
 }
 
-function callbackTab(tabId, feed_url) {
-    _IG_FetchContent(feed_url, function(feed){_gel(tabId).innerHTML = feed;});
+function callbackTab(tabId, target_url) {
+    _IG_FetchContent(target_url, function(html){_gel(tabId).innerHTML = html;});
 }
 
 _IG_RegisterOnloadHandler(init);
@@ -40,38 +40,6 @@ _IG_RegisterOnloadHandler(init);
 
 <style type="text/css">
 <!--
-
-.feed {
-margin: 0px;
-padding: 0px;
-}
-
-.feed p {
-font-size: 80%;
-margin: 0px;
-padding: 0px;
-}
-
-.feed ul {
-list-style-type: circle;
-margin: 5px 0px 0px 15px;
-padding: 0px 0px 0px 0px;
-}
-
-.feed li {
-font-size: 80%;
-margin: 0px;
-padding: 0px 0px 3px 0px;
-}
-
-.feed a {
-text-decoration: none;
-}
-
-.feed img {
-border: 0px;
-}
-
 -->
 </style>
 ]]>
