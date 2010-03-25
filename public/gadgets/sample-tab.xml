@@ -5,7 +5,6 @@
         <Require feature="dynamic-height"/>
         <Require feature="tabs"/>
         <Require feature="setprefs"/>
-        <Require feature="infoscoop"/>
     </ModulePrefs>
 
     <UserPref name="num_feed" display_name="表示するエントリー" datatype="enum" default_value="10">
@@ -35,6 +34,7 @@ function callbackGenerator(target_url) {
 function callbackTab(tabId, target_url) {
     _IG_FetchContent(target_url, function(html){
         _gel(tabId).innerHTML = html;
+        gadgets.window.adjustHeight();
 
         var links = document.getElementsByTagName("a");
         for(var i=0;i<links.length;i++){

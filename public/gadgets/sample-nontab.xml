@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
     <ModulePrefs title="sample-nontab" scrolling="true">
-        <Require feature="infoscoop"/>
+        <Require feature="dynamic-height"/>
     </ModulePrefs>
 
     <Content type="html" view="home,canvas">
@@ -11,6 +11,7 @@
             var url = "http://www.openskip.org/ja/";
             _IG_FetchContent(url, function(html){
                 document.body.innerHTML = html;
+                gadgets.window.adjustHeight();
 
                 var links = document.body.getElementsByTagName("a");
                 for(var i=0;i<links.length;i++){
