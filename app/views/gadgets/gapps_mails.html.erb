@@ -14,6 +14,7 @@
       <% xml_doc.elements.each("feed/entry") do |mail| -%>
         <tr>
           <td>
+            <%# TODO:trancateでのWARNIGを回避するように -%>
             <%= link_to(h(truncate(mail.elements['title'].text, 30)), mail.elements['link'].attribute("href").to_s) %>
           </td>
           <td>

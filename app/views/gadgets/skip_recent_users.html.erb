@@ -1,0 +1,13 @@
+<style type="text/css">
+  @import url("/stylesheets/gadget-base.css");
+</style>
+
+<div id="gadget_wrapper">
+  <h2>新着ユーザ</h2>
+
+  <% @recent_users.each do |user| -%>
+    <div>
+      <%= link_to(user.name, tenant_user_url(current_tenant, user)) %>&nbsp;<span class="small_text">(<%= h(user.section) %>)
+    </div>
+  <% end -%>
+</div>
