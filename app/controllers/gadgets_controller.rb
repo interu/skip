@@ -158,8 +158,8 @@ EOF
 
   def tenpo_notice
     @entries = [
-      {:title => 'テスト登録', :title_url => '#', :status => '[重要]', :from => 'ネクスウェイ', :from_url => '#'},
-      {:title => 'wiki文書を使用したお知らせ', :title_url => '#', :status => '[通常]', :from => 'ネクスウェイ', :from_url => '#'}
+      {:title => 'テスト登録', :title_url => 'http://www.google.co.jp', :status => '[重要]', :from => 'ネクスウェイ', :from_url => 'http://www.google.co.jp'},
+      {:title => 'wiki文書を使用したお知らせ', :title_url => 'http://www.google.co.jp', :status => '[通常]', :from => 'ネクスウェイ', :from_url => 'http://www.google.co.jp'}
     ]
     render :layout => false
   end
