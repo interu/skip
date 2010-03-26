@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="みんなからの質問" scrolling="true">
+    <ModulePrefs title="みんなからの質問">
         <Require feature="dynamic-height"/>
     </ModulePrefs>
 

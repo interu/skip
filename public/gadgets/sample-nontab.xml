@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="sample-nontab" scrolling="true">
+    <ModulePrefs title="sample-nontab">
         <Require feature="dynamic-height"/>
     </ModulePrefs>
 

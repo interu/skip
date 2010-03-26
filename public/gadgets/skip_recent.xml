@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Module>
-    <ModulePrefs title="SKIP新着ガジェット" scrolling="true">
+    <ModulePrefs title="SKIP新着ガジェット">
         <Require feature="dynamic-height"/>
         <Require feature="tabs"/>
     </ModulePrefs>

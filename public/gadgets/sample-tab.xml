@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Module>
-    <ModulePrefs title="sample-tab" scrolling="true">
+    <ModulePrefs title="sample-tab">
         <Require feature="dynamic-height"/>
         <Require feature="tabs"/>
         <Require feature="setprefs"/>
