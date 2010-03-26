@@ -1,11 +1,8 @@
-<style>
-  div#gadget_wrapper{border:1px solid #E0E0FF;}
-  div#gadget_wrapper h2{background-color:#E0E0FF;font-size:15px;padding:2px 2px;margin:0;}
-  .ui-corner-all {-moz-border-radius-bottomleft:3px;-moz-border-radius-bottomright:3px;-moz-border-radius-topleft:3px;-moz-border-radius-topright:3px;}
-
+<style type="text/css">
   div.topix_entries_wrapper {color:#555555;}
   div.topix_entries_wrapper table.topix_entries tr{border-bottom:1px dotted #CCCCCC;}
 </style>
+
 <div id="gadget_wrapper">
   <%= render :partial => "board_entries/topix_entries", :locals => { :entries => @questions[:pages], :show_owner_link => true, :title => "みんなからの質問" } %>
 </div>
