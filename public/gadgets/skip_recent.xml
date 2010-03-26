@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Module>
+    <ModulePrefs title="SKIP新着ガジェット" scrolling="true">
+        <Require feature="dynamic-height"/>
+        <Require feature="tabs"/>
+    </ModulePrefs>
+
+    <Content type="html" view="home,canvas">
+<![CDATA[
+<script type="text/javascript">
+
+var tabs = new _IG_Tabs(__MODULE_ID__);
+var prefs = new gadgets.Prefs()
+
+function init() {
+    var tabs = new _IG_Tabs(__MODULE_ID__, "新着グループ");
+    tabs.addDynamicTab("新着グループ", callbackGenerator("https://test.skipaas.jp/tenants/1/gadget/skip_recent_groups"));
+    tabs.addDynamicTab("新着ユーザ",  callbackGenerator("https://test.skipaas.jp/tenants/1/gadget/skip_recent_users"));
+}
+
+function callbackGenerator(target_url) {
+    return function(tabId) {
+        callbackTab(tabId, target_url);
+    }
+}
+
+function callbackTab(tabId, target_url) {
+    _IG_FetchContent(target_url, function(html){
+        _gel(tabId).innerHTML = html;
+        gadgets.window.adjustHeight();
+
+        var links = document.getElementsByTagName("a");
+        for(var i=0;i<links.length;i++){
+            links[i].onclick = function(){
+                try{
+                    _IS_OpenPortalIframe(this.href);
+                }catch(e){
+                    console.info(e);
+                }
+                return false;
+            }
+        }
+
+    });
+}
+gadgets.util.registerOnLoadHandler(init);
+
+</script>
+
+<style type="text/css">
+<!--
+-->
+</style>
+]]>
+    </Content>
+</Module>
