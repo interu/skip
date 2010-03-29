@@ -1,9 +1,3 @@
-<style>
-  div#gadget_wrapper{border:1px solid #E0E0FF;}
-  div#gadget_wrapper h2{background-color:#E0E0FF;font-size:15px;padding:2px 2px;margin:0;}
-  .ui-corner-all {-moz-border-radius-bottomleft:3px;-moz-border-radius-bottomright:3px;-moz-border-radius-topleft:3px;-moz-border-radius-topright:3px;}
-</style>
-
 <% xml_doc = REXML::Document.new @mails -%>
 <div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= link_to("メール") %></h2>
@@ -15,10 +9,10 @@
         <tr>
           <td>
             <%# TODO:trancateでのWARNIGを回避するように -%>
-            <%= link_to(h(truncate(mail.elements['title'].text, 30)), mail.elements['link'].attribute("href").to_s) %>
+            <div><%= link_to(h(truncate(mail.elements['title'].text, :length => 26)), mail.elements['link'].attribute("href").to_s) %></div>
           </td>
           <td>
-            <%= h(truncate(mail.elements['author/name'].text, 10)) %>
+            <span class="small_text"><%= h(truncate(mail.elements['author/name'].text, :length => 10)) %></span>
           </td>
         </tr>
       <% end -%>

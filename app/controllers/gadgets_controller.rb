@@ -36,7 +36,9 @@ END:VTIMEZONE
 </gd:recurrence><gd:when endTime='2010-03-23T22:30:00.000+09:00' startTime='2010-03-23T21:00:00.000+09:00'/><gd:transparency value='http://schemas.google.com/g/2005#event.opaque'/><gd:visibility value='http://schemas.google.com/g/2005#event.default'/><gCal:anyoneCanAddSelf value='false'/><gCal:guestsCanInviteOthers value='true'/><gCal:guestsCanModify value='false'/><gCal:guestsCanSeeGuests value='true'/><gCal:sequence value='0'/><gCal:uid value='7AF4B57B7242484F958FD7E751B7B5A800000000000000000000000000000000'/></entry></feed>
 EOF
 
-    render :layout => false
+    respond_to do |format|
+      format.html
+    end
   end
 
   def gapps_mails
@@ -143,7 +145,9 @@ EOF
 </feed>
 EOF
 
-    render :layout => false
+    respond_to do |format|
+      format.html
+    end
   end
 
   def skip_questions
