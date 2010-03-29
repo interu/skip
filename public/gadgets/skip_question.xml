@@ -8,26 +8,28 @@
     <![CDATA[
     <script type="text/javascript">
         function init() {
-            var url = "https://test.skipaas.jp/tenants/1/gadget/skip_questions";
+            // sample access url : https://test.skipaas.jp/gadgets/gapps_mail
+            var url = "https://test.skipaas.jp/";
+            gadgets.io.makeRequest(url, response, { AUTHORIZATION: gadgets.io.AuthorizationType.IS_POST_PORTAL_UID});
+        };
 
-            _IG_FetchContent(url, function(html){
-                document.body.innerHTML = html;
-                gadgets.window.adjustHeight();
+        function response(obj){
+            document.body.innerHTML = obj.text;
+            gadgets.window.adjustHeight();
 
-                var links = document.body.getElementsByTagName("a");
-                for(var i=0;i<links.length;i++){
-                    links[i].onclick = function(){
-                        try{
-                            _IS_OpenPortalIframe(this.href);
-                        }catch(e){
-                            console.info(e);
-                        }
-                        return false;
+            var links = document.body.getElementsByTagName("a");
+            for(var i=0;i<links.length;i++){
+                links[i].onclick = function(){
+                    try{
+                        _IS_OpenPortalIframe(this.href);
+                    }catch(e){
+                        console.info(e);
                     }
+                    return false;
                 }
+            }
+        };
 
-            });
-        }
         gadgets.util.registerOnLoadHandler(init);
     </script>
     ]]>
