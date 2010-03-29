@@ -15,8 +15,8 @@ var prefs = new gadgets.Prefs();
 
 function init() {
     var tabs = new _IG_Tabs(__MODULE_ID__, "新着グループ");
-    tabs.addDynamicTab("新着グループ", callbackGenerator("https://test.skipaas.jp/gadgets/skip_recent_groups"));
-    tabs.addDynamicTab("新着ユーザ",  callbackGenerator("https://test.skipaas.jp/gadgets/skip_recent_users"));
+    tabs.addDynamicTab("新着グループ", callbackGenerator("https://test-live.skipaas.jp/gadgets/skip_recent_groups"));
+    tabs.addDynamicTab("新着ユーザ",  callbackGenerator("https://test-live.skipaas.jp/gadgets/skip_recent_users"));
 };
 
 function callbackGenerator(target_url) {
