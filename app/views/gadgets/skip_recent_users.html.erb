@@ -1,5 +1,5 @@
 <div id="gadget_wrapper">
-  <h2>新着ユーザ</h2>
+  <h2><%= link_to("新着ユーザ", tenant_users_url(current_tenant)) %></h2>
 
   <% @recent_users.each do |user| -%>
     <div class="border_bottom">

@@ -1,9 +1,5 @@
-<style type="text/css">
-  @import url("/stylesheets/gadget-base.css");
-</style>
-
 <div id="gadget_wrapper">
-  <h2>新着グループ</h2>
+  <h2><%= link_to("新着グループ", tenant_groups_url(current_tenant)) %></h2>
   <% @recent_groups.each do |group| -%>
     <div class="border_bottom">
     <%= get_group_icon(group.group_category, :margin => true) %><%= link_to(group.name, tenant_group_url(current_tenant, group)) %>&nbsp;<span class="small_text">(<%= truncate(strip_tags(group.description), 20) %>)</span>
