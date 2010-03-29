@@ -14,8 +14,10 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class GadgetsController < ApplicationController
-
   layout 'gadget'
+  protect_from_forgery :only => []
+  skip_before_filter :valid_tenant_required, :sso, :login_required, :prepare_session
+  before_filter :is_user2current_info
 
   def gapps_calenders
     @calenders =<<EOF
@@ -201,5 +203,13 @@ EOF
 private
   def recent_day
     10
+  end
+
+  def is_user2current_info
+    #is_user = params["is-user"]
+    is_user = "interu@sonicgarden.jp"
+
+    @current_user = User.find_by_email(is_user)
+    @current_tenant = @current_user.tenant
   end
 end
