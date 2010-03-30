@@ -9,7 +9,7 @@
         <tr>
           <td>
             <%# TODO:trancateでのWARNIGを回避するように -%>
-            <div><%= link_to(h(truncate(mail.elements['title'].text, :length => 26)), mail.elements['link'].attribute("href").to_s) %></div>
+            <div><%= link_to(h(truncate(mail.elements['title'].text, :length => 26)), mail.elements['link'].attribute("href").to_s, :target => "_blank") %></div>
           </td>
           <td>
             <span class="small_text"><%= h(truncate(mail.elements['author/name'].text, :length => 10)) %></span>
