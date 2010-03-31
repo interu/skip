@@ -179,7 +179,7 @@ EOF
   end
 
   def skip_recent_users
-    @recent_users = User.active.tenant_id_is(current_tenant.id).recent(recent_day).order_recent.limit(5) - [current_user]
+    @recent_users = current_tenant.users.active.recent(recent_day).order_recent.limit(5) - [current_user]
 
     respond_to do |format|
       format.html
@@ -187,7 +187,7 @@ EOF
   end
 
   def skip_recent_groups
-    @recent_groups =  Group.active.tenant_id_is(current_tenant.id).recent(recent_day).order_recent.limit(5)
+    @recent_groups = current_tenant.groups.active.recent(recent_day).order_recent.limit(5)
 
     respond_to do |format|
       format.html
