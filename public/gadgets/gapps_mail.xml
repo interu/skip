@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="みんなからの質問">
+    <ModulePrefs title="メール">
         <Require feature="dynamic-height"/>
     </ModulePrefs>
 
@@ -9,25 +9,13 @@
     <script type="text/javascript">
         function init() {
             // sample access url : https://test.skipaas.jp/gadgets/gapps_mail
-            var url = "https://test-live.skipaas.jp/gadgets/skip_questions";
+            var url = "https://test-live.skipaas.jp/gadgets/gapps_mails";
             gadgets.io.makeRequest(url, response, { AUTHORIZATION: gadgets.io.AuthorizationType.IS_POST_PORTAL_UID});
         };
 
         function response(obj){
             document.body.innerHTML = obj.text;
             gadgets.window.adjustHeight();
-
-            var links = document.body.getElementsByTagName("a");
-            for(var i=0;i<links.length;i++){
-                links[i].onclick = function(){
-                    try{
-                        _IS_OpenPortalIframe(this.href);
-                    }catch(e){
-                        console.info(e);
-                    }
-                    return false;
-                }
-            }
         };
 
         document.body.innerHTML = "<img src='skin/imgs/indicator_verybig.gif'>";

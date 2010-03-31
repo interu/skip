@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="みんなからの質問">
+    <ModulePrefs title="スケジューラ">
         <Require feature="dynamic-height"/>
     </ModulePrefs>
 
@@ -9,7 +9,7 @@
     <script type="text/javascript">
         function init() {
             // sample access url : https://test.skipaas.jp/gadgets/gapps_mail
-            var url = "https://test-live.skipaas.jp/gadgets/skip_questions";
+            var url = "https://test-live.skipaas.jp/gadgets/gapps_calenders";
             gadgets.io.makeRequest(url, response, { AUTHORIZATION: gadgets.io.AuthorizationType.IS_POST_PORTAL_UID});
         };
 
@@ -36,3 +36,4 @@
     ]]>
     </Content>
 </Module>
+

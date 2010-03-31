@@ -30,6 +30,7 @@
             }
         };
 
+        document.body.innerHTML = "<img src='skin/imgs/indicator_verybig.gif'>";
         gadgets.util.registerOnLoadHandler(init);
     </script>
     ]]>
