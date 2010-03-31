@@ -200,6 +200,14 @@ EOF
     end
   end
 
+  #TODO:リファクタ
+  def infoscoop_header
+    respond_to do |format|
+      format.html { render :layout => false }
+    end
+  end
+
+
 private
   def recent_day
     10
