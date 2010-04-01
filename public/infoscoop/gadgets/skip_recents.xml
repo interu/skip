@@ -23,7 +23,7 @@
             document.body.innerHTML = obj.text;
             gadgets.window.adjustHeight();
 
-            var links = document.body.getElementsByTagName("a");
+            var links = $(".target_iframe a");
             for(var i=0;i<links.length;i++){
                 links[i].onclick = function(){
                     try{
@@ -35,20 +35,19 @@
                 }
             }
 
-            $j = jQuery.noConflict();
-            $j('#tabs').tabs({
+            $('#tabs').tabs({
                 cookie: { expires:30 }
             });
-            $j('#tabs').show();
+            $('#tabs').show();
 
-            $j('.pagination a').live('click', function() {
-                var url = $j(this).attr('href');
-                var target = $j.getUrlVar(url, 'target');
-                $j.ajax({
+            $('.pagination a').live('click', function() {
+                var url = $(this).attr('href');
+                var target = $.getUrlVar(url, 'target');
+                $.ajax({
                     url: url,
                     success: function(html) {
-                        $j('#' + target).html(html).appendClickForToggleTag();
-                        $j('#' + target + '_body').highlight();
+                        $('#' + target).html(html).appendClickForToggleTag();
+                        $('#' + target + '_body').highlight();
                     }
                 });
                 return false;

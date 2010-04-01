@@ -15,7 +15,7 @@
       <li><a href="#<%= @recent_groups[:id_name] %>" class="small"><span><%= "新着グループ" %></span></a></li>
     </ul>
 
-    <div id="<%= @recent_users[:id_name] %>">
+    <div id="<%= @recent_users[:id_name] %>" class="target_iframe">
       <% @recent_users[:pages].each do |user| -%>
         <div class="border_bottom">
           <%= show_picture(user, :width => 18, :height => 18) %>
@@ -24,7 +24,7 @@
       <% end -%>
     </div>
 
-    <div id="<%= @recent_groups[:id_name] %>">
+    <div id="<%= @recent_groups[:id_name] %>" class="target_iframe">
       <% @recent_groups[:pages].each do |group| -%>
         <div class="border_bottom">
           <%= get_group_icon(group.group_category, :margin => true) %><%= link_to(group.name, tenant_group_url(current_tenant, group)) %>&nbsp;<span class="small_text">(<%= truncate(strip_tags(group.description), 20) %>)</span>
