@@ -18,7 +18,7 @@
             gadgets.window.adjustHeight();
         };
 
-        document.body.innerHTML = "<img src='skin/imgs/indicator_verybig.gif'>";
+        document.body.innerHTML = "<img src='skin/imgs/indicator.gif'>";
         gadgets.util.registerOnLoadHandler(init);
     </script>
     ]]>
