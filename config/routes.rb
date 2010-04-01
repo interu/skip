@@ -127,7 +127,7 @@ ActionController::Routing::Routes.draw do |map|
     server.cancel 'server/cancel', :action => 'cancel'
     server.proceed 'server/proceed', :action => 'proceed'
   end
-  map.resource :gadgets, :only => [], :member => {:gapps_calenders => :post, :gapps_mails => :post, :tenpo_notices => :post, :skip_questions => :post, :skip_notices => :post, :skip_recent_users => :post, :skip_recent_groups => :post, :infoscoop_header => :any }
+  map.resource :gadgets, :only => [], :member => {:gapps_calenders => :post, :gapps_mails => :post, :tenpo_notices => :post, :skip_questions => :post, :skip_notices => :post, :skip_recent_users => :post, :skip_recent_groups => :post, :infoscoop_header => :any, :skip_recents => :get}
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

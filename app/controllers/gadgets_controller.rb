@@ -200,6 +200,24 @@ EOF
     end
   end
 
+  def skip_recents
+    @recent_users = {
+      :id_name => "recent_users",
+      :pages => (current_tenant.users.active.recent(recent_day).order_recent.limit(5) - [current_user]).paginate(:page => target_page("recent_users"), :per_page => per_page),
+      :per_page => per_page
+    }
+
+    @recent_groups = {
+      :id_name => "recent_groups",
+      :pages => current_tenant.groups.active.recent(recent_day).order_recent.limit(5).paginate(:page => target_page("recent_groups"), :per_page => per_page),
+      :per_page => per_page
+    }
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   #TODO:リファクタ
   def infoscoop_header
     respond_to do |format|
@@ -220,4 +238,23 @@ private
     @current_user = User.find_by_email(is_user)
     @current_tenant = @current_user.tenant
   end
+
+  def per_page
+    10
+  end
+
+  def target_page target = nil
+    if target
+      target_key2current_pages = cookies[:target_key2current_pages]
+      if target_key2current_pages.blank?
+        params[:page]
+      else
+        params[:page] || JSON.parse(target_key2current_pages)[target] || 1
+      end
+    else
+      params[:page]
+    end
+  end
+
+
 end

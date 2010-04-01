@@ -1,0 +1,62 @@
+<%= skip_stylesheet_link_tag "themes/base/jquery-ui.css" %>
+<%= skip_stylesheet_link_tag "themes/cupertino/ui.core.css" %>
+<%= skip_stylesheet_link_tag "themes/cupertino/ui.theme.css" %>
+
+<script type="text/javascript" src="/javascripts/skip/jquery/jquery.js"></script>
+<script type="text/javascript" src="/javascripts/skip/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/skip/jquery/ui/jquery-ui.js"></script>
+<script type="text/javascript" src="/javascripts/skip/jquery/ui/ui.tabs.js"></script>
+<script type="text/javascript" src="/javascripts/skip/jquery/plugins/jquery.cookie.js"></script>
+
+
+<div id="gadget_wrapper">
+  <h2><%= link_to("新着ユーザ／グループ", tenant_users_url(current_tenant)) %></h2>
+
+  <div id="tabs" class="invisible" style="margin: 0 0 10px 0;">
+    <ul>
+      <li style="width: 10px; border: none;">&nbsp;</li>
+      <li><a href="#<%= @recent_users[:id_name] %>" class="large"><span><%= "新着ユーザ" %></span></a></li>
+      <li><a href="#<%= @recent_groups[:id_name] %>" class="small"><span><%= "新着グループ" %></span></a></li>
+    </ul>
+
+    <div id="<%= @recent_users[:id_name] %>">
+      <% @recent_users[:pages].each do |user| -%>
+        <div class="border_bottom">
+          <%= show_picture(user, :width => 18, :height => 18) %>
+          <%= link_to(user.name, tenant_user_url(current_tenant, user)) %>&nbsp;<span class="small_text">(<%= h(user.section) %>)</span>
+        </div>
+      <% end -%>
+    </div>
+
+    <div id="<%= @recent_groups[:id_name] %>">
+      <% @recent_groups[:pages].each do |group| -%>
+        <div class="border_bottom">
+          <%= get_group_icon(group.group_category, :margin => true) %><%= link_to(group.name, tenant_group_url(current_tenant, group)) %>&nbsp;<span class="small_text">(<%= truncate(strip_tags(group.description), 20) %>)</span>
+        </div>
+      <% end -%>
+    </div>
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+    $j = jQuery.noConflict();
+    $j('#tabs').tabs({
+      cookie: { expires:30 }
+    });
+    $j('#tabs').show();
+
+    $j('.pagination a').live('click', function() {
+      var url = $j(this).attr('href');
+      var target = $j.getUrlVar(url, 'target');
+      $j.ajax({
+          url: url,
+          success: function(html) {
+              $j('#' + target).html(html).appendClickForToggleTag();
+              $j('#' + target + '_body').highlight();
+          }
+      });
+      return false;
+    });
+</script>
