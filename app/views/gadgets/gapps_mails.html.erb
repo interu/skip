@@ -1,6 +1,6 @@
 <% xml_doc = REXML::Document.new @mails -%>
 <div id="gadget_wrapper" class="ui-corner-all">
-  <h2 class="ui-corner-top"><%= link_to("メール") %></h2>
+  <h2 class="ui-corner-top"><%= link_to(_('Mail')) %></h2>
   <table>
     <col />
     <col width="150px" />
@@ -8,7 +8,6 @@
       <% xml_doc.elements.each("feed/entry") do |mail| -%>
         <tr>
           <td>
-            <%# TODO:trancateでのWARNIGを回避するように -%>
             <div><%= link_to(h(truncate(mail.elements['title'].text, :length => 26)), mail.elements['link'].attribute("href").to_s, :target => "_blank") %></div>
           </td>
           <td>
@@ -18,5 +17,7 @@
       <% end -%>
     </tbody>
   </table>
+  <%# TODO:ドメイン情報を動的に取得するように %>
+  <div align="right"><%= link_to(_('Compose'), "https://mail.google.com/a/sonicgarden.jp/#compose") %></div>
 </div>
 
