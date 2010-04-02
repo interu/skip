@@ -178,22 +178,6 @@ EOF
     end
   end
 
-  def skip_recent_users
-    @recent_users = current_tenant.users.active.recent(recent_day).order_recent.limit(5) - [current_user]
-
-    respond_to do |format|
-      format.html
-    end
-  end
-
-  def skip_recent_groups
-    @recent_groups = current_tenant.groups.active.recent(recent_day).order_recent.limit(5)
-
-    respond_to do |format|
-      format.html
-    end
-  end
-
   def skip_notices
     respond_to do |format|
       format.html

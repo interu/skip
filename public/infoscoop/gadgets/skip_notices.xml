@@ -6,18 +6,18 @@
 
     <Content type="html" view="home,canvas">
     <![CDATA[
+    <script type="text/javascript" src="https://test-live.skipaas.jp/javascripts/skip/jquery/jquery.js"></script>
     <script type="text/javascript">
         function init() {
-            // sample access url : https://test.skipaas.jp/gadgets/gapps_mail
             var url = "https://test-live.skipaas.jp/gadgets/skip_notices";
             gadgets.io.makeRequest(url, response, { AUTHORIZATION: gadgets.io.AuthorizationType.IS_POST_PORTAL_UID});
         };
 
         function response(obj){
-            document.body.innerHTML = obj.text;
+            $("body").html(obj.text);
             gadgets.window.adjustHeight();
 
-            var links = document.body.getElementsByTagName("a");
+            var links = $("a");
             for(var i=0;i<links.length;i++){
                 links[i].onclick = function(){
                     try{
@@ -30,7 +30,7 @@
             }
         };
 
-        document.body.innerHTML = "<img src='skin/imgs/indicator.gif'>";
+        $("body").html("<img src='skin/imgs/indicator.gif'>");
         gadgets.util.registerOnLoadHandler(init);
     </script>
     ]]>
