@@ -211,20 +211,21 @@ EOF
 
 
 private
-  def recent_day
-    10
-  end
-
   def is_user2current_info
-    #is_user = params["is-user"]
-    is_user = "interu@sonicgarden.jp"
+    if request_of_infoscoop?
+      #is_user = params["is-user"]
+      #@current_user = User.find_by_openid_identifier(is_user)
+      is_user = "interu@sonicgarden.jp"
+      @current_user = User.find_by_email(is_user)
 
-    @current_user = User.find_by_email(is_user)
-    @current_tenant = @current_user.tenant
+      @current_tenant = @current_user.tenant
+    else
+      render :text => "不正なリクエストと認識しました。リクエストの改ざん等を行っていない際にこの画面が表示された場合は、こちらまでご連絡ください。"
+    end
   end
 
-  def per_page
-    10
+  def request_of_infoscoop?
+    GlobalInitialSetting['infoscoop_addr'].include?(request.remote_addr)
   end
 
   def target_page target = nil
@@ -240,5 +241,12 @@ private
     end
   end
 
+  def per_page
+    10
+  end
+
+  def recent_day
+    10
+  end
 
 end
