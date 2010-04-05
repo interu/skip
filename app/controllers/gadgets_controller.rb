@@ -225,7 +225,12 @@ private
   end
 
   def request_of_infoscoop?
-    GlobalInitialSetting['infoscoop_addr'].include?(request.remote_addr)
+    if GlobalInitialSetting['infoscoop_addr']
+      GlobalInitialSetting['infoscoop_addr'].include?(request.remote_addr)
+    else
+      logger.info "GlobalInitialSetting['infoscoop_addr'] is nil"
+      false
+    end
   end
 
   def target_page target = nil
