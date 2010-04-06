@@ -1,0 +1,21 @@
+<div id="gadget_wrapper">
+  <h2><%= h(@popular_blogs[:title_name]) %> (<%= Time.now.ago(recent_day.days).strftime(_('%B %d %Y')) %> - <%= Time.now.strftime(_('%B %d %Y')) %>)</h2>
+  <% unless @popular_blogs[:pages].empty? -%>
+    <table>
+      <% @popular_blogs[:pages].each_with_index do |entry, i| %>
+        <tr>
+          <td width="15px"><%= i+1 %>.</td>
+          <td width="40px">
+            <div class="picture"><%= show_picture(entry.user, :width => 24, :height => 24) %></div>
+          </td>
+          <td>
+            <div>
+              <%= link_to h(entry.title), polymorphic_url([current_tenant, entry.owner, entry]) %> (<%= h entry.state.access_count %>)
+              <span class="small_text"> by <%= user_link_to entry.user %></span>
+            </div>
+          </td>
+        </tr>
+      <% end -%>
+    </table>
+  <% end -%>
+</div>
