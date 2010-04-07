@@ -200,12 +200,12 @@ EOF
 
   def tenpo_notices
     @entries = [
-      {:title => 'テスト登録', :title_url => 'http://www.google.co.jp', :status => '[重要]', :from => 'ネクスウェイ', :from_url => 'http://www.google.co.jp'},
-      {:title => 'wiki文書を使用したお知らせ', :title_url => 'http://www.google.co.jp', :status => '[通常]', :from => 'ネクスウェイ', :from_url => 'http://www.google.co.jp'}
+      {:title => 'テスト登録', :title_url => 'https://demo2.tempomatic.jp/h2/STRViewNotice.do?noticeId=15&version=0', :status => '[重要]', :from => 'ネクスウェイ', :from_url => 'http://www.google.co.jp'},
+      {:title => 'wiki文書を使用したお知らせ', :title_url => 'https://demo2.tempomatic.jp/h2/STRViewNotice.do?noticeId=13&version=0', :status => '[通常]', :from => 'ネクスウェイ', :from_url => 'http://www.google.co.jp'}
     ]
 
     respond_to do |format|
-      format.html { render :layout => false }
+      format.html
     end
   end
 
