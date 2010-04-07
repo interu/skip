@@ -23,21 +23,59 @@ class GadgetsController < ApplicationController
 
   def gapps_calenders
     @calenders =<<EOF
-<?xml version='1.0' encoding='UTF-8'?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:gCal='http://schemas.google.com/gCal/2005' xmlns:gd='http://schemas.google.com/g/2005'><id>http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full</id><updated>2010-03-30T01:15:27.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='text'>interu@sonicgarden.jp</title><subtitle type='text'>interu@sonicgarden.jp</subtitle><link rel='alternate' type='text/html' href='http://www.google.com/calendar/embed?src=interu@sonicgarden.jp'/><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full'/><link rel='http://schemas.google.com/g/2005#batch' type='application/atom+xml' href='http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/batch'/><link rel='self' type='application/atom+xml' href='http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full?max-results=25&amp;start-min=2010-03-30T00%3A00%3A00&amp;start-max=2010-04-10T23%3A59%3A59'/><author><name>Teruo Adachi</name><email>interu@sonicgarden.jp</email></author><generator version='1.0' uri='http://www.google.com/calendar'>Google Calendar</generator><openSearch:totalResults>4</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>25</openSearch:itemsPerPage><gCal:timezone value='Asia/Tokyo'/><gCal:timesCleaned value='0'/><entry><id>http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/7r7hdtgg0it3gss803ef9mmogk</id><published>2010-03-30T01:15:27.000Z</published><updated>2010-03-30T01:15:27.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='text'>私用あり</title><content type='text'/><link rel='alternate' type='text/html' href='http://www.google.com/calendar/event?eid=N3I3aGR0Z2cwaXQzZ3NzODAzZWY5bW1vZ2sgaW50ZXJ1QHNvbmljZ2FyZGVuLmpw' title='alternate'/><link rel='self' type='application/atom+xml' href='http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/7r7hdtgg0it3gss803ef9mmogk'/><author><name>Teruo Adachi</name><email>interu@sonicgarden.jp</email></author><gd:comments><gd:feedLink href='http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/7r7hdtgg0it3gss803ef9mmogk/comments'/></gd:comments><gd:eventStatus value='http://schemas.google.com/g/2005#event.confirmed'/><gd:where valueString=''/><gd:who email='interu@sonicgarden.jp' rel='http://schemas.google.com/g/2005#event.organizer' valueString='Teruo Adachi'/><gd:when endTime='2010-04-04' startTime='2010-04-03'/><gd:transparency value='http://schemas.google.com/g/2005#event.transparent'/><gd:visibility value='http://schemas.google.com/g/2005#event.default'/><gCal:anyoneCanAddSelf value='false'/><gCal:guestsCanInviteOthers value='true'/><gCal:guestsCanModify value='false'/><gCal:guestsCanSeeGuests value='true'/><gCal:sequence value='0'/><gCal:uid value='7r7hdtgg0it3gss803ef9mmogk@google.com'/></entry><entry><id>http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/gop399tm7lq2iorm3d6rjhn8dc</id><published>2010-03-30T01:14:49.000Z</published><updated>2010-03-30T01:15:01.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='text'>SG飲み？</title><content type='text'/><link rel='alternate' type='text/html' href='http://www.google.com/calendar/event?eid=Z29wMzk5dG03bHEyaW9ybTNkNnJqaG44ZGMgaW50ZXJ1QHNvbmljZ2FyZGVuLmpw' title='alternate'/><link rel='self' type='application/atom+xml' href='http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/gop399tm7lq2iorm3d6rjhn8dc'/><author><name>Teruo Adachi</name><email>interu@sonicgarden.jp</email></author><gd:comments><gd:feedLink href='http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/gop399tm7lq2iorm3d6rjhn8dc/comments'/></gd:comments><gd:eventStatus value='http://schemas.google.com/g/2005#event.confirmed'/><gd:where valueString=''/><gd:who email='interu@sonicgarden.jp' rel='http://schemas.google.com/g/2005#event.organizer' valueString='Teruo Adachi'/><gd:when endTime='2010-03-31T23:00:00.000+09:00' startTime='2010-03-31T20:00:00.000+09:00'/><gd:transparency value='http://schemas.google.com/g/2005#event.opaque'/><gd:visibility value='http://schemas.google.com/g/2005#event.default'/><gCal:anyoneCanAddSelf value='false'/><gCal:guestsCanInviteOthers value='true'/><gCal:guestsCanModify value='false'/><gCal:guestsCanSeeGuests value='true'/><gCal:sequence value='0'/><gCal:uid value='gop399tm7lq2iorm3d6rjhn8dc@google.com'/></entry><entry><id>http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/8mra4e7sk157fbr5js0eaq5cis</id><published>2010-03-26T02:57:07.000Z</published><updated>2010-03-29T06:07:08.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='text'>客)SKIP-Live打ち合わせ（with BIT）</title><content type='text'/><link rel='alternate' type='text/html' href='http://www.google.com/calendar/event?eid=OG1yYTRlN3NrMTU3ZmJyNWpzMGVhcTVjaXMgaW50ZXJ1QHNvbmljZ2FyZGVuLmpw' title='alternate'/><link rel='self' type='application/atom+xml' href='http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/8mra4e7sk157fbr5js0eaq5cis'/><author><name>Teruo Adachi</name><email>interu@sonicgarden.jp</email></author><gd:comments><gd:feedLink href='http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/8mra4e7sk157fbr5js0eaq5cis/comments'/></gd:comments><gd:eventStatus value='http://schemas.google.com/g/2005#event.confirmed'/><gd:where valueString=''/><gd:who email='fukuda@sonicgarden.jp' rel='http://schemas.google.com/g/2005#event.attendee' valueString='Takahiro Fukuda'><gd:attendeeStatus value='http://schemas.google.com/g/2005#event.invited'/></gd:who><gd:who email='mat_aki@sonicgarden.jp' rel='http://schemas.google.com/g/2005#event.attendee' valueString='Akihiro Matsumura'><gd:attendeeStatus value='http://schemas.google.com/g/2005#event.accepted'/></gd:who><gd:who email='interu@sonicgarden.jp' rel='http://schemas.google.com/g/2005#event.organizer' valueString='Teruo Adachi'><gd:attendeeStatus value='http://schemas.google.com/g/2005#event.accepted'/></gd:who><gd:who email='kuranuki@sonicgarden.jp' rel='http://schemas.google.com/g/2005#event.attendee' valueString='Yoshihito Kuranuki'><gd:attendeeStatus value='http://schemas.google.com/g/2005#event.accepted'/></gd:who><gd:when endTime='2010-03-31T12:00:00.000+09:00' startTime='2010-03-31T10:00:00.000+09:00'/><gd:transparency value='http://schemas.google.com/g/2005#event.transparent'/><gd:visibility value='http://schemas.google.com/g/2005#event.default'/><gCal:anyoneCanAddSelf value='false'/><gCal:guestsCanInviteOthers value='true'/><gCal:guestsCanModify value='false'/><gCal:guestsCanSeeGuests value='true'/><gCal:sequence value='1'/><gCal:uid value='8mra4e7sk157fbr5js0eaq5cis@google.com'/></entry><entry><id>http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/_6t0kcd226krk4dpi6gp38e1k8osjae268grkadpl6513eghl84s30c1g60o30c1g60o30c1g60o30c1g60o30c1g60o30c1g60o30c0</id><published>2010-02-08T14:49:18.000Z</published><updated>2010-03-29T06:07:08.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='text'>テニス</title><content type='text'/><link rel='alternate' type='text/html' href='http://www.google.com/calendar/event?eid=XzZ0MGtjZDIyNmtyazRkcGk2Z3AzOGUxazhvc2phZTI2OGdya2FkcGw2NTEzZWdobDg0czMwYzFnNjBvMzBjMWc2MG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMGMxZzYwbzMwYzBfMjAxMDAyMDlUMTIwMDAwWiBpbnRlcnVAc29uaWNnYXJkZW4uanA' title='alternate'/><link rel='self' type='application/atom+xml' href='http://www.google.com/calendar/feeds/interu%40sonicgarden.jp/private/full/_6t0kcd226krk4dpi6gp38e1k8osjae268grkadpl6513eghl84s30c1g60o30c1g60o30c1g60o30c1g60o30c1g60o30c1g60o30c0'/><author><name>beautybeast07@gmail.com</name><email>beautybeast07@gmail.com</email></author><gd:eventStatus value='http://schemas.google.com/g/2005#event.confirmed'/><gd:where/><gd:who email='interu@sonicgarden.jp' rel='http://schemas.google.com/g/2005#event.organizer' valueString='Teruo Adachi'/><gd:recurrence>DTSTART;TZID=Etc/GMT-9:20100209T210000
-DTEND;TZID=Etc/GMT-9:20100209T223000
-RRULE:FREQ=WEEKLY;BYDAY=TU
-BEGIN:VTIMEZONE
-TZID:Etc/GMT-9
-X-LIC-LOCATION:Etc/GMT-9
-BEGIN:STANDARD
-TZOFFSETFROM:+0900
-TZOFFSETTO:+0900
-TZNAME:TLT
-DTSTART:19700101T000000
-END:STANDARD
-END:VTIMEZONE
+<?xml version='1.0' encoding='UTF-8'?><feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/' xmlns:gCal='http://schemas.google.com/gCal/2005'><id>http://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic</id><updated>2010-04-07T12:04:08.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='text'>skip_office@youroom.sg</title><subtitle type='text'>skip_office@youroom.sg</subtitle><link rel='alternate' type='text/html' href='http://www.google.com/calendar/embed?src=skip_office@youroom.sg'/><link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic'/><link rel='http://schemas.google.com/g/2005#batch' type='application/atom+xml' href='https://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/batch'/><link rel='self' type='application/atom+xml' href='https://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic?max-results=25'/><author><name>デモユーザSKIP_Office</name><email>skip_office@youroom.sg</email></author><generator version='1.0' uri='http://www.google.com/calendar'>Google Calendar</generator><openSearch:totalResults>5</openSearch:totalResults><openSearch:startIndex>1</openSearch:startIndex><openSearch:itemsPerPage>25</openSearch:itemsPerPage><gCal:timezone value='Asia/Tokyo'/><gCal:timesCleaned value='0'/><entry><id>http://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/2ad5bjnsi3ettddbbnr1d26r70</id><published>2010-04-07T11:47:56.000Z</published><updated>2010-04-07T11:47:56.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='html'>[SO] 画面設計</title><summary type='html'>期間: 2010/04/14 (&amp;#27700;) 15:00～16:00&amp;nbsp;
+JST&lt;br&gt;
 
-</gd:recurrence><gd:when endTime='2010-04-06T22:30:00.000+09:00' startTime='2010-04-06T21:00:00.000+09:00'/><gd:when endTime='2010-03-30T22:30:00.000+09:00' startTime='2010-03-30T21:00:00.000+09:00'/><gd:transparency value='http://schemas.google.com/g/2005#event.opaque'/><gd:visibility value='http://schemas.google.com/g/2005#event.default'/><gCal:anyoneCanAddSelf value='false'/><gCal:guestsCanInviteOthers value='true'/><gCal:guestsCanModify value='false'/><gCal:guestsCanSeeGuests value='true'/><gCal:sequence value='0'/><gCal:uid value='7AF4B57B7242484F958FD7E751B7B5A800000000000000000000000000000000'/></entry></feed>
+
+
+&lt;br&gt;予定のステータス: 確定</summary><content type='html'>期間: 2010/04/14 (水) 15:00～16:00 
+JST&lt;br /&gt;
+
+
+&lt;br /&gt;予定のステータス: 確定</content><link rel='alternate' type='text/html' href='http://www.google.com/calendar/hosted/youroom.sg/event?eid=MmFkNWJqbnNpM2V0dGRkYmJucjFkMjZyNzAgc2tpcF9vZmZpY2VAeW91cm9vbS5zZw' title='alternate'/><link rel='self' type='application/atom+xml' href='https://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/2ad5bjnsi3ettddbbnr1d26r70'/><author><name>skip_office@youroom.sg</name><email>skip_office@youroom.sg</email></author></entry><entry><id>http://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/25mgs5dd2deit3phshmlovq3rg</id><published>2010-04-07T11:47:06.000Z</published><updated>2010-04-07T11:47:06.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='html'>BIT MTG</title><summary type='html'>期間: 2010/04/14 (&amp;#27700;) 10:00～12:30&amp;nbsp;
+JST&lt;br&gt;
+
+
+
+&lt;br&gt;予定のステータス: 確定</summary><content type='html'>期間: 2010/04/14 (水) 10:00～12:30 
+JST&lt;br /&gt;
+
+
+&lt;br /&gt;予定のステータス: 確定</content><link rel='alternate' type='text/html' href='http://www.google.com/calendar/hosted/youroom.sg/event?eid=MjVtZ3M1ZGQyZGVpdDNwaHNobWxvdnEzcmcgc2tpcF9vZmZpY2VAeW91cm9vbS5zZw' title='alternate'/><link rel='self' type='application/atom+xml' href='https://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/25mgs5dd2deit3phshmlovq3rg'/><author><name>skip_office@youroom.sg</name><email>skip_office@youroom.sg</email></author></entry><entry><id>http://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/le8slfffs5lfc5o5ndm8sced9g</id><published>0001-12-31T00:00:00.000Z</published><updated>2010-04-07T11:46:46.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='html'>週末打ち上げ</title><summary type='html'>定期的な予定&lt;br&gt;
+初回: 2010-04-16 19:00:00 JST
+
+&lt;br&gt;
+所要時間: 9000
+
+
+
+&lt;br&gt;予定のステータス: 確定</summary><content type='html'>定期的な予定&lt;br /&gt;
+初回: 2010-04-16 19:00:00 JST
+&lt;br /&gt;
+所要時間: 9000
+
+
+
+&lt;br /&gt;予定のステータス: 確定</content><link rel='alternate' type='text/html' href='http://www.google.com/calendar/hosted/youroom.sg/event?eid=bGU4c2xmZmZzNWxmYzVvNW5kbThzY2VkOWdfMjAxMDA0MTZUMTAwMDAwWiBza2lwX29mZmljZUB5b3Vyb29tLnNn' title='alternate'/><link rel='self' type='application/atom+xml' href='https://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/le8slfffs5lfc5o5ndm8sced9g'/><author><name>skip_office@youroom.sg</name><email>skip_office@youroom.sg</email></author></entry><entry><id>http://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/47aeepvarcsmkd1hdai5q43bnc</id><published>2010-04-07T11:46:07.000Z</published><updated>2010-04-07T11:46:07.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='html'>ガジェット仕様検討</title><summary type='html'>期間: 2010/04/09 (&amp;#37329;) 19:30～20:30&amp;nbsp;
+JST&lt;br&gt;
+
+
+
+&lt;br&gt;予定のステータス: 確定</summary><content type='html'>期間: 2010/04/09 (金) 19:30～20:30 
+JST&lt;br /&gt;
+
+
+&lt;br /&gt;予定のステータス: 確定</content><link rel='alternate' type='text/html' href='http://www.google.com/calendar/hosted/youroom.sg/event?eid=NDdhZWVwdmFyY3Nta2QxaGRhaTVxNDNibmMgc2tpcF9vZmZpY2VAeW91cm9vbS5zZw' title='alternate'/><link rel='self' type='application/atom+xml' href='https://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/47aeepvarcsmkd1hdai5q43bnc'/><author><name>skip_office@youroom.sg</name><email>skip_office@youroom.sg</email></author></entry><entry><id>http://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/0dcr5k843ht5djn9lv4tr93h6k</id><published>2010-04-07T11:45:26.000Z</published><updated>2010-04-07T11:45:26.000Z</updated><category scheme='http://schemas.google.com/g/2005#kind' term='http://schemas.google.com/g/2005#event'/><title type='html'>[SO] 機能設計</title><summary type='html'>期間: 2010/04/08 (&amp;#26408;) 10:00～12:00&amp;nbsp;
+JST&lt;br&gt;
+
+
+&lt;br&gt;場所: 10F
+&lt;br&gt;予定のステータス: 確定</summary><content type='html'>期間: 2010/04/08 (木) 10:00～12:00 
+JST&lt;br /&gt;
+
+&lt;br /&gt;場所: 10F
+&lt;br /&gt;予定のステータス: 確定</content><link rel='alternate' type='text/html' href='http://www.google.com/calendar/hosted/youroom.sg/event?eid=MGRjcjVrODQzaHQ1ZGpuOWx2NHRyOTNoNmsgc2tpcF9vZmZpY2VAeW91cm9vbS5zZw' title='alternate'/><link rel='self' type='application/atom+xml' href='https://www.google.com/calendar/feeds/skip_office%40youroom.sg/private-e2b2a9b6e61f679baf31d475e4120695/basic/0dcr5k843ht5djn9lv4tr93h6k'/><author><name>skip_office@youroom.sg</name><email>skip_office@youroom.sg</email></author></entry></feed>
+
 EOF
 
     respond_to do |format|
@@ -49,133 +87,52 @@ EOF
     @mails =<<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <feed version="0.3" xmlns="http://purl.org/atom/ns#">
-<title>Gmail - Inbox for beautybeast07@gmail.com</title>
+<title>Gmail - Inbox for skip_office@youroom.sg</title>
 <tagline>New messages in your Gmail Inbox</tagline>
-<fullcount>10</fullcount> 
-<link rel="alternate" href="http://mail.google.com/mail" type="text/html" /> 
-<modified>2010-04-06T02:16:26Z</modified> 
-<entry> 
-<title>&quot;SKIP利用に関するアンケート&quot; was edited recently</title> 
-<summary>See the changes in your Google Document &quot;SKIP利用に関するアンケート&quot;: Click ...</summary> 
-<link rel="alternate" href="http://mail.google.com/mail?account_id=interu%40sonicgarden.jp&amp;message_id=127d0e557791e9d3&amp;view=conv&amp;extsrc=atom" type="text/html" /> 
-<modified>2010-04-06T02:14:03Z</modified> 
-<issued>2010-04-06T02:14:03Z</issued> 
-<id>tag:gmail.google.com,2004:1332236825012595155</id> 
-<author> 
-<name>Google Docs</name> 
-<email>notify@google.com</email> 
-</author> 
-</entry> 
-<entry> 
-<title>[youRoom-DevTeam] openskip.youroom....</title> 
-<summary>New post was created in youRoom-DevTeam. URL http://r3.youroom.in/entries/28484 Content ...</summary> 
-<link rel="alternate" href="http://mail.google.com/mail?account_id=interu%40sonicgarden.jp&amp;message_id=127d0defac942d94&amp;view=conv&amp;extsrc=atom" type="text/html" /> 
-<modified>2010-04-06T02:07:06Z</modified> 
-<issued>2010-04-06T02:07:06Z</issued> 
-<id>tag:gmail.google.com,2004:1332236387815271828</id> 
-<author> 
-<name>youroom_noreply</name> 
-<email>youroom_noreply@youroom.in</email> 
-</author> 
-</entry> 
-<entry> 
-<title>[SonicGarden] #SKIPマルチテナント に関する...</title> 
-<summary>New post was created in SonicGarden. URL http://sonicgarden.youroom.in/entries/27602 Content ...</summary> 
-<link rel="alternate" href="http://mail.google.com/mail?account_id=interu%40sonicgarden.jp&amp;message_id=127d0de07b9cbdff&amp;view=conv&amp;extsrc=atom" type="text/html" /> 
-<modified>2010-04-06T02:06:03Z</modified> 
-<issued>2010-04-06T02:06:03Z</issued> 
-<id>tag:gmail.google.com,2004:1332236322569240063</id> 
-<author> 
-<name>youroom_noreply</name> 
-<email>youroom_noreply@youroom.in</email> 
-</author> 
-</entry> 
-<entry> 
-<title>[youRoom] s-nagata is new joining to SKIP User Group</title> 
-<summary>Hi, interu. s-nagata is now joining to your room, &quot;SKIP User Group&quot; Click below url to ...</summary> 
-<link rel="alternate" href="http://mail.google.com/mail?account_id=interu%40sonicgarden.jp&amp;message_id=127d0b4cde3ed881&amp;view=conv&amp;extsrc=atom" type="text/html" /> 
-<modified>2010-04-06T01:21:02Z</modified> 
-<issued>2010-04-06T01:21:02Z</issued> 
-<id>tag:gmail.google.com,2004:1332233489545615489</id> 
-<author> 
-<name>youroom_noreply</name> 
-<email>youroom_noreply@youroom.in</email> 
-</author> 
-</entry> 
-<entry> 
-<title>[youRoom] tfukaga is new joining to SKIP User Group</title> 
-<summary>Hi, interu. tfukaga is now joining to your room, &quot;SKIP User Group&quot; Click below url to ...</summary> 
-<link rel="alternate" href="http://mail.google.com/mail?account_id=interu%40sonicgarden.jp&amp;message_id=127d0aba3a455ef8&amp;view=conv&amp;extsrc=atom" type="text/html" /> 
-<modified>2010-04-06T01:11:01Z</modified> 
-<issued>2010-04-06T01:11:01Z</issued> 
-<id>tag:gmail.google.com,2004:1332232859729354488</id> 
-<author> 
-<name>youroom_noreply</name> 
-<email>youroom_noreply@youroom.in</email> 
-</author> 
-</entry> 
-<entry> 
-<title>[SonicGarden] 今日は遅れるけど行きます。
-11:...</title> 
-<summary>New post was created in SonicGarden. URL http://sonicgarden.youroom.in/entries/28424 Content ...</summary> 
-<link rel="alternate" href="http://mail.google.com/mail?account_id=interu%40sonicgarden.jp&amp;message_id=127d06ff942bf4a7&amp;view=conv&amp;extsrc=atom" type="text/html" /> 
-<modified>2010-04-06T24:05:51Z</modified> 
-<issued>2010-04-06T24:05:51Z</issued> 
-<id>tag:gmail.google.com,2004:1332228759543870631</id> 
-<author> 
-<name>youroom_noreply</name> 
-<email>youroom_noreply@youroom.in</email> 
-</author> 
-</entry> 
-<entry> 
-<title>[SonicGarden] @fuji AgileJapan、...</title> 
-<summary>New post was created in SonicGarden. URL http://sonicgarden.youroom.in/entries/28105 Content ...</summary> 
-<link rel="alternate" href="http://mail.google.com/mail?account_id=interu%40sonicgarden.jp&amp;message_id=127d06ff8ea0ce92&amp;view=conv&amp;extsrc=atom" type="text/html" /> 
-<modified>2010-04-06T24:05:51Z</modified> 
-<issued>2010-04-06T24:05:51Z</issued> 
-<id>tag:gmail.google.com,2004:1332228759450865298</id> 
-<author> 
-<name>youroom_noreply</name> 
-<email>youroom_noreply@youroom.in</email> 
-</author> 
-</entry> 
-<entry> 
-<title>[New Relic] Weekly Performance Report for mat_aki</title> 
-<summary>New Relic RPM Weekly Application Performance Report for mat_aki Monday 03/29/2010 to Sunday 04/04 ...</summary> 
-<link rel="alternate" href="http://mail.google.com/mail?account_id=interu%40sonicgarden.jp&amp;message_id=127cda2ed35110c2&amp;view=conv&amp;extsrc=atom" type="text/html" /> 
-<modified>2010-04-05T11:02:39Z</modified> 
-<issued>2010-04-05T11:02:39Z</issued> 
-<id>tag:gmail.google.com,2004:1332179484443480258</id> 
-<author> 
-<name>New Relic</name> 
-<email>noreply@newrelic.com</email> 
-</author> 
-</entry> 
-<entry> 
-<title>[New Relic] Weekly Performance Report for drama-mita-mixi-st Heroku</title> 
-<summary>New Relic RPM Weekly Application Performance Report for drama-mita-mixi-st Heroku Monday 03/29 ...</summary> 
-<link rel="alternate" href="http://mail.google.com/mail?account_id=interu%40sonicgarden.jp&amp;message_id=127cd944b48df8da&amp;view=conv&amp;extsrc=atom" type="text/html" /> 
-<modified>2010-04-05T10:46:40Z</modified> 
-<issued>2010-04-05T10:46:40Z</issued> 
-<id>tag:gmail.google.com,2004:1332178478905030874</id> 
-<author> 
-<name>New Relic</name> 
-<email>noreply@newrelic.com</email> 
-</author> 
-</entry> 
-<entry> 
-<title>[youRoom] Today&#39;s summary of updated posts.</title> 
-<summary>Today&#39;s summary of posts in youRoom ...</summary> 
-<link rel="alternate" href="http://mail.google.com/mail?account_id=interu%40sonicgarden.jp&amp;message_id=127cd79a47dcd7ba&amp;view=conv&amp;extsrc=atom" type="text/html" /> 
-<modified>2010-04-05T10:17:33Z</modified> 
-<issued>2010-04-05T10:17:33Z</issued> 
-<id>tag:gmail.google.com,2004:1332176647425415098</id> 
-<author> 
-<name>youroom_noreply</name> 
-<email>youroom_noreply@youroom.in</email> 
-</author> 
-</entry> 
-</feed> 
+<fullcount>3</fullcount>
+<link rel="alternate" href="http://mail.google.com/a/youroom.sg" type="text/html" />
+<modified>2010-04-07T12:12:04Z</modified>
+<entry>
+<title>色やテーマを使って Gmail のデザインを自由に設定</title>
+<summary>設定] の [テーマ] タブから、色やテーマを指定して受信トレイをより ...</summary>
+<link rel="alternate" href="http://mail.google.com/a/youroom.sg?account_id=skip_office%40youroom.sg&amp;message_id=127d8156af352cdd&amp;view=conv&amp;extsrc=atom" type="text/html" />
+
+<modified>2010-04-07T11:43:54Z</modified>
+<issued>2010-04-07T11:43:54Z</issued>
+<id>tag:gmail.google.com,2004:1332363274078203101</id>
+<author>
+<name>Gmail チーム</name>
+<email>mail-noreply@google.com</email>
+</author>
+</entry>
+<entry>
+<title>携帯電話で Gmail にアクセス</title>
+<summary>外出先でちょっとした空き時間でもケータイから Gmail を使ってメールを ...</summary>
+
+<link rel="alternate" href="http://mail.google.com/a/youroom.sg?account_id=skip_office%40youroom.sg&amp;message_id=127d8156a691a0c9&amp;view=conv&amp;extsrc=atom" type="text/html" />
+<modified>2010-04-07T11:43:54Z</modified>
+<issued>2010-04-07T11:43:54Z</issued>
+<id>tag:gmail.google.com,2004:1332363273933267145</id>
+<author>
+<name>Gmail チーム</name>
+<email>mail-noreply@google.com</email>
+</author>
+</entry>
+<entry>
+<title>Gmail の使用を開始する</title>
+
+<summary>Gmail ならメールがもっと便利に、もっと楽しくなります。 フォルダに ...</summary>
+<link rel="alternate" href="http://mail.google.com/a/youroom.sg?account_id=skip_office%40youroom.sg&amp;message_id=127d81569a181f95&amp;view=conv&amp;extsrc=atom" type="text/html" />
+<modified>2010-04-07T11:43:54Z</modified>
+<issued>2010-04-07T11:43:54Z</issued>
+<id>tag:gmail.google.com,2004:1332363273723977621</id>
+<author>
+<name>Gmail チーム</name>
+<email>mail-noreply@google.com</email>
+</author>
+</entry>
+</feed>
+
 EOF
 
     respond_to do |format|

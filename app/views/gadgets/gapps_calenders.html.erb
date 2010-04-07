@@ -58,7 +58,7 @@
               <% end -%>
             <% end -%>
           </ul>
-          <span><%= link_to(icon_tag("page_edit"), "http://www.google.com/calendar/event?action=TEMPLATE&text=&dates=#{Time.now.since(i.days).utc.strftime("%Y%m%dT%H%M%SZ")}/#{Time.now.since(i.days + 1.hours).utc.strftime("%Y%m%dT%H%M%SZ")}") %></span>
+          <span><%= link_to(icon_tag("page_edit"), "http://www.google.com/calendar/hosted/youroom.sg/event?action=TEMPLATE&text=&dates=#{Time.now.since(i.days).utc.strftime("%Y%m%dT%H%M%SZ")}/#{Time.now.since(i.days + 1.hours).utc.strftime("%Y%m%dT%H%M%SZ")}") %></span>
         </td>
       <% end -%>
     </tr>
