@@ -47,6 +47,10 @@ EOF
 
   def gapps_mails
     @mails =<<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<feed version="0.3" xmlns="http://purl.org/atom/ns#">
+<title>Gmail - Inbox for beautybeast07@gmail.com</title>
+<tagline>New messages in your Gmail Inbox</tagline>
 <fullcount>10</fullcount> 
 <link rel="alternate" href="http://mail.google.com/mail" type="text/html" /> 
 <modified>2010-04-06T02:16:26Z</modified> 

@@ -9,7 +9,7 @@
     <script type="text/javascript" src="https://test-live.skipaas.jp/javascripts/skip/jquery/jquery.js"></script>
     <script type="text/javascript">
         function init() {
-            var url = "https://test-live.skipaas.jp/gadgets/skip_popular_entries";
+            var url = "https://test-live.skipaas.jp/gadgets/skip_popular_blogs";
             gadgets.io.makeRequest(url, response, { AUTHORIZATION: gadgets.io.AuthorizationType.IS_POST_PORTAL_UID});
         };
 

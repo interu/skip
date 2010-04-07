@@ -26,4 +26,7 @@ module GadgetsHelper
     end
   end
 
+  def site_url
+    GlobalInitialSetting['protocol'] + GlobalInitialSetting['host_and_port']
+  end
 end
