@@ -14,9 +14,10 @@
 
 <div>
   <span style="text-align:left;">
-    <select>
-      <option value="http://www.google.com/calendar/feeds/youroom.sg_hqje4mph22jlsipkqut5ljvll8%40group.calendar.google.com/private/full">クラウドビジネス部</option>
-      <option value="http://www.google.com/calendar/feeds/youroom.sg_33383233373732372d333533%40resource.calendar.google.com/private/full">会議室1</option>
+    <select class="select_navi">
+      <option value="<%= site_url -%>/gadgets/gapps_calenders">(グループ表示)</option>
+      <option value="<%= site_url -%>/gadgets/gapps_calenders?calender_id=youroom.sg_hqje4mph22jlsipkqut5ljvll8%40group.calendar.google.com"> クラウドビジネス部 </option>
+      <option value="<%= site_url -%>/gadgets/gapps_calenders?calender_id=youroom.sg_33383233373732372d333533%40resource.calendar.google.com"> 会議室1 </option>
     </select>
   </span>
   <span style="text-align:center;">
