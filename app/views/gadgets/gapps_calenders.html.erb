@@ -8,7 +8,7 @@
   table#gapps_cal tr.detail ul{list-style-position:inside;padding:0}
   table#gapps_cal td{border:1px solid #999999;vertical-align:top}
 </style>
-
+<%# TODO: 以下のロジックをcontrollerに %>
 <% xml_doc = REXML::Document.new @calenders -%>
 <% record_date = Date.today -%>
 
@@ -40,6 +40,8 @@
           <ul>
             <%# TODO:helperメソッドとしてロジックはviewから排除する -%>
             <% xml_doc.elements.each("feed/entry") do |calender| -%>
+<%# TODO:繰り返し登録にも対応するように %>
+<% if calender.elements['gd:when'] -%>
               <% st = ParseDate::parsedate(calender.elements['gd:when'].attribute('startTime').to_s) -%>
               <% et = ParseDate::parsedate(calender.elements['gd:when'].attribute('endTime').to_s) -%>
               <% start_time = Time::local(*st[0..-3]).strftime("%H:%M") %>
@@ -56,9 +58,10 @@
                   <% end -%>
                 </li>
               <% end -%>
+<% end -%>
             <% end -%>
           </ul>
-          <span><%= link_to(icon_tag("page_edit"), "http://www.google.com/calendar/hosted/youroom.sg/event?action=TEMPLATE&text=&dates=#{Time.now.since(i.days).utc.strftime("%Y%m%dT%H%M%SZ")}/#{Time.now.since(i.days + 1.hours).utc.strftime("%Y%m%dT%H%M%SZ")}") %></span>
+          <span><%= link_to(icon_tag("page_edit"), "http://www.google.com/calendar/hosted/#{gapps_domain}/event?action=TEMPLATE&text=&dates=#{Time.now.since(i.days).utc.strftime("%Y%m%dT%H%M%SZ")}/#{Time.now.since(i.days + 1.hours).utc.strftime("%Y%m%dT%H%M%SZ")}") %></span>
         </td>
       <% end -%>
     </tr>

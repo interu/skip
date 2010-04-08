@@ -11,5 +11,5 @@
       <%= get_publication_type_icon(question) %><%= link_to(question.title, polymorphic_url([current_tenant, question.owner, question])) %>&nbsp;<span class="small_text">(<%= link_to(question.owner.name, polymorphic_url([current_tenant, question.owner])) %>)</span>
     </div>
   <% end -%>
-
 </div>
+<div align="right"><%= link_to(_('Write a question'), new_polymorphic_url([current_tenant, current_user, :board_entry], :board_entry => {:aim_type => 'question'})) %></div>

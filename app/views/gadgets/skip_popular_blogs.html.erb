@@ -19,3 +19,4 @@
     </table>
   <% end -%>
 </div>
+<div align="right"><%= link_to(_('Write a blog entry'), new_polymorphic_url([current_tenant, current_user, :board_entry])) %></div>

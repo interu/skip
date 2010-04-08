@@ -29,4 +29,8 @@ module GadgetsHelper
   def site_url
     GlobalInitialSetting['protocol'] + GlobalInitialSetting['host_and_port']
   end
+
+  def gapps_domain
+    "youroom.sg"
+  end
 end
