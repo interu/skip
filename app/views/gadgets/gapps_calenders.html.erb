@@ -12,8 +12,16 @@
 <% xml_doc = REXML::Document.new @calenders -%>
 <% record_date = Date.today -%>
 
-<div style="text-align:center;">
-  <%= record_date.strftime('%Y年%m月%d日') %>
+<div>
+  <span style="text-align:left;">
+    <select>
+      <option value="http://www.google.com/calendar/feeds/youroom.sg_hqje4mph22jlsipkqut5ljvll8%40group.calendar.google.com/private/full">クラウドビジネス部</option>
+      <option value="http://www.google.com/calendar/feeds/youroom.sg_33383233373732372d333533%40resource.calendar.google.com/private/full">会議室1</option>
+    </select>
+  </span>
+  <span style="text-align:center;">
+    <%= record_date.strftime('%Y年%m月%d日') %>
+  </span>
 </div>
 
 <table id="gapps_cal">

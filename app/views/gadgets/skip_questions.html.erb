@@ -4,7 +4,7 @@
 </style>
 
 <div id="gadget_wrapper">
-  <h2><%= icon_tag('asterisk_orange') %><%= link_to("みんなからの質問", polymorphic_url([current_tenant, :board_entries], :search => { :aim_type => 'question' })) %></h2>
+  <h2 class="ui-corner-top"><%= icon_tag('asterisk_orange') %><%= link_to("みんなからの質問", polymorphic_url([current_tenant, :board_entries], :search => { :aim_type => 'question' })) %></h2>
   <%# TODO:pagesを利用しないように" -%>
   <% @questions[:pages].each do |question| -%>
     <div class="border_bottom">
@@ -12,4 +12,4 @@
     </div>
   <% end -%>
 </div>
-<div align="right"><%= link_to(_('Write a question'), new_polymorphic_url([current_tenant, current_user, :board_entry], :board_entry => {:aim_type => 'question'})) %></div>
+<div align="right"><%= link_to(icon_tag("page_edit") + _('Write a question'), new_polymorphic_url([current_tenant, current_user, :board_entry], :board_entry => {:aim_type => 'question'})) %></div>

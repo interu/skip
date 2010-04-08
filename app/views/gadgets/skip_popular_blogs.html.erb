@@ -1,5 +1,5 @@
 <div id="gadget_wrapper">
-  <h2><%= h(@popular_blogs[:title_name]) %> (<%= Time.now.ago(recent_day.days).strftime(_('%B %d %Y')) %> - <%= Time.now.strftime(_('%B %d %Y')) %>)</h2>
+  <h2 class="ui-corner-top"><%= h(@popular_blogs[:title_name]) %> (<%= Time.now.ago(recent_day.days).strftime(_('%B %d %Y')) %> - <%= Time.now.strftime(_('%B %d %Y')) %>)</h2>
   <% unless @popular_blogs[:pages].empty? -%>
     <table>
       <% @popular_blogs[:pages].each_with_index do |entry, i| %>
@@ -19,4 +19,4 @@
     </table>
   <% end -%>
 </div>
-<div align="right"><%= link_to(_('Write a blog entry'), new_polymorphic_url([current_tenant, current_user, :board_entry])) %></div>
+<div align="right"><%= link_to(icon_tag("page_edit") + _('Write a blog entry'), new_polymorphic_url([current_tenant, current_user, :board_entry])) %></div>
