@@ -1,0 +1,4 @@
+<div><b>店舗matic</b></div>
+<% @entries.each do |entry| -%>
+  <div><%= entry[:status] %><%= link_to(entry[:title], entry[:title_url]) %> <span class="small_text">(<%= link_to(entry[:from], entry[:from_url]) %>)</span></div>
+<% end -%>

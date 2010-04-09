@@ -1,0 +1,21 @@
+<% xml_doc = REXML::Document.new @mails -%>
+<% fullcount = xml_doc.elements.each("feed/fullcount") { |count| count } -%>
+<div><b><%= "メール (#{fullcount}件)" %></b></div>
+  <table>
+    <col />
+    <col width="150px" />
+    <tbody>
+      <% xml_doc.elements.each("feed/entry") do |mail| -%>
+        <tr>
+          <td>
+            <div><%= link_to(h(truncate(mail.elements['title'].text, :length => 40)), mail.elements['link'].attribute("href").to_s, :target => "_blank") %></div>
+          </td>
+          <td>
+            <span class="small_text"><%= h(truncate(mail.elements['author/name'].text, :length => 10)) %></span>
+          </td>
+        </tr>
+      <% end -%>
+    </tbody>
+  </table>
+<div align="right"><%= link_to(icon_tag("page_edit") + 'メールを書く', "https://mail.google.com/a/#{gapps_domain}/#compose", :target => "_blank") %></div>
+
