@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="おすすめ情報" height="250">
+        <Require feature="dynamic-height"/>
+    </ModulePrefs>
+
+    <Content type="html" view="home,canvas">
+    <![CDATA[
+<script type="text/javascript"><!--
+google_ad_client = "pub-3472992011070599";
+/* SKIP-Live広告サンプル */
+google_ad_slot = "8947045098";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+    ]]>
+    </Content>
+</Module>
