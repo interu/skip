@@ -1,4 +1,4 @@
-<div id="gadget_wrapper">
+<div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= icon_tag("chart_bar") + h(@popular_blogs[:title_name]) %> (<%= Time.now.ago(recent_day.days).strftime(_('%B %d %Y')) %> - <%= Time.now.strftime(_('%B %d %Y')) %>)</h2>
   <% unless @popular_blogs[:pages].empty? -%>
     <table>

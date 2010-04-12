@@ -8,9 +8,10 @@
 <style>
   .ui-widget-content a {color:#0080DD;}
   .ui-widget-content {background: none;}
+  .ui-tabs-nav li a.large {padding:0.5em 1.5em;}
 </style>
 
-<div id="gadget_wrapper">
+<div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= link_to(icon_tag("group_add") + "新着ユーザ／グループ", tenant_users_url(current_tenant)) %></h2>
 
   <div id="tabs" class="invisible" style="margin: 0 0 10px 0;">

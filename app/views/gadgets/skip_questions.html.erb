@@ -3,7 +3,7 @@
   div.topix_entries_wrapper table.topix_entries tr{border-bottom:1px dotted #CCCCCC;}
 </style>
 
-<div id="gadget_wrapper">
+<div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= icon_tag('asterisk_orange') %><%= link_to("みんなからの質問", polymorphic_url([current_tenant, :board_entries], :search => { :aim_type => 'question' })) %></h2>
   <%# TODO:pagesを利用しないように" -%>
   <% @questions[:pages].each do |question| -%>

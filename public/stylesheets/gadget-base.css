@@ -1,7 +1,7 @@
 @import url("/stylesheets/skip_embedded/sprites.css");
 
 div#gadget_wrapper{border:1px solid #E0E0FF;}
-div#gadget_wrapper h2{background-color:#E0E0FF;font-size:15px;padding:2px 2px;margin:0;}
+div#gadget_wrapper h2{background-color:#E0E0FF;font-size:15px;padding:2px 2px;margin:0;font-color:#444444;}
 .ui-corner-all {-moz-border-radius-bottomleft:3px;-moz-border-radius-bottomright:3px;-moz-border-radius-topleft:3px;-moz-border-radius-topright:3px;}
 span.small_text {font-size:10px;}
 div.border_bottom {font-size:14px; margin:5px; border-bottom:1px dotted #CCCCCC;}
