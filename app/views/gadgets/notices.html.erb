@@ -2,7 +2,7 @@
   div#gadget_wrapper h2{background-color:#FFCCCC;font-size:15px;padding:2px 2px;margin:0;}
 </style>
 <div id="gadget_wrapper">
-  <h2 class="ui-corner-top">新着情報</h2>
+  <h2 class="ui-corner-top"><%= icon_tag("new") + "新着情報" %></h2>
   <%= render :partial => 'gapps_mails' %>
   <%= render :partial => 'tenpo_notices' %>
 </div>

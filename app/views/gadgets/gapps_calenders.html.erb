@@ -12,10 +12,8 @@
 <% xml_doc = REXML::Document.new @calenders -%>
 <% record_date = Date.today -%>
 
-<div>
-  <span style="text-align:center;">
-    <%= record_date.strftime('%Y年%m月%d日') %>
-  </span>
+<div align="center" style="font-weight:bold;font-size:16px;">
+  <%= record_date.strftime('%Y年%m月%d日') %>
 </div>
 
 <table id="gapps_cal">
@@ -30,7 +28,7 @@
     <tr class="date">
       <% for i in 0..6 -%>
         <td class="<%= date2wday(record_date + i) %>">
-          <%= (record_date + i).day %>
+          <%= (record_date + i).day %><%= "日" %>
         </td>
       <% end -%>
     </tr>
@@ -69,3 +67,4 @@
     </tr>
   </tbody>
 </table>
+<div align="right"><%= link_to(icon_tag("calendar") + "スケジュール一覧を見る") %></div>
