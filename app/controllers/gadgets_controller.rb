@@ -173,7 +173,6 @@ EOF
                   :include => [ :user, :state ]
                 ).timeline.diary.recent(recent_day.day).paginate(:page => params[:page], :per_page => per_page)
     }
-
   end
 
   #TODO:リファクタ
