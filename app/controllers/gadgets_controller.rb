@@ -182,6 +182,22 @@ EOF
     end
   end
 
+  def skip_publicated_entries_tabs
+@timelines = {
+      :id_name => 'timelines',
+      :title_name => _('See all'),
+      :per_page => per_page,
+      :pages => BoardEntry.from_recents.accessible(current_user).timeline.order_new.scoped(:include => [:state, :user]).paginate(:page => target_page('timelines'), :per_page => per_page)
+}
+@recent_blogs = {
+    :id_name => 'recent_blogs',
+    :title_icon => "user",
+    :title_name => _('Blogs'),
+    :pages => BoardEntry.from_recents.accessible(current_user).entry_type_is(BoardEntry::DIARY).timeline.scoped(:include => [ :user, :state ]).order_new.paginate(:page => target_page('recent_blogs'), :per_page => per_page),
+    :per_page => per_page
+  }
+  end
+
   def notices
     @mails =<<EOF
 <?xml version="1.0" encoding="UTF-8"?>

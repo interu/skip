@@ -1,0 +1,27 @@
+<link href="<%= site_url %>/stylesheets/skip/themes/base/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="<%= site_url %>/stylesheets/skip/themes/cupertino/ui.core.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="<%= site_url %>/stylesheets/skip/themes/cupertino/ui.theme.css" media="screen" rel="stylesheet" type="text/css" />
+
+<style>
+  .ui-widget-content a {color:#0080DD;}
+  .ui-widget-content {background: none;}
+  .ui-tabs-nav li a.large {padding:5px 15px;}
+  .ui-tabs-nav li a.small {padding:5px 15px;}
+</style>
+
+<div id="gadget_wrapper" class="ui-corner-all">
+  <h2 class="ui-corner-top"><%= link_to(icon_tag("page_copy") + _("Recent Entries"), tenant_board_entries_url(current_tenant)) %></h2>
+  <div id="tabs" class="invisible" style="margin: 0 0 10px 0;">
+    <ul>
+      <li style="width: 50px; border: none;">&nbsp;</li>
+      <li><a href="#<%= @timelines[:id_name] %>" class="large"><span><%=h @timelines[:title_name] %></span></a></li>
+      <li><a href="#<%= @recent_blogs[:id_name] %>" class="small"><span><%= h _('%s Only') % h(@recent_blogs[:title_name]) %></span></a></li>
+    </ul>
+    <div id="<%= @timelines[:id_name] %>" class="target_iframe">
+      <%= render :partial => "mypages/list_block", :locals => @timelines %>
+    </div>
+    <div id="<%= @recent_blogs[:id_name] %>" class="target_iframe">
+      <%= render :partial => "mypages/list_block", :locals => @recent_blogs %>
+    </div>
+  </div>
+</div>
