@@ -5,5 +5,5 @@ div#gadget_wrapper h2{background-color:#E0E0FF;font-size:15px;padding:2px 2px;ma
 .ui-corner-all {-moz-border-radius-bottomleft:3px;-moz-border-radius-bottomright:3px;-moz-border-radius-topleft:3px;-moz-border-radius-topright:3px;}
 span.small_text {font-size:10px;}
 div.border_bottom {font-size:14px; margin:5px; border-bottom:1px dotted #CCCCCC;}
-div {font-size:14px; margin:3px;}
+div {font-size:14px; margin:3px; font-color:#444444}
 a {color:#0080DD; text-decoration:none;}
