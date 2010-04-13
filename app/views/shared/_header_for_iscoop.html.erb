@@ -51,10 +51,12 @@
   <% if current_user -%>
     <% if GlobalInitialSetting['full_text_search_setting'] && current_user.active? -%>
       <div id="search" class="ui-corner-all">
-        <% form_tag(polymorphic_url([current_tenant, :search], :action => :full_text_search),{:method => 'get'}) do -%>
-          <%= text_field_tag "full_text_query", search_label, :class => "labeled-field" %>
-          <%= submit_tag _('Search') -%>
-        <% end -%>
+
+<form name="searchForm" onsubmit="javascript:IS_Portal.SearchEngines.buildSearchTabs(document.getElementById('searchTextForm').value);return false;">
+  <input id="searchTextForm" type="text" class="labeled-field"/>
+  <input type="submit" value="<%= _('Search') %>" />
+</form>
+
         <span class="other_links"><%= link_to( _('Site Information'), polymorphic_url([current_tenant, :statistics]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :statistics])}")) %></span>
         <%= shortcut_menus %>
       </div>

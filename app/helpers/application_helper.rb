@@ -217,7 +217,7 @@ module ApplicationHelper
       groups.group_by(&:group_category).sort_by{|c, g| c.sort_order}.each do |category, groups_by_category|
         option_tags << content_tag(:option, "[#{h(category.name)}]", :disabled => 'disabled', :style => 'color: gray')
         groups_by_category.each do |group|
-          option_tags << content_tag(:option, "&nbsp;#{truncate(h(group.name), :length => 18)}", :value => polymorphic_url([current_tenant, group]))
+          option_tags << content_tag(:option, "&nbsp;#{truncate(h(group.name), :length => 18)}", :value => polymorphic_url([current_tenant, group]), :onclick => open_iframe("#{polymorphic_url([current_tenant, group])}"))
         end
       end
     end

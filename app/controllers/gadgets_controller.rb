@@ -264,7 +264,7 @@ EOF
 private
   def is_user2current_info
     if request_of_infoscoop?
-      #is_user = params["is-user"] || request.headers["HTTP_IS_USER"]
+      #is_user = params["is-user"] || request.headers["is-user"]
       #@current_user = User.find_by_openid_identifier(is_user)
       is_user = "interu@sonicgarden.jp"
       @current_user = User.find_by_email(is_user)
