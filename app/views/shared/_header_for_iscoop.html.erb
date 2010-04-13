@@ -1,0 +1,93 @@
+<% search_label = _('Please input search query.') %>
+<div id="header">
+  <div id="global_top">
+    <div id="application_link">
+      <%= application_link %>
+    </div>
+    <% if current_user && current_user.active? -%>
+      <%
+        links = []
+        help_url = h(GlobalInitialSetting['help_url'])
+        what_new_message = h(GlobalInitialSetting['what_new']['message'] || _("What's New"))
+        what_new_url = h(GlobalInitialSetting['what_new']['url'])
+
+        links << link_to(what_new_message, what_new_url, :target => "_blank", :class => "attention_underline_link") unless what_new_url.blank?
+        links << link_to(_('Invite a user'), new_tenant_invitations_url(current_tenant), :title => _('Invite a user')) if current_tenant and Admin::Setting.enable_invitation_feature(current_tenant)
+        links << link_to(_("My Account"), edit_tenant_user_url(current_tenant, current_user), :class => "underline_link", :onclick => open_iframe("#{edit_tenant_user_url(current_tenant, current_user)}"))
+        links << link_to(_("System Administration"), admin_tenant_root_url(current_tenant), :title => _("Administration of the site."), :class => "underline_link", :onclick => open_iframe("#{admin_tenant_root_url(current_tenant)}")) if current_user.admin? and current_tenant
+        links << link_to(_('Help'), help_url, :target => "_blank", :class => "underline_link") unless help_url.blank?
+
+        other_links_tag = ""
+        unless COMMON_MENUS.empty?
+          other_links = []
+          links << link_to( content_tag('u',_('Links')) + content_tag('small', "▼"), '#', :id => 'other_link')
+          COMMON_MENUS[:menus].each do |menu|
+            if menu[:url]
+              other_links << link_to(h(menu[:title]), menu[:url], :target => '_blank')
+            else
+              other_links << content_tag(:p, h(menu[:title]))
+              menu[:links].each do |link|
+                other_links << link_to(h(link[:title]), link[:url], :target => '_blank')
+              end
+            end
+          end
+          other_links_tag = content_tag :div, other_links.join(''), :id => 'other_links', :class => 'invisible'
+        end
+
+        links << link_to(_("Sign out"), logout_platform_url, :class => "underline_link") unless current_tenant and Admin::Setting.hide_header_logout_link(current_tenant)
+      -%>
+
+      <div id="menu">
+        <%= links.join ' | ' %>
+        <%= other_links_tag unless other_links_tag.blank? %>
+      </div>
+    <% end -%>
+  </div>
+  <%#= header_logo_link %>
+  <% image_url = current_user ? (current_user.tenant.logo || current_user.tenant.build_logo).logo.url : "/custom/images/header_logo.png" %>
+  <%= "<div id=\"logo\">" + link_to(image_tag(image_url, :alt => h(app_title), :height => "45"), "https://test-portal.skipaas.jp/infoscoop/") + "</div>" %>
+  <div class="banner"></div>
+
+  <% if current_user -%>
+    <% if GlobalInitialSetting['full_text_search_setting'] && current_user.active? -%>
+      <div id="search" class="ui-corner-all">
+        <% form_tag(polymorphic_url([current_tenant, :search], :action => :full_text_search),{:method => 'get'}) do -%>
+          <%= text_field_tag "full_text_query", search_label, :class => "labeled-field" %>
+          <%= submit_tag _('Search') -%>
+        <% end -%>
+        <span class="other_links"><%= link_to( _('Site Information'), polymorphic_url([current_tenant, :statistics]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :statistics])}")) %></span>
+        <%= shortcut_menus %>
+      </div>
+      <% content_for :javascript_initializers do -%>
+        $j('input#full_text_query').labeledTextField(<%= {:message => search_label}.to_json %>);
+      <% end -%>
+    <% end -%>
+  <% end -%>
+  <% if @content_for_header_form -%>
+    <%= yield :header_form %>
+  <% end -%>
+</div><!-- header -->
+<div id="global_links_wrapper">
+  <% if current_user && current_user.active? -%>
+    <div id="global_links">
+      <%= render :partial => 'shared/global_navigation_for_iscoop' %>
+    </div>
+    <div id="customize_design">
+      <% skin_themes.each do |skin| -%>
+        <%= link_to(image_tag("#{site_url}/stylesheets/skins/#{skin}/color.png", :size => "15x15", :title => "#{skin}"), tenant_user_customize_url(current_tenant, current_user, :user_custom => {"theme" => skin}), :method => :put) %>
+      <% end -%>
+    </div>
+    <div class="clear_both"></div>
+  <% end -%>
+</div>
+
+<% content_for :javascript_initializers do -%>
+  $j(" #nav ul ").css({display: "none"}); // Opera Fix
+  $j(" #nav li").hover(
+    function(){
+      $j(this).find('ul:first').css({visibility:"visible",display:"none"}).show(100);
+    },function(){
+      $j(this).find('ul:first').css({visibility:"hidden"});
+    }
+  );
+<% end -%>

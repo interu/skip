@@ -33,4 +33,8 @@ module GadgetsHelper
   def gapps_domain
     "youroom.sg"
   end
+
+  def open_iframe url
+    "javascript:IS_Portal.openIframe('#{url}');return false;"
+  end
 end
