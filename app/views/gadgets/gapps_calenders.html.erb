@@ -16,7 +16,7 @@
   <%= record_date.strftime('%Y年%m月%d日') %>
 </div>
 
-<table id="gapps_cal">
+<table id="gapps_cal" class="ui-corner-all">
   <col width="10%" />
   <col width="10%" />
   <col width="10%" />
@@ -27,7 +27,7 @@
   <tbody>
     <tr class="date">
       <% for i in 0..6 -%>
-        <td class="<%= date2wday(record_date + i) %>">
+        <td class="<%= date2wday(record_date + i) %> ui-corner-all">
           <%= (record_date + i).day %><%= "日" %>
         </td>
       <% end -%>
@@ -36,7 +36,7 @@
     <tr class="detail">
       <%# TODO:曜日毎に全feedを確認しないように -%>
       <% for i in 0..6 -%>
-        <td>
+        <td class="ui-corner-all">
           <ul>
             <%# TODO:helperメソッドとしてロジックはviewから排除する -%>
             <% xml_doc.elements.each("feed/entry") do |calender| -%>

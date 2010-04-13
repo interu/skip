@@ -45,7 +45,7 @@
   </div>
   <%#= header_logo_link %>
   <% image_url = current_user ? (current_user.tenant.logo || current_user.tenant.build_logo).logo.url : "/custom/images/header_logo.png" %>
-  <%= "<div id=\"logo\">" + link_to(image_tag(image_url, :alt => h(app_title), :height => "45"), "https://test-portal.skipaas.jp/infoscoop/") + "</div>" %>
+  <%= "<div id=\"logo\">" + link_to(image_tag(image_url, :alt => h(app_title), :height => "45"), "javascript:void(0)", :onclick => "javascript:IS_Portal.goHome();return false;") + "</div>" %>
   <div class="banner"></div>
 
   <% if current_user -%>
