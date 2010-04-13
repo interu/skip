@@ -182,6 +182,11 @@ EOF
     end
   end
 
+  def user_role
+    # TODO: モック tenantやuserからロールを判定して返すように
+    render :json => { :role => "gapps" }
+  end
+
   def skip_publicated_entries_tabs
 @timelines = {
       :id_name => 'timelines',
