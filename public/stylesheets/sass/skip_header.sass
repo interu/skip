@@ -1,8 +1,10 @@
-@import skip_embedded/skip_embedded.sass
+@import skip_embedded/skip_header.sass
 
 !almost_fullwidth = 98%
 !small_font_size = 10px
-
+*
+  :margin 0
+  :padding 0
 div#header
   :border-bottom none
   div#global_top
@@ -12,8 +14,10 @@ div#header
       :text-decoration underline
   div#logo
     :margin 1px 0 0 20px
+    img
+      :border none
 div#global_links_wrapper
-  :border-bottom = !base_border
+  :border-bottom 1px solid #ccc
   :padding-top 5px
   :padding-bottom 5px
   :position relative
@@ -73,7 +77,8 @@ div#global_links_wrapper
     :right 10px
     :top 5px
     :padding-bottom 2px
-
+    img
+      :border none
 ul.no_style
   :list-style-type none
 
@@ -133,7 +138,7 @@ div#tabs
   &.ui-widget-content
     :border none
     :background none
-    a.link
+    //a.link
       +default_link
       &:visited
         +link_visited_text
@@ -160,17 +165,6 @@ form.button-to
 
 // 特定の機能用ではない汎用css
 // ------------------------------------------------------------
-.pointer
-  :cursor pointer
-
-.move
-  :cursor move
-
-.link
-  +link_text
-.link:hover
-  +link_hover_text
-
 .margin10
   :margin 10px
 

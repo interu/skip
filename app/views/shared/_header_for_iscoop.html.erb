@@ -1,5 +1,5 @@
 <% search_label = _('Please input search query.') %>
-<div id="header">
+<div id="header" style="background-color:#FFFFFF;">
   <div id="global_top">
     <div id="application_link">
       <%= application_link %>
@@ -67,7 +67,7 @@
     <%= yield :header_form %>
   <% end -%>
 </div><!-- header -->
-<div id="global_links_wrapper">
+<div id="global_links_wrapper" style="background-color:#FFFFFF">
   <% if current_user && current_user.active? -%>
     <div id="global_links">
       <%= render :partial => 'shared/global_navigation_for_iscoop' %>
