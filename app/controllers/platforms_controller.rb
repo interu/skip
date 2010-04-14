@@ -18,6 +18,7 @@ class PlatformsController < ApplicationController
   skip_before_filter :sso, :login_required, :valid_tenant_required, :active_user_required
 
   before_filter :require_not_login, :except => [:logout]
+  before_filter :auto_login_for_stored_op_with_cookie, :only => %w(show require_login)
 
   def show
     response.headers['X-XRDS-Location'] = server_url(:format => :xrds, :protocol => scheme)
@@ -160,6 +161,7 @@ class PlatformsController < ApplicationController
         if result.successful?
           logger.info("[Login successful with OpenId] \"OpenId\" => #{identity_url}")
           remove_current_page_from_cookie
+          store_openid_provider_host(identity_url)
           unless identifier = OpenidIdentifier.find_by_url(identity_url)
             create_user_from(identity_url, registration)
           else
@@ -277,5 +279,21 @@ class PlatformsController < ApplicationController
 
   def remove_current_page_from_cookie
     cookies.delete :target_key2current_pages
+  end
+
+  def store_openid_provider_host(identifier)
+    host = URI.parse(identifier).host
+    logger.debug "[OpenID Auth] store host name of current login of openid provider '#{host}'"
+    cookies[:before_auth_op] = {
+      :value => host,
+      :expires => 1.year.from_now
+    }
+  end
+
+  def auto_login_for_stored_op_with_cookie
+    if cookies[:before_auth_op]
+      logger.debug "[OpenID Auth] Redirect login for auto login with before openid provider"
+      redirect_to login_platform_url(:openid_url => cookies[:before_auth_op])
+    end
   end
 end
