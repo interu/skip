@@ -19,7 +19,8 @@ class GadgetsController < ApplicationController
   skip_before_filter :valid_tenant_required, :sso, :login_required, :prepare_session
   before_filter :is_user2current_info
 
-  helper_method :recent_day
+
+  helper_method :recent_day, :gapps_domain, :site_url
 
   def gapps_calenders
 
@@ -258,7 +259,22 @@ EOF
       {:title => 'wiki文書を使用したお知らせ', :title_url => 'https://demo2.tempomatic.jp/h2/STRViewNotice.do?noticeId=13&version=0', :status => '[通常]', :from => 'ネクスウェイ', :from_url => 'http://www.google.co.jp'}
     ]
 
+  end
 
+  def links
+    @external_links = [
+      {:title => "勤怠管理", :url => "#"},
+      {:title => "業務マニュアル", :url => "#"},
+      {:title => "営業資料", :url => "#"},
+    ]
+    @action_links = [
+      {:title => "メールを書く", :url => "https://mail.google.com/a/#{gapps_domain}/"},
+      {:title => "スケジュールを見る", :url => "https://www.google.com/calendar/hosted/#{gapps_domain}/render"},
+      {:title => "スケジュールを入力する", :url => "http://www.google.com/calendar/hosted/#{gapps_domain}/event?action=TEMPLATE&text="},
+      {:title => "業務報告", :url => "#"},
+      {:title => "質問を書く", :url => new_polymorphic_url([current_tenant, current_user, :board_entry], :board_entry => {:aim_type => 'question'})},
+      {:title => "ブログを書く", :url => new_polymorphic_url([current_tenant, current_user, :board_entry])},
+    ]
   end
 
 private
@@ -303,6 +319,14 @@ private
 
   def recent_day
     10
+  end
+
+  def site_url
+    GlobalInitialSetting['protocol'] + GlobalInitialSetting['host_and_port']
+  end
+
+  def gapps_domain
+    "youroom.sg"
   end
 
 end
