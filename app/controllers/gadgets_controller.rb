@@ -261,7 +261,8 @@ EOF
 
   end
 
-  def links
+  def leftside_menus 
+
     @external_links = [
       {:title => "勤怠管理", :url => "#"},
       {:title => "業務マニュアル", :url => "#"},
