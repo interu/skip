@@ -202,7 +202,7 @@ class PlatformsController < ApplicationController
 
   def redirect_to_return_to_or_root(return_to = params[:return_to])
     return_to = return_to ? URI.encode(return_to) : nil
-    redirect_to (return_to and !return_to.empty?) ? return_to : root_url
+    redirect_to (return_to and !return_to.empty?) ? return_to : (GlobalInitialSetting["infoscoop_url"] ? GlobalInitialSetting["infoscoop_url"] : root_url)
   end
 
   def create_user_params(fetched, tenant)

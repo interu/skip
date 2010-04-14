@@ -167,6 +167,7 @@ default: &default
       お問い合わせはこちら | Since 2008 SKIP
     image_link_url: >-
       http://www.openskip.org/
+  infoscoop_url: "http://test-portal.skipaas.jp/infoscoop/"
 
 ####################################################################################################
 # 以下設定不要
