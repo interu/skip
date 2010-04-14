@@ -22,10 +22,10 @@ module PicturesHelper
         unless picture.new_record?
           tenant_user_picture_url(current_tenant, user, picture, :format => :png)
         else
-          'default_picture.png'
+          "#{site_url}/images/default_picture.png"
         end
       else
-        'default_picture.png'
+        "#{site_url}/images/default_picture.png"
       end
     image_tag(file_name, options)
   end
