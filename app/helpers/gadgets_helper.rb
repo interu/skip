@@ -21,8 +21,6 @@ module GadgetsHelper
       "sunday"
     when 6
       "saturday"
-    else
-      "weekday"
     end
   end
 
