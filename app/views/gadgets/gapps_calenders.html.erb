@@ -1,31 +1,28 @@
 <style>
   table#gapps_cal{border:1px solid #999999}
-  table#gapps_cal tr.saturday{background-color:#CCFFFF}
-  table#gapps_cal tr.sunday{background-color:#FFCCCC}
-  table#gapps_cal td.date{text-align:center;vertical-align:center;}
+  table#gapps_cal td.saturday{background-color:#F5FFFA}
+  table#gapps_cal td.sunday{background-color:#FFF0F5}
+  table#gapps_cal td.date{font-size:14px;text-align:center;vertical-align:center;}
   table#gapps_cal td.detail{vertical-align:top}
   table#gapps_cal td.detail ul{list-style-position:inside;padding:2px 2px;font-size:14px;margin:0}
   table#gapps_cal td.detail ul li{padding:2px}
-  table#gapps_cal td{border:1px solid #999999;}
 </style>
 <%# TODO: 以下のロジックをcontrollerに %>
 <% xml_doc = REXML::Document.new @calenders -%>
 <% record_date = Date.today -%>
+<div id="gadget_wrapper" class="ui-corner-all">
+  <h2 class="ui-corner-top"><%= icon_tag("new") + "カレンダー " %><%= "(" + record_date.strftime('%Y年%m月%d日') + ")" %></h2>
 
-<div align="center" style="font-weight:bold;font-size:16px;color:#444444;">
-  <%= record_date.strftime('%Y年%m月%d日') %>
-</div>
-
-<table id="gapps_cal" class="ui-corner-all" width="100%">
+<table id="gapps_cal" class="ui-corner-all" width="100%" cellspacing="0" border="1" border-color="#999999" style="padding:5px;">
   <col width="20%" />
   <col />
   <tbody>
     <% for i in 0..6 -%>
-      <tr class="<%= date2wday(record_date + i) %>">
-        <td class="date ui-corner-all">
+      <tr>
+        <td class="date <%= date2wday(record_date + i) %>">
           <%= (record_date + i).day %><%= "日" %>
         </td>
-        <td class="detail <%= date2wday(record_date + i) %> ui-corner-all">
+        <td>
           <ul>
             <%# TODO:helperメソッドとしてロジックはviewから排除する -%>
             <% xml_doc.elements.each("feed/entry") do |calender| -%>
@@ -59,4 +56,5 @@
     <% end -%>
   </tbody>
 </table>
+</div>
 <br/>
