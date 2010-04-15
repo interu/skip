@@ -3,7 +3,7 @@
 </style>
 <% xml_doc = REXML::Document.new @mails -%>
 <% fullcount = xml_doc.elements.each("feed/fullcount") { |count| count } -%>
-<div style="font-weight:bold;font-size:16px;"><%= "メール (#{fullcount}件)" %></div>
+<div style="font-weight:bold;"><%= "メール (#{fullcount}件)" %></div>
 <table width="100%">
     <col width="80%">
     <col width="20%">
@@ -14,7 +14,7 @@
             <div class="padding_left15"><%= link_to(h(truncate(mail.elements['title'].text, :length => 40)), mail.elements['link'].attribute("href").to_s, :target => "_blank") %></div>
           </td>
           <td>
-            <span class="small_text"><%= h(truncate(mail.elements['author/name'].text, :length => 10)) %></span>
+            <div align="right"><span class="small_text"><%= h(truncate(mail.elements['author/name'].text, :length => 10)) %></span></div>
           </td>
         </tr>
       <% end -%>
