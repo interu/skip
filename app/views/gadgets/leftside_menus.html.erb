@@ -1,7 +1,12 @@
+<style>
+  div#gadget_wrapper h2{background-color:#F5F5F5;}
+  div#gadget_wrapper {background-color:#F8F8FF;}
+</style>
+
 <div align="center" class="ui-corner-all" style="background-color:#F7F7F8;padding:10px;">
   <%= show_picture(current_user, :width => 128, :height => 128) %>
   <br/>
-  <%= link_to(current_user.name, polymorphic_url([current_tenant, current_target_user, :board_entries])) %>
+  <%= link_to(current_user.name, polymorphic_url([current_tenant, current_user])) %>
 </div>
 <br/>
 

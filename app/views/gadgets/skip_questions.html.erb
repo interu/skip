@@ -5,10 +5,5 @@
 
 <div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= icon_tag('asterisk_orange') %><%= link_to("みんなからの質問", polymorphic_url([current_tenant, :board_entries], :search => { :aim_type => 'question' })) %></h2>
-  <%# TODO:pagesを利用しないように" -%>
-  <% @questions[:pages].each do |question| -%>
-    <div class="border_bottom">
-      <%= get_publication_type_icon(question) %><%= link_to(question.title, polymorphic_url([current_tenant, question.owner, question])) %>&nbsp;<span class="small_text">(<%= link_to(question.owner.name, polymorphic_url([current_tenant, question.owner])) %>)</span>
-    </div>
-  <% end -%>
+  <%= render :partial => "board_entries/topix_entries", :locals => { :entries => @questions[:pages], :show_owner_link => true } %>
 </div>

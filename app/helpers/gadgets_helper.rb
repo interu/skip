@@ -27,4 +27,8 @@ module GadgetsHelper
   def open_iframe url
     "javascript:IS_Portal.openIframe('#{url}');return false;"
   end
+
+  def site_url
+    GlobalInitialSetting['protocol'] + GlobalInitialSetting['host_and_port']
+  end
 end

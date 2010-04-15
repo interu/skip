@@ -1,0 +1,25 @@
+
+<% unless @recent_blogs[:pages].empty? -%>
+  <div id="gadget_wrapper" class="ui-corner-all">
+    <h2 class="ui-corner-top">
+      <%= link_to(icon_tag("page_copy") + @recent_blogs[:title_name], polymorphic_path([current_tenant, :mypage], :action => :entries, :list_type => @recent_blogs[:id_name])) -%>
+    </h2>
+    <div id="<%= @recent_blogs[:id_name] %>">
+      <%= render :partial => "mypages/list_block", :locals => @recent_blogs %>
+    </div>
+  </div>
+  <br/>
+<% end -%>
+<% @recent_bbs.each do |bbs| -%>
+  <% unless bbs[:pages].empty? -%>
+    <div id="gadget_wrapper" class="ui-corner-all">
+      <h2 class="ui-corner-top">
+        <%= link_to(icon_tag("page_copy") + bbs[:title_name], polymorphic_path([current_tenant, :mypage], :action => "entries", :list_type => bbs[:id_name])) -%>
+      </h2>
+      <div id="<%= bbs[:id_name] %>">
+        <%= render :partial => "mypages/list_block", :locals => bbs %>
+      </div>
+    </div>
+  <% end -%>
+  <br/>
+<% end -%>

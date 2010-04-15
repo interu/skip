@@ -162,7 +162,7 @@ EOF
     render :json => { :role => "gapps" }
   end
 
-  def skip_publicated_entries_tabs
+  def skip_publicated_entries_flat
 @timelines = {
       :id_name => 'timelines',
       :title_name => _('See all'),
@@ -176,6 +176,7 @@ EOF
     :pages => BoardEntry.from_recents.accessible(current_user).entry_type_is(BoardEntry::DIARY).timeline.scoped(:include => [ :user, :state ]).order_new.paginate(:page => target_page('recent_blogs'), :per_page => per_page),
     :per_page => per_page
   }
+@recent_bbs = recent_bbs
   end
 
   def notices
@@ -289,7 +290,7 @@ private
   end
 
   def per_page
-    10
+    5
   end
 
   def recent_day
@@ -302,6 +303,30 @@ private
 
   def gapps_domain
     "youroom.sg"
+  end
+
+  ### for flat
+    def recent_bbs
+    recent_bbs = []
+    gid_by_category = Group.gid_by_category
+    current_tenant.group_categories.ascend_by_sort_order.each do |category|
+      options = { :group_symbols => gid_by_category[category.id], :per_page => per_page }
+      recent_bbs << find_recent_bbs_as_locals(category.code.downcase, options)
+    end
+    recent_bbs
+  end
+  def find_recent_bbs_as_locals code, options = {}
+    category = current_tenant.group_categories.find_by_code(code)
+    id_name = category.code.downcase
+    pages = BoardEntry.from_recents.accessible(current_user).entry_type_is(BoardEntry::GROUP_BBS).timeline.scoped(:include => [ :user, :state ]).order_new.paginate(:page => target_page(id_name), :per_page => per_page)
+
+    locals = {
+      :id_name => id_name,
+      :title_icon => "group",
+      :title_name => category.name,
+      :per_page => per_page,
+      :pages => pages
+    }
   end
 
 end
