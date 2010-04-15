@@ -1,6 +1,7 @@
 <style>
   div#gadget_wrapper h2{background-color:#F5F5F5;}
   div#gadget_wrapper {background-color:#F8F8FF;}
+  div.margin10 {margin:0 0 0 10px;}
 </style>
 
 <div align="center" class="ui-corner-all" style="background-color:#F7F7F8;padding:10px;">
@@ -19,4 +20,11 @@
 <div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= icon_tag('world') %><%= "リンク集" %></h2>
   <%= render :partial => "gadgets/link_lists", :locals => { :links => @external_links } %>
+</div>
+<br/>
+
+<div id="gadget_wrapper" class="ui-corner-all">
+  <h2 class="ui-corner-top"><%= icon_tag('telephone') %><%= "お問い合わせ" %></h2>
+  <div class="margin10"><%= mail_to("info@youroom.sg", "社内情報システム部") %></div>
+  <div class="margin10">内線 00-0000</div>
 </div>

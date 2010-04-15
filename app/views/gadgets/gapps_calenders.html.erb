@@ -1,9 +1,10 @@
 <style>
+  table#gapps_cal td {border:1px solid #CCCCCC;}
   table#gapps_cal td.saturday{background-color:#F5FFFA}
   table#gapps_cal td.sunday{background-color:#FFF0F5}
   table#gapps_cal td.date{font-size:14px;text-align:center;vertical-align:center;}
   table#gapps_cal td.detail{vertical-align:top;}
-  table#gapps_cal td.detail ul{list-style-position:inside;padding:2px 2px;font-size:14px;margin:0}
+  table#gapps_cal td.detail ul{list-style-type:none;list-style-position:inside;padding:2px 2px;font-size:14px;margin:0}
   table#gapps_cal td.detail ul li{padding:2px}
 </style>
 <%# TODO: 以下のロジックをcontrollerに %>
@@ -12,7 +13,7 @@
 <div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= icon_tag("new") + "カレンダー " %><%= "(" + record_date.strftime('%Y年%m月%d日') + ")" %></h2>
 
-<table id="gapps_cal" width="100%" cellspacing="0" border="1" border-color="#999999" style="padding:10px 10px;">
+<table id="gapps_cal" cellspacing="0" width="98%" style="margin:1%;border-collapse: collapse;">
   <col width="20%" />
   <col />
   <tbody>
