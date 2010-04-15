@@ -1,4 +1,17 @@
 <div style="font-weight:bold;">店舗matic</div>
-<% @entries.each do |entry| -%>
-  <div class="padding_left15"><%= entry[:status] %> <%= link_to(entry[:title], entry[:title_url]) %> <span class="small_text">(<%= link_to(entry[:from], entry[:from_url]) %>)</span></div>
-<% end -%>
+<table width="100%">
+  <col width="80%">
+  <col width="20%">
+  <tbody>
+    <% @entries.each do |entry| -%>
+      <tr>
+        <td>
+          <div class="padding_left15"><%= entry[:status] %> <%= link_to(entry[:title], entry[:title_url]) %></div>
+        </td>
+        <td align="right">
+          <span class="small_text"><%= entry[:from] %></span>
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
