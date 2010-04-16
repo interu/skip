@@ -158,8 +158,10 @@ EOF
   end
 
   def user_role
-    # TODO: モック tenantやuserからロールを判定して返すように
-    render :json => { :role => "gapps" }
+    # TODO: モック 返す値は仮の値
+    tenant = current_user.tenant
+
+    render :json => { :tenant => tenant.id, :type => tenant.op_url ? "gapps" : "sns", :role => current_user.admin? ? "admin" : "user" }
   end
 
   def skip_publicated_entries_flat
@@ -236,7 +238,7 @@ EOF
 
   end
 
-  def leftside_menus 
+  def leftside_menus
 
     @external_links = [
       {:title => "勤怠管理", :url => "#"},
