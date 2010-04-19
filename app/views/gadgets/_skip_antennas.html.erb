@@ -6,13 +6,13 @@
   <% entries.each do |entry| -%>
     <tr>
       <td>
-        <div class="margin_left15">
+        <div class="contents_title">
           <%= link_to h(entry.title), polymorphic_url([current_tenant, entry.owner, entry]) %>
           <span class="small_text"> by <%= user_link_to entry.user %></span>
         </div>
       </td>
       <td align="right">
-        <span class="small_text"><%= h entry.updated_on.strftime(_("%B %d %Y")) %></span>
+        <span class="small_text" style="margin:3px;"><%= h entry.updated_on.strftime(_("%B %d %Y")) %></span>
       </td>
     </tr>
   <% end -%>

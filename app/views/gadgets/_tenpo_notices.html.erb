@@ -6,10 +6,10 @@
     <% @entries.each do |entry| -%>
       <tr>
         <td>
-          <div class="margin_left15"><%= entry[:status] %> <%= link_to(entry[:title], entry[:title_url]) %></div>
+          <div class="contents_title"><%= entry[:status] %> <%= link_to(entry[:title], entry[:title_url]) %></div>
         </td>
         <td align="right">
-          <span class="small_text"><%= entry[:from] %></span>
+          <span class="small_text" style="margin:3px;"><%= entry[:from] %></span>
         </td>
       </tr>
     <% end -%>
