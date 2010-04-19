@@ -10,9 +10,9 @@
     <li><%= link_to_unless_current(icon_tag("email") + "youRoom", "https://r50.youroom.sg/", :onclick => open_iframe("https://r50.youroom.sg/")) %></li>
   <% end -%>
 
-  <li><%= link_to_unless_current(icon_tag('report', :title => _('Entries')) + _('Entries'), polymorphic_url([current_tenant, :board_entries]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :board_entries])}")) if current_tenant.board_entries.count > 0 %></li>
-  <li><%= link_to_unless_current(icon_tag('disk_multiple', :title => _('Files')) + _('Files'), polymorphic_url([current_tenant, :share_files]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :share_files])}")) if current_tenant.share_files.count > 0 %></li>
-  <li><%= link_to_unless_current(icon_tag('user_suit', :title => _('Users')) + _('Users'), polymorphic_url([current_tenant, :users]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :users])}")) if current_tenant.users.count > 1 %></li>
-  <li><%= link_to_unless_current(icon_tag('group', :title => _('Groups')) + _('Groups'), polymorphic_url([current_tenant, :groups]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :groups])}")) if current_tenant.groups.count > 0 %></li>
+  <li><%= link_to_unless_current(icon_tag('report', :title => _('Entries')) + _('Entries'), polymorphic_url([current_tenant, :board_entries]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :board_entries])}")) %></li>
+  <li><%= link_to_unless_current(icon_tag('disk_multiple', :title => _('Files')) + _('Files'), polymorphic_url([current_tenant, :share_files]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :share_files])}")) %></li>
+  <li><%= link_to_unless_current(icon_tag('user_suit', :title => _('Users')) + _('Users'), polymorphic_url([current_tenant, :users]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :users])}")) %></li>
+  <li><%= link_to_unless_current(icon_tag('group', :title => _('Groups')) + _('Groups'), polymorphic_url([current_tenant, :groups]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :groups])}")) %></li>
   <li><%= link_to_unless_current(icon_tag('star') + '店舗matic', "https://demo2.tempomatic.jp/h2/Login.do", :target => "_blank") %></li>
 </ul>
