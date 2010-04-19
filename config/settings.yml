@@ -158,7 +158,7 @@ enable_invitation_feature:                                # 招待機能の有�
   default: false
 
 enable_bookmark_feature:                                  # ブックマーク機能の有効化
-  format :boolean
+  format: boolean
   default: false
 
 enable_ranking_feature:                                   # ランキング機能の有効化
