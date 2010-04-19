@@ -255,6 +255,10 @@ EOF
     ]
   end
 
+  def skip_joined_groups
+    @groups = current_user.groups.active.order_active.limit(5)
+  end
+
 private
   def is_user2current_info
     if request_of_infoscoop?
