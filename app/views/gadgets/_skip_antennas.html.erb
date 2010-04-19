@@ -1,0 +1,19 @@
+<div class="notice_title">SKIP新着通知 (未読<%= entries.count %>件)</div>
+<table width="100%">
+  <col width="80%">
+  <col width="20%">
+
+  <% entries.each do |entry| -%>
+    <tr>
+      <td>
+        <div class="margin_left15">
+          <%= link_to h(entry.title), polymorphic_url([current_tenant, entry.owner, entry]) %>
+          <span class="small_text"> by <%= user_link_to entry.user %></span>
+        </div>
+      </td>
+      <td align="right">
+        <span class="small_text"><%= h entry.updated_on.strftime(_("%B %d %Y")) %></span>
+      </td>
+    </tr>
+  <% end -%>
+</table>
