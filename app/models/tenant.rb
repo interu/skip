@@ -40,6 +40,14 @@ class Tenant < ActiveRecord::Base
     total_share_file_size
   end
 
+  def type
+    self.view_type || (self.op_url ? "gapps" : "sns")
+  end
+
+  def type?(type)
+    (self.type.to_s == type.to_s)
+  end
+
   private
   def total_share_file_size
     self.share_files.map(&:file_size).delete_if{ |fs| fs == -1 }.sum

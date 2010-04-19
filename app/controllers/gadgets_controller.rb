@@ -161,7 +161,7 @@ EOF
     # TODO: モック 返す値は仮の値
     tenant = current_user.tenant
 
-    render :json => { :tenant => tenant.id, :type => (tenant.view_type || (tenant.op_url ? "gapps" : "sns")), :role => current_user.admin? ? "admin" : "user" }
+    render :json => { :tenant => tenant.id, :type => (tenant.type), :role => current_user.admin? ? "admin" : "user" }
   end
 
   def skip_publicated_entries_flat

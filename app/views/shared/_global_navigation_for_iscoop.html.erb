@@ -1,9 +1,14 @@
 <ul id="nav">
   <%# FIXME 初期状態で隠したいというためだけに毎回SQLを発行して件数を取得している。少しでもデータが出来るとまったく無駄な処理なのでなんとかならないか %>
   <li class="home_link"><%= link_to_unless_current(icon_tag('house') + 'ポータル', "javascript:void(0)", :onclick => "javascript:IS_Portal.goHome();return false;") %></li>
-
-  <li><%= link_to_unless_current(icon_tag('calendar') + 'カレンダー', "https://www.google.com/calendar/hosted/#{gapps_domain}/render", :onclick => open_iframe("https://www.google.com/calendar/hosted/#{gapps_domain}/render")) %></li>
+  <% if current_tenant.type?(:gapps) -%>
+    <li><%= link_to_unless_current(icon_tag('calendar') + 'カレンダー', "https://www.google.com/calendar/hosted/#{gapps_domain}/render", :onclick => open_iframe("https://www.google.com/calendar/hosted/#{gapps_domain}/render")) %></li>
   <li><%= link_to_unless_current(icon_tag('email') + 'メール', "https://mail.google.com/a/#{gapps_domain}/", :target => "_blank") %></li>
+  <% end -%>
+  <% if current_tenant.type?(:redmine) -%>
+    <li><%= link_to_unless_current(icon_tag('calendar') + "Remine", "http://dev.openskip.org/redmine/projects/show/sample-skip-dev", :onclick => open_iframe("http://dev.openskip.org/redmine/projects/show/sample-skip-dev")) %></li>
+    <li><%= link_to_unless_current(icon_tag("email") + "youRoom", "https://r50.youroom.sg/", :onclick => open_iframe("https://r50.youroom.sg/")) %></li>
+  <% end -%>
 
   <li><%= link_to_unless_current(icon_tag('report', :title => _('Entries')) + _('Entries'), polymorphic_url([current_tenant, :board_entries]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :board_entries])}")) if current_tenant.board_entries.count > 0 %></li>
   <li><%= link_to_unless_current(icon_tag('disk_multiple', :title => _('Files')) + _('Files'), polymorphic_url([current_tenant, :share_files]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :share_files])}")) if current_tenant.share_files.count > 0 %></li>
