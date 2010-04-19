@@ -8,11 +8,15 @@
           <td width="40px">
             <div class="picture"><%= show_picture(entry.user, :width => 24, :height => 24) %></div>
           </td>
-          <td>
+          <td class="entry_outline">
             <div>
-              <%= link_to h(entry.title), polymorphic_url([current_tenant, entry.owner, entry]) %> (<%= h entry.state.access_count %>)
-              <span class="small_text"> by <%= user_link_to entry.user %></span>
+              <%= link_to h(entry.title), polymorphic_url([current_tenant, entry.owner, entry]) %>
+              <span class="infos"> by </span><span class="small_text"><%= user_link_to entry.user %></span>
             </div>
+            <div><span class="infos"><%= get_entry_infos(entry) %></span></div>
+          </td>
+          <td class="date" width="75px">
+            <%= h entry.updated_on.strftime(_("%B %d %Y")) %>
           </td>
         </tr>
       <% end -%>
