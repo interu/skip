@@ -1,6 +1,9 @@
 <% links.each do |link| -%>
   <div class="margin10">
-    <%= link_to(link[:title], link[:url]) %>
+    <%= link_to(icon_tag('link') + link[:title], link[:url]) %>
+    <% if link[:abst] -%>
+      <div style="font-size:10px;margin: 0 0 10px 0;"><%= link[:abst] %></div>
+    <% end -%>
   </div>
 <% end -%>
 

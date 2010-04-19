@@ -1,6 +1,6 @@
 <% xml_doc = REXML::Document.new @mails -%>
 <% fullcount = xml_doc.elements.each("feed/fullcount") { |count| count } -%>
-<div class="notice_title"><%= "メール (#{fullcount}件)" %></div>
+<div class="notice_title"><%= "メール (未読#{fullcount}件)" %></div>
 <table width="100%">
     <col width="80%">
     <col width="20%">

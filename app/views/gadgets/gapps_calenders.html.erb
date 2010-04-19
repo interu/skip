@@ -36,12 +36,12 @@
                 <% if (Time::local(*st[0..-3]).day == (record_date + i).day || (Time::local(*st[0..-3]).day <= (record_date + i).day && (record_date + i).day < Time::local(*et[0..-3]).day)) -%>
                   <li>
                     <%# TODO:linkのhrefが複数あることを考慮すること -%>
-                    <%= link_to(h(truncate(calender.elements['title'].text, 20)), calender.elements['link'].attribute('href').to_s) -%>
                     <% if (start_time == "00:00" && end_time == "00:00") -%>
                       <%= "終日" %>
                     <% else -%>
                       <%= start_time %>-<%= end_time %>
                     <% end -%>
+                    <%= link_to(h(truncate(calender.elements['title'].text, 20)), calender.elements['link'].attribute('href').to_s) -%>
                   </li>
                 <% end -%>
               <% end -%>

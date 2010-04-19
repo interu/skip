@@ -241,14 +241,14 @@ EOF
   def leftside_menus
 
     @external_links = [
-      {:title => "勤怠管理", :url => "#"},
-      {:title => "業務マニュアル", :url => "#"},
-      {:title => "営業資料", :url => "#"},
+      {:title => "勤怠管理", :url => "#", :abst => '出社/退社時に入力してください。'},
+      {:title => "業務マニュアル", :url => "#", :abst => '業務で利用するツールの使い方等のマニュアルがまとまっています。'},
+      {:title => "営業資料", :url => "#", :abst => '部門別営業資料がまとめて格納されています。'},
     ]
     @action_links = [
       {:title => "メールを書く", :url => "https://mail.google.com/a/#{gapps_domain}/"},
-      {:title => "スケジュールを見る", :url => "https://www.google.com/calendar/hosted/#{gapps_domain}/render"},
-      {:title => "スケジュールを入力する", :url => "http://www.google.com/calendar/hosted/#{gapps_domain}/event?action=TEMPLATE&text="},
+      {:title => "カレンダーを見る", :url => "https://www.google.com/calendar/hosted/#{gapps_domain}/render"},
+      {:title => "カレンダーに入力する", :url => "http://www.google.com/calendar/hosted/#{gapps_domain}/event?action=TEMPLATE&text="},
       {:title => "業務報告", :url => "#"},
       {:title => "質問を書く", :url => new_polymorphic_url([current_tenant, current_user, :board_entry], :board_entry => {:aim_type => 'question'})},
       {:title => "ブログを書く", :url => new_polymorphic_url([current_tenant, current_user, :board_entry])},

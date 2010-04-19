@@ -2,7 +2,7 @@
   <%# FIXME 初期状態で隠したいというためだけに毎回SQLを発行して件数を取得している。少しでもデータが出来るとまったく無駄な処理なのでなんとかならないか %>
   <li class="home_link"><%= link_to_unless_current(icon_tag('house') + 'ポータル', "javascript:void(0)", :onclick => "javascript:IS_Portal.goHome();return false;") %></li>
 
-  <li><%= link_to_unless_current(icon_tag('calendar') + 'スケジュール', "https://www.google.com/calendar/hosted/#{gapps_domain}/render", :onclick => open_iframe("https://www.google.com/calendar/hosted/#{gapps_domain}/render")) %></li>
+  <li><%= link_to_unless_current(icon_tag('calendar') + 'カレンダー', "https://www.google.com/calendar/hosted/#{gapps_domain}/render", :onclick => open_iframe("https://www.google.com/calendar/hosted/#{gapps_domain}/render")) %></li>
   <li><%= link_to_unless_current(icon_tag('email') + 'メール', "https://mail.google.com/a/#{gapps_domain}/", :target => "_blank") %></li>
 
   <li><%= link_to_unless_current(icon_tag('report', :title => _('Entries')) + _('Entries'), polymorphic_url([current_tenant, :board_entries]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :board_entries])}")) if current_tenant.board_entries.count > 0 %></li>

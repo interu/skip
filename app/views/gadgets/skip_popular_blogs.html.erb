@@ -1,5 +1,5 @@
 <div id="gadget_wrapper" class="ui-corner-all">
-  <h2 class="ui-corner-top"><%= icon_tag("chart_bar") + h(@popular_blogs[:title_name]) %> (<%= Time.now.ago(recent_day.days).strftime(_('%B %d %Y')) %> - <%= Time.now.strftime(_('%B %d %Y')) %>)</h2>
+  <h2 class="ui-corner-top"><%= icon_tag("chart_bar") + h(@popular_blogs[:title_name]) %> (<%= Time.now.ago(recent_day.days).strftime(_('%B %d %Y')) %> - <%= Time.now.strftime(_('%B %d %Y')) %>) - SKIP</h2>
   <% unless @popular_blogs[:pages].empty? -%>
     <table>
       <% @popular_blogs[:pages].each_with_index do |entry, i| %>

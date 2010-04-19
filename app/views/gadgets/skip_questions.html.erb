@@ -4,6 +4,6 @@
 </style>
 
 <div id="gadget_wrapper" class="ui-corner-all">
-  <h2 class="ui-corner-top"><%= icon_tag('asterisk_orange') %><%= link_to("みんなからの質問", polymorphic_url([current_tenant, :board_entries], :search => { :aim_type => 'question' })) %></h2>
+  <h2 class="ui-corner-top"><%= icon_tag('asterisk_orange') %><%= link_to("みんなからの質問", polymorphic_url([current_tenant, :board_entries], :search => { :aim_type => 'question' })) %> - SKIP</h2>
   <%= render :partial => "board_entries/topix_entries", :locals => { :entries => @questions[:pages], :show_owner_link => true } %>
 </div>
