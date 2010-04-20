@@ -22,7 +22,7 @@
         </td>
         <td class="detail">
           <ul>
-            <% @calenders.each do |calender| -%>
+            <% @contents.each do |calender| -%>
               <%# TODO:繰り返し登録にも対応するように %>
               <% if calender.elements['gd:when'] -%>
                 <% st = ParseDate::parsedate(calender.elements['gd:when'].attribute('startTime').to_s) -%>
