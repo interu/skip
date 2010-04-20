@@ -129,58 +129,7 @@ class GadgetsController < ApplicationController
   end
 
   def notices
-    mails_xml =<<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<feed version="0.3" xmlns="http://purl.org/atom/ns#">
-<title>Gmail - Inbox for skip_office@youroom.sg</title>
-<tagline>New messages in your Gmail Inbox</tagline>
-<fullcount>3</fullcount>
-<link rel="alternate" href="http://mail.google.com/a/youroom.sg" type="text/html" />
-<modified>2010-04-07T12:12:04Z</modified>
-<entry>
-<title>色やテーマを使って Gmail のデザインを自由に設定</title>
-<summary>設定] の [テーマ] タブから、色やテーマを指定して受信トレイをより ...</summary>
-<link rel="alternate" href="http://mail.google.com/a/youroom.sg?account_id=skip_office%40youroom.sg&amp;message_id=127d8156af352cdd&amp;view=conv&amp;extsrc=atom" type="text/html" />
-
-<modified>2010-04-07T11:43:54Z</modified>
-<issued>2010-04-07T11:43:54Z</issued>
-<id>tag:gmail.google.com,2004:1332363274078203101</id>
-<author>
-<name>Gmail チーム</name>
-<email>mail-noreply@google.com</email>
-</author>
-</entry>
-<entry>
-<title>携帯電話で Gmail にアクセス</title>
-<summary>外出先でちょっとした空き時間でもケータイから Gmail を使ってメールを ...</summary>
-
-<link rel="alternate" href="http://mail.google.com/a/youroom.sg?account_id=skip_office%40youroom.sg&amp;message_id=127d8156a691a0c9&amp;view=conv&amp;extsrc=atom" type="text/html" />
-<modified>2010-04-07T11:43:54Z</modified>
-<issued>2010-04-07T11:43:54Z</issued>
-<id>tag:gmail.google.com,2004:1332363273933267145</id>
-<author>
-<name>Gmail チーム</name>
-<email>mail-noreply@google.com</email>
-</author>
-</entry>
-<entry>
-<title>Gmail の使用を開始する</title>
-
-<summary>Gmail ならメールがもっと便利に、もっと楽しくなります。 フォルダに ...</summary>
-<link rel="alternate" href="http://mail.google.com/a/youroom.sg?account_id=skip_office%40youroom.sg&amp;message_id=127d81569a181f95&amp;view=conv&amp;extsrc=atom" type="text/html" />
-<modified>2010-04-07T11:43:54Z</modified>
-<issued>2010-04-07T11:43:54Z</issued>
-<id>tag:gmail.google.com,2004:1332363273723977621</id>
-<author>
-<name>Gmail チーム</name>
-<email>mail-noreply@google.com</email>
-</author>
-</entry>
-</feed>
-EOF
-    doc = REXML::Document.new(mails_xml)
-    @mails = doc.elements.to_a('//feed/entry')
-    @mail_unreads = doc.elements.each("//feed/fullcount") { |count| count }
+    oauth_gapps("mail")
 
     @entries = [
       {:title => 'テスト登録', :title_url => 'https://demo2.tempomatic.jp/h2/STRViewNotice.do?noticeId=15&version=0', :status => '[重要]', :from => 'ネクスウェイ', :from_url => 'http://www.google.co.jp'},
@@ -293,7 +242,7 @@ private
     when "mail"
       "https://mail.google.com/a/#{gapps_domain}/feed/atom?xoauth_requestor_id=#{current_user.email}"
     when "calender"
-      "https://www.google.com/calendar/hosted/#{gapps_domain}?xoauth_requestor_id=#{current_user.email}"
+      "https://www.google.com/calendar/feeds/default/private/full?xoauth_requestor_id=#{current_user.email}"
     end
 
     oauth_consumer = OAuth::Consumer.new(

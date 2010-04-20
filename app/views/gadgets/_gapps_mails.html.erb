@@ -1,9 +1,9 @@
-<div class="notice_title"><%= icon_tag('email') %><%= "メール (未読#{@mail_unreads}件)" %></div>
+<div class="notice_title"><%= icon_tag('email') %><%= "メール (未読XX件)" %></div>
 <table width="100%">
     <col width="80%">
     <col width="20%">
     <tbody>
-      <% @mails.each do |mail| -%>
+      <% @contents.each do |mail| -%>
         <tr>
           <td>
             <div class="contents_title"><%= link_to(h(truncate(mail.elements['title'].text, :length => 40)), mail.elements['link'].attribute("href").to_s, :target => "_blank") %></div>
