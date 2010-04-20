@@ -7,8 +7,6 @@
   table#gapps_cal td.detail ul{list-style-type:none;list-style-position:inside;padding:2px 2px;font-size:14px;margin:0}
   table#gapps_cal td.detail ul li{padding:2px}
 </style>
-<%# TODO: 以下のロジックをcontrollerに %>
-<% xml_doc = REXML::Document.new @calenders -%>
 <% record_date = Date.today -%>
 <div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= icon_tag("calendar") + "カレンダー " %><%= "(" + record_date.strftime('%Y年%m月%d日') + ")" %></h2>
@@ -24,8 +22,7 @@
         </td>
         <td class="detail">
           <ul>
-            <%# TODO:helperメソッドとしてロジックはviewから排除する -%>
-            <% xml_doc.elements.each("feed/entry") do |calender| -%>
+            <% @calenders.each do |calender| -%>
               <%# TODO:繰り返し登録にも対応するように %>
               <% if calender.elements['gd:when'] -%>
                 <% st = ParseDate::parsedate(calender.elements['gd:when'].attribute('startTime').to_s) -%>

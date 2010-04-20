@@ -3,7 +3,7 @@
   <li class="home_link"><%= link_to_unless_current(icon_tag('house') + 'ポータル', "javascript:void(0)", :onclick => "javascript:IS_Portal.goHome();return false;") %></li>
   <% if current_tenant.type?(:gapps) -%>
     <li><%= link_to_unless_current(icon_tag('calendar') + 'カレンダー', "https://www.google.com/calendar/hosted/#{gapps_domain}/render", :onclick => open_iframe("https://www.google.com/calendar/hosted/#{gapps_domain}/render")) %></li>
-  <li><%= link_to_unless_current(icon_tag('email') + 'メール', "https://mail.google.com/a/#{gapps_domain}/", :target => "_blank") %></li>
+    <li><%= link_to_unless_current(icon_tag('email') + 'メール', "https://mail.google.com/a/#{gapps_domain}/", :target => "_blank") %></li>
   <% end -%>
   <% if current_tenant.type?(:redmine) -%>
     <li><%= link_to_unless_current(icon_tag('calendar') + "Remine", "http://dev.openskip.org/redmine/projects/show/sample-skip-dev", :onclick => open_iframe("http://dev.openskip.org/redmine/projects/show/sample-skip-dev")) %></li>
