@@ -1,12 +1,10 @@
-<% xml_doc = REXML::Document.new @mails -%>
-<% fullcount = xml_doc.elements.each("feed/fullcount") { |count| count } -%>
 <div id="gadget_wrapper" class="ui-corner-all">
-  <h2 class="ui-corner-top"><%= link_to("メール (#{fullcount}件)", "https://mail.google.com/a/#{gapps_domain}/") %></h2>
+  <h2 class="ui-corner-top"><%= link_to("メール", "https://mail.google.com/a/#{gapps_domain}/") %></h2>
   <table>
     <col />
     <col width="150px" />
     <tbody>
-      <% xml_doc.elements.each("feed/entry") do |mail| -%>
+      <% @mails.each do |mail| -%>
         <tr>
           <td>
             <div><%= link_to(h(truncate(mail.elements['title'].text, :length => 26)), mail.elements['link'].attribute("href").to_s, :target => "_blank") %></div>
