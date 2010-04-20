@@ -293,9 +293,9 @@ private
     accsess_url = nil
     case app_name
     when "mail"
-      access_url = "https://mail.google.com/mail/feed/atom?xoauth_requestor_id=#{current_user.email}"
+      access_url = "https://mail.google.com/a/#{gapps_domain}/feed/atom?xoauth_requestor_id=#{current_user.email}"
     when "calender"
-      access_url = "https://www.google.com/calendar/hosted/youroom.sg?xoauth_requestor_id=#{current_user.email}"
+      access_url = "https://www.google.com/calendar/hosted/#{gapps_domain}?xoauth_requestor_id=#{current_user.email}"
     end
 
     oauth_consumer = OAuth::Consumer.new(
