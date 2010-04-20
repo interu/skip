@@ -1,0 +1,28 @@
+<%
+  @informations = [
+      {:title => "Amazon EC2ハンズオントレーニングを開催します", :url => "https://test-live.skipaas.jp/tenants/3/users/5/board_entries/24", :date => "2010/04/20"},
+      {:title => "TIS Enterprise Ondemand Service(PaaS/IaaS)を7月より提供開始します", :url => "https://test-live.skipaas.jp/tenants/3/users/5/board_entries/25", :date => "2010/04/20"}
+  ]
+%>
+
+<div id="gadget_wrapper" class="ui-corner-all">
+  <h2 class="ui-corner-top"><%= icon_tag('lightbulb') %><%= "お知らせ" %></h2>
+  <table width="100%">
+    <col width="80%">
+    <col width="20%">
+    <tbody>
+      <% @informations.each do |info| -%>
+        <tr>
+          <td>
+            <div><%= link_to(info[:title], info[:url]) %></div>
+          </td>
+          <td align="right">
+            <span class="small_text" style="margin:3px;"><%= info[:date] %></span>
+          </td>
+        </tr>
+      <% end -%>
+    </tbody>
+  </table>
+</div>
+
+

@@ -5,6 +5,9 @@
   div.contents_title {margin:3px 0 3px 15px;}
   td {margin:0px;padding:0px;}
 </style>
+<%= render :partial => 'informations' %>
+<br/>
+
 <div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= icon_tag("new") + "新着情報" %></h2>
   <%= render :partial => 'gapps_mails' %>
