@@ -34,35 +34,7 @@ EOF
   end
 
   def gapps_mails
-    require 'oauth'
-    oauth_consumer = OAuth::Consumer.new(
-       @consumer_key,
-       @consumer_secret,
-       {
-         :site => "https://www.google.com",
-         :scheme => :header,
-         :http_method => :post,
-         :request_token_path => "/accounts/OAuthGetRequestToken",
-         :access_token_path  => "/accounts/OAuthGetAccessToken",
-         :authorize_path     => "/accounts/OAuthAuthorizeToken"
-       }
-    )
-
-    access_token = OAuth::AccessToken.new oauth_consumer
-    response = access_token.get("https://mail.google.com/mail/feed/atom?xoauth_requestor_id=#{current_user.email}")
-    case response
-    when Net::HTTPSuccess
-      @mails = REXML::Document.new(response.body).elements.to_a('//feed/entry')
-    when Net::HTTPRedirection
-      response = access_token.get(response['Location'])
-      @mails = REXML::Document.new(response.body).elements.to_a('//feed/entry')
-    else
-      RAILS_DEFAULT_LOGGER.error "Failed to get user info via OAuth"
-      flash[:notice] = "Authentication failed"
-      redirect_to :action => :index
-      return
-    end
-
+    oauth_gapps("mail")
   end
 
   def skip_questions
@@ -315,4 +287,47 @@ private
     }
   end
 
+
+  def oauth_gapps app_name
+    require 'oauth'
+    accsess_url = nil
+    case app_name
+    when "mail"
+      access_url = "https://mail.google.com/mail/feed/atom?xoauth_requestor_id=#{current_user.email}"
+    when "calender"
+      access_url = "https://www.google.com/calendar/hosted/youroom.sg?xoauth_requestor_id=#{current_user.email}"
+    end
+
+    oauth_consumer = OAuth::Consumer.new(
+       @consumer_key,
+       @consumer_secret,
+       {
+         :site => "https://www.google.com",
+         :scheme => :header,
+         :http_method => :post,
+         :request_token_path => "/accounts/OAuthGetRequestToken",
+         :access_token_path  => "/accounts/OAuthGetAccessToken",
+         :authorize_path     => "/accounts/OAuthAuthorizeToken"
+       }
+    )
+
+    access_token = OAuth::AccessToken.new oauth_consumer
+    response = access_token.get(access_url)
+    case response
+    when Net::HTTPSuccess
+      @contents = xml2arrayi(response.body)
+    when Net::HTTPRedirection
+      response = access_token.get(response['Location'])
+      @contents = xml2arrayi(response.body)
+    else
+      RAILS_DEFAULT_LOGGER.error "Failed to get user info via OAuth"
+      flash[:notice] = "Authentication failed"
+      redirect_to :action => :index
+      return
+    end
+  end
+
+  def xml2array xml
+    REXML::Document.new(xml).elements.to_a('//feed/entry')
+  end
 end

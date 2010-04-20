@@ -4,7 +4,7 @@
     <col />
     <col width="150px" />
     <tbody>
-      <% @mails.each do |mail| -%>
+      <% @contents.each do |mail| -%>
         <tr>
           <td>
             <div><%= link_to(h(truncate(mail.elements['title'].text, :length => 26)), mail.elements['link'].attribute("href").to_s, :target => "_blank") %></div>
