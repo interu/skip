@@ -8,7 +8,8 @@
 <div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= icon_tag("new") + "新着情報" %></h2>
   <%= render :partial => 'gapps_mails' %>
-  <%= render :partial => 'skip_antennas', :locals => {:entries => @antennas} %>
+  <%#= render :partial => 'skip_antennas', :locals => {:entries => @antennas} %>
+  <%= render :partial => 'antenna_box' %>
   <%= render :partial => 'tenpo_notices' %>
 </div>
 <br/>

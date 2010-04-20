@@ -1,0 +1,14 @@
+<div class="notice_title"><%= icon_tag 'transmit' %>SKIP新着通知</div>
+<div class="contents_title"><%= link_to(icon_tag('comment') +  _('Trace Comments'), polymorphic_url([current_tenant, :mypage], :action => 'entries_by_antenna', :target_type => 'comment')) + " (未読#{Notice.trace_comments_count(current_user)}件)" %></div>
+<% notices_group_by_type = current_user.notices.all(:include => :target).group_by(&:target_type) -%>
+<% notices_group_by_type.keys.each do |key| -%>
+  <% if sorted_notices = notices_group_by_type[key].sort_by{|n| n.unread_count(current_user)}.reverse.delete_if{|n| n.unread_count(current_user) == 0 } and !sorted_notices.empty? -%>
+    <% content_tag(:div, :class => 'contents_title') do -%>
+      <% sorted_notices.each do |notice| -%>
+        <% count_as_s = " (未読#{notice.unread_count(current_user).to_s}件)" -%>
+        <% icon_name = notice.target.is_a?(User) ? 'user_suit' : 'group' -%>
+        <%= link_to(icon_tag(icon_name) + truncate(h(notice.target.name), :length => 12), polymorphic_url([current_tenant, :mypage], :action => 'entries_by_antenna', :target_type => notice.target.class.name.downcase, :target_id => notice.target.id)) + count_as_s %>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+<% end -%>
