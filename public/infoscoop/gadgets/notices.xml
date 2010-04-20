@@ -17,7 +17,7 @@
             $("body").html(obj.text);
             gadgets.window.adjustHeight();
 
-            var links = $("a");
+            var links = $("a").not(".non_iframe");
             for(var i=0;i<links.length;i++){
                 links[i].onclick = function(){
                     try{

@@ -6,7 +6,7 @@
       <% @contents.each do |mail| -%>
         <tr>
           <td>
-            <div class="contents_title"><%= link_to(h(truncate(mail.elements['title'].text, :length => 40)), mail.elements['link'].attribute("href").to_s, :target => "_blank") %></div>
+            <div class="contents_title"><%= link_to(h(truncate(mail.elements['title'].text, :length => 40)), mail.elements['link'].attribute("href").to_s, :class => "non_iframe", :target => "_blank") %></div>
           </td>
           <td align="right">
             <span class="small_text" style="margin:3px;"><%= h(truncate(mail.elements['author/name'].text, :length => 10)) %></span>
