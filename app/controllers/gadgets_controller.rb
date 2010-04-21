@@ -221,6 +221,11 @@ private
 
   def oauth_gapps app_name
     require 'oauth'
+    if current_tenant.oauth_token
+      current_tenant.oauth_token.key = @consumer_key
+      current_tenant.oauth_token.secret = @consumer_secret
+    end
+
     access_url = case app_name
     when "mail"
       "https://mail.google.com/a/#{gapps_domain}/feed/atom?xoauth_requestor_id=#{current_user.email}"
