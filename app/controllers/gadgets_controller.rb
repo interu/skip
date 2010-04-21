@@ -51,23 +51,6 @@ class GadgetsController < ApplicationController
     end
   end
 
-  def tenpo_notices
-    @entries = [
-      {:title => 'テスト登録', :title_url => 'https://demo2.tempomatic.jp/h2/STRViewNotice.do?noticeId=15&version=0', :status => '[重要]', :from => 'ネクスウェイ', :from_url => 'http://www.google.co.jp'},
-      {:title => 'wiki文書を使用したお知らせ', :title_url => 'https://demo2.tempomatic.jp/h2/STRViewNotice.do?noticeId=13&version=0', :status => '[通常]', :from => 'ネクスウェイ', :from_url => 'http://www.google.co.jp'}
-    ]
-
-    respond_to do |format|
-      format.html
-    end
-  end
-
-  def skip_notices
-    respond_to do |format|
-      format.html
-    end
-  end
-
   def skip_recents
     @recent_users = {
       :id_name => "recent_users",
@@ -262,10 +245,10 @@ private
     response = access_token.get(access_url)
     case response
     when Net::HTTPSuccess
-      @contents = xml2array(response.body)
+      @contents = feed2array(response.body)
     when Net::HTTPRedirection
       response = access_token.get(response['Location'])
-      @contents = xml2array(response.body)
+      @contents = feed2array(response.body)
     else
       RAILS_DEFAULT_LOGGER.error "Failed to get user info via OAuth"
       flash[:notice] = "Authentication failed"
@@ -274,7 +257,7 @@ private
     end
   end
 
-  def xml2array xml
+  def feed2array xml
     REXML::Document.new(xml).elements.to_a('//feed/entry')
   end
 end
