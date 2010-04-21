@@ -14,5 +14,5 @@
   <li><%= link_to_unless_current(icon_tag('disk_multiple', :title => _('Files')) + _('Files'), polymorphic_url([current_tenant, :share_files]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :share_files])}")) %></li>
   <li><%= link_to_unless_current(icon_tag('user_suit', :title => _('Users')) + _('Users'), polymorphic_url([current_tenant, :users]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :users])}")) %></li>
   <li><%= link_to_unless_current(icon_tag('group', :title => _('Groups')) + _('Groups'), polymorphic_url([current_tenant, :groups]), :onclick => open_iframe("#{polymorphic_url([current_tenant, :groups])}")) %></li>
-  <li><%= link_to_unless_current(icon_tag('star') + '店舗matic', "https://demo2.tempomatic.jp/h2/Login.do", :target => "_blank") %></li>
+  <li><%= link_to_unless_current(icon_tag('star') + '店舗matic', "https://nexway2.tempomatic.jp/h2/Login.do", :target => "_blank") %></li>
 </ul>
