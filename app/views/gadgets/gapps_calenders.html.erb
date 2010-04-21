@@ -25,19 +25,12 @@
             <% @contents.each do |calender| -%>
               <%# TODO:繰り返し登録にも対応するように %>
               <% if calender.elements['gd:when'] -%>
-                <% st = ParseDate::parsedate(calender.elements['gd:when'].attribute('startTime').to_s) -%>
-                <% et = ParseDate::parsedate(calender.elements['gd:when'].attribute('endTime').to_s) -%>
-                <% start_time = Time::local(*st[0..-3]).strftime("%H:%M") %>
-                <% end_time = Time::local(*et[0..-3]).strftime("%H:%M") %>
+                <% start_time = calender.elements['gd:when'].attribute('startTime').to_time %>
+                <% end_time = calender.elements['gd:when'].attribute('endTime').to_time %>
 
-                <% if (Time::local(*st[0..-3]).day == (record_date + i).day || (Time::local(*st[0..-3]).day <= (record_date + i).day && (record_date + i).day < Time::local(*et[0..-3]).day)) -%>
+                <% if (start_time.to_date == (record_date + i) || start_time.to_date <= (record_date + i) && (record_date + i) < end_time.to_date) -%>
                   <li>
-                    <%# TODO:linkのhrefが複数あることを考慮すること -%>
-                    <% if (start_time == "00:00" && end_time == "00:00") -%>
-                      <%= "終日" %>
-                    <% else -%>
-                      <%= start_time %>-<%= end_time %>
-                    <% end -%>
+                    <%= time_of_calender(start_time, end_time) %>
                     <%= link_to(h(truncate(calender.elements['title'].text, 20)), calender.elements['link'].attribute('href').to_s) -%>
                   </li>
                 <% end -%>

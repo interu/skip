@@ -15,6 +15,16 @@
 
 module GadgetsHelper
 
+  def time_of_calender(start_time,end_time)
+    shm = start_time.strftime("%H:%M")
+    ehm = end_time.strftime("%H:%M")
+    if (shm == "00:00" && ehm == "00:00")
+      "終日"
+    else
+      "#{shm}-#{ehm}"
+    end
+  end
+
   def date2wday(date)
     case date.wday
     when 0

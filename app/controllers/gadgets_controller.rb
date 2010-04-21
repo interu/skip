@@ -54,13 +54,13 @@ class GadgetsController < ApplicationController
   def skip_recents
     @recent_users = {
       :id_name => "recent_users",
-      :pages => (current_tenant.users.active.recent(recent_day).order_recent.limit(5) - [current_user]).paginate(:page => target_page("recent_users"), :per_page => per_page),
+      :pages => (current_tenant.users.recent(recent_day).order_recent.limit(5) - [current_user]).paginate(:page => target_page("recent_users"), :per_page => per_page),
       :per_page => per_page
     }
 
     @recent_groups = {
       :id_name => "recent_groups",
-      :pages => current_tenant.groups.active.recent(recent_day).order_recent.limit(5).paginate(:page => target_page("recent_groups"), :per_page => per_page),
+      :pages => current_tenant.groups.recent(recent_day).order_recent.limit(5).paginate(:page => target_page("recent_groups"), :per_page => per_page),
       :per_page => per_page
     }
 
@@ -139,7 +139,7 @@ class GadgetsController < ApplicationController
   end
 
   def skip_joined_groups
-    @groups = current_user.groups.active.order_active.limit(5)
+    @groups = current_user.groups.order_active.limit(5)
   end
 
 private
@@ -197,9 +197,8 @@ private
   ### for flat
     def recent_bbs
     recent_bbs = []
-    gid_by_category = Group.gid_by_category
     current_tenant.group_categories.ascend_by_sort_order.each do |category|
-      options = { :group_symbols => gid_by_category[category.id], :per_page => per_page }
+      options = { :per_page => per_page }
       recent_bbs << find_recent_bbs_as_locals(category.code.downcase, options)
     end
     recent_bbs
@@ -222,8 +221,8 @@ private
   def oauth_gapps app_name
     require 'oauth'
     if current_tenant.oauth_token
-      current_tenant.oauth_token.key = @consumer_key
-      current_tenant.oauth_token.secret = @consumer_secret
+      @consumer_key = current_tenant.oauth_token.key
+      @consumer_secret = current_tenant.oauth_token.secret
     end
 
     access_url = case app_name
