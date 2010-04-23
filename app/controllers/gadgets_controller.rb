@@ -130,7 +130,10 @@ class GadgetsController < ApplicationController
       {:title => 'ブラインド掛率割引キャンペーン', :title_url => 'https://nexway2.tempomatic.jp/h2/STRViewNotice.do?noticeId=24682&version=0', :status => '[緊急]', :from => '情報システム部'},
       {:title => 'スポット品ＰＯＰについて', :title_url => 'https://nexway2.tempomatic.jp/h2/STRViewNotice.do?noticeId=24702&version=0', :status => '[通常]', :from => '情報システム部'}
     ]
-    #@antennas = BoardEntry.accessible(@current_user).unread(@current_user)
+  end
+
+  def skip_joined_groups
+    @groups = current_user.groups.order_active.limit(5)
   end
 
   def leftside_menus
@@ -150,7 +153,58 @@ class GadgetsController < ApplicationController
     ]
   end
 
-  def skip_joined_groups
+  #iframeマージン問題が解決するまで利用する
+  def center_menus
+    oauth_gapps("mail", current_user)
+
+    @entries = [
+      {:title => '節分恵方巻きフェア', :title_url => 'https://nexway2.tempomatic.jp/h2/STRViewNotice.do?noticeId=23117&version=0', :status => '[通常]', :from => '店舗運営部'},
+      {:title => 'ブラインド掛率割引キャンペーン', :title_url => 'https://nexway2.tempomatic.jp/h2/STRViewNotice.do?noticeId=24682&version=0', :status => '[緊急]', :from => '情報システム部'},
+      {:title => 'スポット品ＰＯＰについて', :title_url => 'https://nexway2.tempomatic.jp/h2/STRViewNotice.do?noticeId=24702&version=0', :status => '[通常]', :from => '情報システム部'}
+    ]
+
+    @questions = {
+      :id_name => 'questions',
+      :title_icon => "user_comment",
+      :title_name => _('Recent Questions'),
+      :pages => BoardEntry.from_recents.question.visible.accessible(current_user).order_new.scoped(:include => [:state, :user]),
+      :recent_day => recent_day
+    }
+
+    @popular_blogs = {
+      :title_name => _('Recent Popular Blogs'),
+      :per_page => per_page,
+      :pages => BoardEntry.accessible(current_user).scoped(
+                  :order => "board_entry_points.access_count DESC, board_entries.last_updated DESC, board_entries.id DESC",
+                  :include => [ :user, :state ]
+                ).timeline.diary.recent(recent_day.day).paginate(:page => params[:page], :per_page => per_page)
+    }
+
+    @recent_blogs = {
+      :id_name => 'recent_blogs',
+      :title_icon => "user",
+      :title_name => _('Blogs'),
+      :pages => BoardEntry.from_recents.accessible(current_user).entry_type_is(BoardEntry::DIARY).timeline.scoped(:include => [ :user, :state ]).order_new.paginate(:page => target_page('recent_blogs'), :per_page => per_page),
+      :per_page => per_page
+    }
+
+    @recent_bbs = recent_bbs
+
+    @recent_users = {
+      :id_name => "recent_users",
+      :pages => (current_tenant.users.recent(recent_day).order_recent.limit(5) - [current_user]).paginate(:page => target_page("recent_users"), :per_page => per_page),
+      :per_page => per_page
+    }
+
+    @recent_groups = {
+      :id_name => "recent_groups",
+      :pages => current_tenant.groups.recent(recent_day).order_recent.limit(5).paginate(:page => target_page("recent_groups"), :per_page => per_page),
+      :per_page => per_page
+    }
+  end
+
+  def rightside_menus
+    oauth_gapps("calender", current_user)
     @groups = current_user.groups.order_active.limit(5)
   end
 
