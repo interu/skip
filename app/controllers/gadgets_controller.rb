@@ -31,7 +31,7 @@ class GadgetsController < ApplicationController
 
   def gapps_group_calenders
     @group_calenders = []
-    group_users = User.find_by_section(current_user.section)
+    group_users = User.find(:all, :conditions => ["section = ?", current_user.section])
     group_users.each do |user|
       @group_calenders << oauth_gapps("calender", user)
     end

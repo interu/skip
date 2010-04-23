@@ -1,0 +1,18 @@
+<% record_date = Date.today -%>
+
+<% @group_calenders.each do |contents| %>
+    <h2><%= "schecule of calender.elements['author/name'].text" %></h2>
+  <% contents.each do |calender| -%>
+    <% for i in 0..6 -%>
+      <% if calender.elements['gd:when'] -%>
+        <% start_time = calender.elements['gd:when'].attribute('startTime').to_s.to_time %>
+        <% end_time = calender.elements['gd:when'].attribute('endTime').to_s.to_time %>
+
+        <% if (start_time.to_date == (record_date + i) || start_time.to_date <= (record_date + i) && (record_date + i) < end_time.to_date) -%>
+          <div><%= time_of_calender(start_time, end_time) %> <%= calender.elements['title'].text -%> <%= calender.elements['author/name'].text %></div>
+        <% end -%>
+      <% end -%>
+    <% end %>
+  <% end %>
+<% end %>
+
