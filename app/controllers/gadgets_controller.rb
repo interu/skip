@@ -23,14 +23,25 @@ class GadgetsController < ApplicationController
   helper_method :recent_day, :gapps_domain, :site_url
 
   def gapps_calenders
-    oauth_gapps("calender")
+    oauth_gapps("calender", current_user)
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def gapps_group_calenders
+    @group_calenders = []
+    group_users = User.find_by_section(current_user.section)
+    group_users.each do |user|
+      @group_calenders << oauth_gapps("calender", user)
+    end
     respond_to do |format|
       format.html
     end
   end
 
   def gapps_mails
-    oauth_gapps("mail") 
+    oauth_gapps("mail", current_user)
     respond_to do |format|
       format.html
     end
@@ -112,7 +123,7 @@ class GadgetsController < ApplicationController
   end
 
   def notices
-    oauth_gapps("mail")
+    oauth_gapps("mail", current_user)
 
     @entries = [
       {:title => '節分恵方巻きフェア', :title_url => 'https://nexway2.tempomatic.jp/h2/STRViewNotice.do?noticeId=23117&version=0', :status => '[通常]', :from => '店舗運営部'},
@@ -130,10 +141,10 @@ class GadgetsController < ApplicationController
       {:title => "営業資料", :url => "#", :abst => '部門別営業資料がまとめて格納されています。'},
     ]
     @action_links = [
-      {:title => "メールを書く", :url => "https://mail.google.com/a/#{gapps_domain}/"},
+      {:title => "メールを書く", :url => "https://mail.google.com/a/#{gapps_domain}/", :class => "non_iframe"},
       {:title => "カレンダーを見る", :url => "https://www.google.com/calendar/hosted/#{gapps_domain}/render"},
       {:title => "カレンダーに入力する", :url => "http://www.google.com/calendar/hosted/#{gapps_domain}/event?action=TEMPLATE&text="},
-      {:title => "業務報告", :url => "#"},
+      {:title => "業務報告を書く", :url => "#"},
       {:title => "質問を書く", :url => new_polymorphic_url([current_tenant, current_user, :board_entry], :board_entry => {:aim_type => 'question'})},
       {:title => "ブログを書く", :url => new_polymorphic_url([current_tenant, current_user, :board_entry])},
     ]
@@ -219,7 +230,7 @@ private
   end
 
 
-  def oauth_gapps app_name
+  def oauth_gapps app_name, user
     require 'oauth'
     if current_tenant.oauth_token
       @consumer_key = current_tenant.oauth_token.key
@@ -228,9 +239,9 @@ private
 
     access_url = case app_name
     when "mail"
-      "https://mail.google.com/a/#{gapps_domain}/feed/atom?xoauth_requestor_id=#{current_user.email}"
+      "https://mail.google.com/a/#{gapps_domain}/feed/atom?xoauth_requestor_id=#{user.email}"
     when "calender"
-      "https://www.google.com/calendar/feeds/default/private/full?xoauth_requestor_id=#{current_user.email}"
+      "https://www.google.com/calendar/feeds/default/private/full?xoauth_requestor_id=#{user.email}"
     end
 
     oauth_consumer = OAuth::Consumer.new(
