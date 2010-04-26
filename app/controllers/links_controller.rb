@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
 
   def index
-    @links = Link.all
+    @links = Link.find(:all, :conditions => ["tenant_id = ?", current_tenant])
   end
 
   def new
@@ -25,11 +25,11 @@ class LinksController < ApplicationController
   end
 
   def edit
-    @link = Link.find(params[:id])
+    @link = Link.find(:first, :conditions => ["id = ? AND tenant_id = ?", params[:id], current_tenant.id])
   end
 
   def update
-    @link = Link.find(params[:id])
+    @link = Link.find(:first, :conditions => ["id = ? AND tenant_id = ?", params[:id], current_tenant.id])
 
     respond_to do |format|
       if @link.update_attributes(params[:link])

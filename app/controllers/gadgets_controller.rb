@@ -137,12 +137,8 @@ class GadgetsController < ApplicationController
   end
 
   def leftside_menus
+    @external_links = Link.find(:all, :conditions => ["tenant_id = ?", current_tenant])
 
-    @external_links = [
-      {:title => "勤怠管理", :url => "#", :abst => '出社/退社時に入力してください。'},
-      {:title => "業務マニュアル", :url => "#", :abst => '業務で利用するツールの使い方等のマニュアルがまとまっています。'},
-      {:title => "営業資料", :url => "#", :abst => '部門別営業資料がまとめて格納されています。'},
-    ]
     @action_links = [
       {:title => "メールを書く", :url => "https://mail.google.com/a/#{gapps_domain}/", :class => "non_iframe"},
       {:title => "カレンダーを見る", :url => "https://www.google.com/calendar/hosted/#{gapps_domain}/render"},

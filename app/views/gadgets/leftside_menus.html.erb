@@ -17,11 +17,13 @@
 </div>
 <br/>
 
-<div id="gadget_wrapper" class="ui-corner-all">
-  <h2 class="ui-corner-top"><%= icon_tag('world') %><%= "リンク集" %></h2>
-  <%= render :partial => "gadgets/link_lists", :locals => { :links => @external_links } %>
-</div>
-<br/>
+<% unless @external_links.blank? -%>
+  <div id="gadget_wrapper" class="ui-corner-all">
+    <h2 class="ui-corner-top"><%= icon_tag('world') %><%= "リンク集" %></h2>
+    <%= render :partial => "gadgets/link_lists", :locals => { :links => @external_links } %>
+  </div>
+  <br/>
+<% end -%>
 
 <div id="gadget_wrapper" class="ui-corner-all">
   <h2 class="ui-corner-top"><%= icon_tag('telephone') %><%= "お問い合わせ" %></h2>
