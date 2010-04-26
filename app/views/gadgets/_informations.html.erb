@@ -11,6 +11,7 @@
     <col width="80%">
     <col width="20%">
     <tbody>
+      <div class="notice_title">利用者より</div>
       <% @informations.each do |info| -%>
         <tr>
           <td>
@@ -21,6 +22,16 @@
           </td>
         </tr>
       <% end -%>
+
+      <% unless system_message_links.empty? -%>
+        <div class="notice_title">システムより</div>
+        <% system_message_links.each do |system_message_link| -%>
+          <tr>
+            <td colspan="2"><%= system_message_link %></td>
+          </tr>
+        <% end -%>
+      <% end -%>
+
     </tbody>
   </table>
 </div>
