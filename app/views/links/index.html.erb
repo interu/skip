@@ -1,0 +1,27 @@
+<!-- class名変更 -->
+<table class="group_list_box normal">
+  <col class="col200" />
+  <col class="col200" />
+  <col />
+  <col class="col100" />
+  <tbody>
+    <tr>
+      <th>タイトル</th>
+      <th>URL</th>
+      <th>コメント</th>
+      <th>アクション</th>
+    </tr>
+    <% @links.each do |link| -%>
+      <tr class="<%= cycle('line_0', 'line_1') %>">
+        <td><%= h link[:title] %></td>
+        <td><%= link_to(h(link[:url]), h(link[:url])) %></td>
+        <td><%= h link[:comment] %></td>
+        <td>
+          <%= link_to('[更新]', edit_tenant_link_url(current_tenant, link)) %>
+          <%= link_to('[削除]', tenant_link_url(current_tenant, link), :method => 'delete') %>
+        </td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
+<%= link_to "[新しく追加]", new_tenant_link_url(current_tenant) %>

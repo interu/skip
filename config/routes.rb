@@ -57,6 +57,7 @@ ActionController::Routing::Routes.draw do |map|
     tenant.logo '/logos/:id/:style/:basename.:extension', :controller => :logos, :action => :show
     tenant.resources :documents, :only => %w(show)
     tenant.resources :rankings, :only => %w(index), :collection => {:monthly => :get, :data => :get, :all => :get}
+    tenant.resources :links, :except => %w(show)
   end
 
   map.namespace "admin" do |admin_map|

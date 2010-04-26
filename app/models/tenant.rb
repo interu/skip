@@ -13,6 +13,7 @@ class Tenant < ActiveRecord::Base
   has_many :bookmarks, :dependent => :destroy
   has_many :rankings, :dependent => :destroy
   has_one :oauth_token, :dependent => :destroy
+  has_many :links, :dependent => :destroy
 
   def self.find_by_op_endpoint(endpoint)
     if endpoint.match(/^https:\/\/www\.google\.com\/a\/(.*)\/o8\/ud\?be=o8$/)

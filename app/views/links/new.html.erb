@@ -1,0 +1,4 @@
+<% form_for(@link, :url => tenant_links_url(current_tenant)) do |f| -%>
+  <%= render f %>
+  <%= f.submit '作成', :disable_with => '作成中...' %>
+<% end -%>
