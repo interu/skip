@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-    <ModulePrefs title="スケジューラ">
+    <ModulePrefs title="カレンダー">
         <Require feature="dynamic-height"/>
     </ModulePrefs>
 
     <Content type="html" view="home,canvas">
     <![CDATA[
+    <style type="text/css">
+      @import url("https://test-live.skipaas.jp/stylesheets/gadget-base.css");
+    </style>
+
     <script type="text/javascript" src="https://test-live.skipaas.jp/javascripts/skip/jquery/jquery.js"></script>
-    <script type="text/javascript" src="https://test-live.skipaas.jp/javascripts/skip_embedded/dropdown_navigation.js"></script>
     <script type="text/javascript">
         function init() {
             var url = "https://test-live.skipaas.jp/gadgets/gapps_calenders";

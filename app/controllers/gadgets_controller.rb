@@ -143,7 +143,6 @@ class GadgetsController < ApplicationController
       {:title => "メールを書く", :url => "https://mail.google.com/a/#{gapps_domain}/", :class => "non_iframe"},
       {:title => "カレンダーを見る", :url => "https://www.google.com/calendar/hosted/#{gapps_domain}/render"},
       {:title => "カレンダーに入力する", :url => "http://www.google.com/calendar/hosted/#{gapps_domain}/event?action=TEMPLATE&text="},
-      {:title => "業務報告を書く", :url => "#"},
       {:title => "質問を書く", :url => new_polymorphic_url([current_tenant, current_user, :board_entry], :board_entry => {:aim_type => 'question'})},
       {:title => "ブログを書く", :url => new_polymorphic_url([current_tenant, current_user, :board_entry])},
     ]

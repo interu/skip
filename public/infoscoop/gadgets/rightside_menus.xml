@@ -6,6 +6,9 @@
 
     <Content type="html" view="home,canvas">
     <![CDATA[
+    <style type="text/css">
+      @import url("https://test-live.skipaas.jp/stylesheets/gadget-base.css");
+    </style>
     <script type="text/javascript" src="https://test-live.skipaas.jp/javascripts/skip/jquery/jquery.js"></script>
     <script type="text/javascript">
         function init() {
