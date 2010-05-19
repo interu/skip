@@ -151,7 +151,7 @@ enable_send_email_to_all_users:                           # 全体へのメー�
 
 acceptable_hosts_to_provide_openid_account:               # OpenID認証でプロバイダーとしてIDを発行するホストのホワイトリスト
   serialized: true
-  default: ["http://localhost:3333/consumer"]
+  default: ["http://localhost:3333/consumer", "http://test-portal.skipaas.jp/infoscoop/openid_consumer_returnurl.jsp"]
 
 enable_invitation_feature:                                # 招待機能の有効化
   format: boolean
