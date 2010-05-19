@@ -33,7 +33,7 @@ class GadgetsController < ApplicationController
     @group_calenders = []
     group_users = User.find(:all, :conditions => ["section = ?", current_user.section])
     group_users.each do |user|
-      @group_calenders << oauth_gapps("calender", user)
+      @group_calenders << {:data => oauth_gapps("calender", user), :user => user.name} #user.nameだけじゃなく
     end
     respond_to do |format|
       format.html
@@ -102,7 +102,7 @@ class GadgetsController < ApplicationController
     # TODO: モック 返す値は仮の値
     tenant = current_user.tenant
 
-    render :json => { :tenant => tenant.id, :type => (tenant.type), :role => current_user.admin? ? "admin" : "user" }
+    render :json => { :tenant => tenant.id, :type => (tenant.type), :role => current_user.section }
   end
 
   def skip_publicated_entries_flat

@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://test-live.skipaas.jp/javascripts/skip_embedded/dropdown_navigation.js"></script>
     <script type="text/javascript">
         function init() {
-            var url = "https://test-live.skipaas.jp/gadgets/gapps_calenders";
+            var url = "https://test-live.skipaas.jp/gadgets/gapps_group_calenders";
             gadgets.io.makeRequest(url, response, { AUTHORIZATION: gadgets.io.AuthorizationType.IS_POST_PORTAL_UID});
         };
 
