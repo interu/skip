@@ -1,0 +1,21 @@
+<div id="sock_entry_wapper">
+  <% stock_entries = BoardEntry.owned(@group).stock_entry -%>
+  <% unless stock_entries.blank? -%>
+    <% root_stock_entry = BoardEntry.owned(@group).stock_entry.find_by_parent_id(nil) %>
+    <div id="stock_entry">
+      <div class="header"><%= root_stock_entry.title %></div>
+      <div class="contents"><%= root_stock_entry.contents %></div>
+    </div>
+    <%= render :partial => 'group/stock_entry_index', :locals => { :stock_entries => stock_entries } %>
+  <% else -%>
+    <div id="stock_entry" class="ui-corner-all">
+      <div class="contents">
+        <p>
+          <%= _('The stock entry has not been registered yet.') %>
+          <%= link_to _('About stock entry') %>
+        </p>
+        <div style="width:150px;"><%= link_to(content_tag('span', _('Create stock entry')), {:controller => 'group', :action => "new_stock_entry"}, {:class => "rounded", :method => :post}) -%></div>
+      </div>
+    </div>
+  <% end -%>
+</div>

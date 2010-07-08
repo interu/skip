@@ -48,7 +48,7 @@ class BoardEntry < ActiveRecord::Base
   validates_presence_of :date
   validates_presence_of :user_id
 
-  AIM_TYPES = %w(entry question notice).freeze
+  AIM_TYPES = %w(entry question notice stock_entry).freeze
   ANTENNA_AIM_TYPES = %w(notice).freeze
   HIDABLE_AIM_TYPES = %w(question).freeze
   TIMLINE_AIM_TYPES = %w(entry).freeze
@@ -103,6 +103,7 @@ class BoardEntry < ActiveRecord::Base
   named_scope :question, proc { { :conditions => ['board_entries.aim_type = \'question\''] } }
   named_scope :notice, proc { { :conditions => ['board_entries.aim_type = \'notice\''] } }
   named_scope :timeline, proc { { :conditions => ['board_entries.aim_type = \'entry\''] } }
+  named_scope :stock_entry, proc { { :conditions => ['board_entries.aim_type = \'stock_entry\''] } }
   named_scope :visible, proc { { :conditions => ['board_entries.hide = ?', false] } }
 
   named_scope :unread, proc { |user|

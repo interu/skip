@@ -83,6 +83,19 @@ class EditController < ApplicationController
       redirect_to_with_deny_auth and return
     end
 
+    # 親文書チェック
+    if @board_entry.parent_id
+      parent_entry = BoardEntry.find(@board_entry.parent_id)
+      unless parent_entry.blank?
+        unless @board_entry.symbol == parent_entry.symbol
+          flash[:error] = _('The parameter in the parents stock entry is illegal.')
+          setup_layout @board_entry
+          render :action => 'index'
+          return
+        end
+      end
+    end
+
     if @board_entry.save
       target_symbols  = analyze_params(@board_entry)
       target_symbols.first.each do |target_symbol|

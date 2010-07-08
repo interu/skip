@@ -21,6 +21,7 @@ div.input_line textarea {
 <%= hidden_field 'board_entry', 'symbol' %>
 <%= hidden_field 'board_entry', 'lock_version' %>
 
+<% unless (params[:aim_type] == 'stock_entry' || @board_entry.aim_type == 'stock_entry') -%>
 <div class="input_line">
   <div class="input_label"><%= label(:board_entry, :aim_type, _('Types')) %></div>
   <% aim_types = BoardEntry.enable_aim_types.map{|type| [s_("BoardEntry|Aim type|Desc|#{type}"), type]} -%>
@@ -40,6 +41,17 @@ div.input_line textarea {
   </div>
   <div style="clear: left"></div>
 </div>
+<% else -%>
+<div class="input_line">
+  <div class="input_label"><%= label(:board_entry, :aim_type, _('level')) %></div>
+  <% parent_id = params[:parent_id] || @board_entry.parent_id %>
+  <% parent_title = parent_stock_entry_title(parent_id, current_user) unless parent_id.blank? %>
+  <div class="input_value"><%= parent_title %></div>
+  <div class="clear_left"></div>
+</div>
+<%= hidden_field 'board_entry', 'aim_type' %>
+<%= hidden_field 'board_entry', 'parent_id', 'value' => params[:parent_id] %>
+<% end -%>
 
 <div class="input_line">
   <div class="input_label"><%= label(:board_entry, :title, _('Title')) -%></div>

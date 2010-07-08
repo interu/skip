@@ -1,0 +1,10 @@
+<div id="stock_entry" class="ui-corner-all">
+  <div class="header">
+    <h1><%= _('index') %></h1>
+  </div>
+  <div class="contents">
+    <% stock_entries.each do |entry| %>
+      <div><%= link_to_unless_current entry.title, entry.get_url_hash %></div>
+    <% end -%>
+  </div>
+</div>
