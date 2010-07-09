@@ -171,6 +171,10 @@ class BoardEntry < ActiveRecord::Base
 
   named_scope :limit, proc { |num| { :limit => num } }
 
+  named_scope :children, proc { |entry|
+    { :conditions => ['parent_id = ?', entry.id] }
+  }
+
   attr_reader :owner
   attr_accessor :send_mail
 

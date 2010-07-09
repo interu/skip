@@ -3,8 +3,15 @@
     <h1><%= _('index') %></h1>
   </div>
   <div class="contents">
-    <% stock_entries.each do |entry| %>
-      <div><%= link_to_unless_current entry.title, entry.get_url_hash %></div>
+    <div class="index">
+    <% root_stock_entry = nil -%>
+    <% stock_entries.each do |stock_entry| -%>
+      <% root_stock_entry = stock_entry if stock_entry.parent_id.blank? -%>
     <% end -%>
+    <ul>
+      <li><%= link_to_unless_current root_stock_entry.title, root_stock_entry.get_url_hash %></li>
+      <ul><%= render :partial => 'group/stock_entries', :locals => { :stock_entries => BoardEntry.children(root_stock_entry).aim_type('stock_entry') } %></ul>
+    </ul>
+  </div>
   </div>
 </div>
