@@ -179,9 +179,11 @@ class BoardEntry < ActiveRecord::Base
   ns_('BoardEntry|Aim type|entry', 'entries', 1)
   ns_('BoardEntry|Aim type|question', 'questions', 1)
   ns_('BoardEntry|Aim type|notice', 'notices', 1)
+  ns_('BoardEntry|Aim type|stock_entry', 'stock_entries', 1)
   N_('BoardEntry|Aim type|Desc|entry')
   N_('BoardEntry|Aim type|Desc|question')
   N_('BoardEntry|Aim type|Desc|notice')
+  N_('BoardEntry|Aim type|Desc|stock_entry')
   N_('BoardEntry|Open|true')
   N_('BoardEntry|Open|false')
   DIARY = 'DIARY'
