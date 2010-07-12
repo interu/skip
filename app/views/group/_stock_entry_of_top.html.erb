@@ -10,11 +10,13 @@
   <% else -%>
     <div id="stock_entry" class="ui-corner-all">
       <div class="contents">
-        <p>
-          <%= _('The stock entry has not been registered yet.') %>
+        <p><%= _('The stock entry has not been registered yet.') %></p>
+        <% if current_user.participating_group?(@group) -%>
           <%= link_to _('About stock entry') %>
-        </p>
-        <div style="width:150px;"><%= link_to(content_tag('span', _('Create stock entry')), {:controller => 'group', :action => "new_stock_entry"}, {:class => "rounded", :method => :post}) -%></div>
+          <div style="width:150px;">
+            <%= link_to(content_tag('span', _('Create stock entry')), {:controller => 'group', :action => "new_stock_entry"}, {:class => "rounded", :method => :post}) %>
+          </div>
+        <% end -%>
       </div>
     </div>
   <% end -%>

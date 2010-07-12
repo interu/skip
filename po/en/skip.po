@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: skip 1.8.2\n"
-"POT-Creation-Date: 2010-07-09 14:19+0900\n"
+"POT-Creation-Date: 2010-07-12 11:52+0900\n"
 "PO-Revision-Date: 2009-06-29 13:31+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 
 #: app/helpers/system_messages_helper.rb:30
-#: app/controllers/rankings_controller.rb:105 app/models/board_entry.rb:425
+#: app/controllers/rankings_controller.rb:105 app/models/board_entry.rb:429
 #: app/views/groups/_group_list.html.erb:24
 #: app/views/share_file/_topix_share_files.html.erb:39
 #: app/views/rankings/bookmark.html.erb:2
@@ -52,7 +52,7 @@ msgstr ""
 msgid "%B %d %Y"
 msgstr ""
 
-#: app/models/board_entry_comment.rb:47 app/models/board_entry.rb:427
+#: app/models/board_entry_comment.rb:47 app/models/board_entry.rb:431
 msgid "%B %d %Y %H:%M"
 msgstr ""
 
@@ -260,7 +260,7 @@ msgstr ""
 msgid "(The body template is appended to the body when the email is sent.)"
 msgstr ""
 
-#: app/views/search/entry_search.html.erb:22
+#: app/views/search/entry_search.html.erb:23
 msgid "(The search targets are tags, titles and bodies)"
 msgstr ""
 
@@ -2011,44 +2011,44 @@ msgstr ""
 msgid "BoardEntry|Aim type"
 msgstr "Purpose"
 
-#: app/models/board_entry.rb:183
+#: app/models/board_entry.rb:187
 msgid "BoardEntry|Aim type|Desc|entry"
 msgstr "Entries (Shown in \"Recent Entries\" in My Page)"
 
-#: app/models/board_entry.rb:185
+#: app/models/board_entry.rb:189
 msgid "BoardEntry|Aim type|Desc|notice"
 msgstr "Notices (Shown in \"Notices for you\" in My Page)"
 
-#: app/models/board_entry.rb:184
+#: app/models/board_entry.rb:188
 msgid "BoardEntry|Aim type|Desc|question"
 msgstr "Questions (Shown in \"Recent Questions\" in My Page)"
 
-#: app/models/board_entry.rb:186
+#: app/models/board_entry.rb:190
 msgid "BoardEntry|Aim type|Desc|stock_entry"
 msgstr ""
 
-#: app/models/board_entry.rb:179 app/views/entries/_aim_type_box.html.erb:9
+#: app/models/board_entry.rb:183 app/views/entries/_aim_type_box.html.erb:9
 #: app/views/search/entry_search.html.erb:15
 msgid "BoardEntry|Aim type|entry"
 msgid_plural "entries"
 msgstr[0] "Entry"
 msgstr[1] "Entries"
 
-#: app/models/board_entry.rb:181 app/views/entries/_aim_type_box.html.erb:11
+#: app/models/board_entry.rb:185 app/views/entries/_aim_type_box.html.erb:11
 #: app/views/search/entry_search.html.erb:17
 msgid "BoardEntry|Aim type|notice"
 msgid_plural "notices"
 msgstr[0] "Notice"
 msgstr[1] "Notices"
 
-#: app/models/board_entry.rb:180 app/views/entries/_aim_type_box.html.erb:10
+#: app/models/board_entry.rb:184 app/views/entries/_aim_type_box.html.erb:10
 #: app/views/search/entry_search.html.erb:16
 msgid "BoardEntry|Aim type|question"
 msgid_plural "questions"
 msgstr[0] "Question"
 msgstr[1] "Questions"
 
-#: app/models/board_entry.rb:182
+#: app/models/board_entry.rb:186 app/views/search/entry_search.html.erb:18
 msgid "BoardEntry|Aim type|stock_entry"
 msgid_plural "stock_entries"
 msgstr[0] ""
@@ -2086,11 +2086,11 @@ msgstr ""
 msgid "BoardEntry|Entry type"
 msgstr ""
 
-#: app/models/board_entry.rb:177
+#: app/models/board_entry.rb:181
 msgid "BoardEntry|Entry type|DIARY"
 msgstr "Blog"
 
-#: app/models/board_entry.rb:178
+#: app/models/board_entry.rb:182
 msgid "BoardEntry|Entry type|GROUP_BBS"
 msgstr "Forum"
 
@@ -2110,11 +2110,11 @@ msgstr "Date updated"
 msgid "BoardEntry|Lock version"
 msgstr ""
 
-#: app/models/board_entry.rb:188 app/views/entries/_entry_detail.html.erb:661
+#: app/models/board_entry.rb:192 app/views/entries/_entry_detail.html.erb:661
 msgid "BoardEntry|Open|false"
 msgstr "Closed"
 
-#: app/models/board_entry.rb:187
+#: app/models/board_entry.rb:191
 msgid "BoardEntry|Open|true"
 msgstr "Open"
 
@@ -2744,6 +2744,10 @@ msgstr ""
 msgid "Default Privacy Settings"
 msgstr ""
 
+#: app/views/group/_form.html.erb:63
+msgid "Default Usage of Stock Entry"
+msgstr ""
+
 #: app/views/pictures/_pictures.html.erb:28
 #: app/views/board_entries/_board_entry_comment.html.erb:14
 #: app/views/admin/pictures/index.html.erb:19 app/views/edit/edit.html.erb:20
@@ -3371,7 +3375,7 @@ msgstr ""
 msgid "Group categories"
 msgstr "Group Categories"
 
-#: app/models/board_entry.rb:202
+#: app/models/board_entry.rb:206
 msgid "Group does not exist."
 msgstr ""
 
@@ -3491,6 +3495,10 @@ msgstr ""
 
 #: app/models/group.rb:-
 msgid "Group|Default send mail"
+msgstr ""
+
+#: app/models/group.rb:-
+msgid "Group|Default stock entry"
 msgstr ""
 
 #: app/models/group.rb:-
@@ -3794,7 +3802,7 @@ msgstr ""
 msgid "Invalid format. Please input like uid:xxxxx"
 msgstr ""
 
-#: app/models/board_entry.rb:204
+#: app/models/board_entry.rb:208
 msgid "Invalid group detected."
 msgstr ""
 
@@ -3804,7 +3812,7 @@ msgstr ""
 
 #: app/controllers/board_entries_controller.rb:26
 #: app/controllers/monta_controller.rb:22
-#: app/controllers/monta_controller.rb:33 app/models/board_entry.rb:697
+#: app/controllers/monta_controller.rb:33 app/models/board_entry.rb:701
 msgid "Invalid operation."
 msgstr ""
 
@@ -3845,7 +3853,7 @@ msgstr ""
 msgid "Invalid session. You need to log in again."
 msgstr ""
 
-#: app/models/board_entry.rb:198
+#: app/models/board_entry.rb:202
 msgid "Invalid user detected."
 msgstr ""
 
@@ -3942,7 +3950,7 @@ msgid "Karaoke"
 msgstr ""
 
 #: app/views/search/share_file_search.html.erb:5
-#: app/views/search/entry_search.html.erb:21
+#: app/views/search/entry_search.html.erb:22
 msgid "Keywords"
 msgstr ""
 
@@ -4332,7 +4340,7 @@ msgstr ""
 msgid "Next »"
 msgstr ""
 
-#: app/views/group/_form.html.erb:43
+#: app/views/group/_form.html.erb:43 app/views/group/_form.html.erb:66
 msgid "No"
 msgstr ""
 
@@ -4958,7 +4966,7 @@ msgstr ""
 msgid "Privacy Settings"
 msgstr ""
 
-#: app/views/bookmark/show.html.erb:45
+#: app/helpers/board_entries_helper.rb:159 app/views/bookmark/show.html.erb:45
 msgid "Private"
 msgstr ""
 
@@ -5328,7 +5336,7 @@ msgstr ""
 #: app/views/entries/_search_box.html.erb:11
 #: app/views/bookmark/list.html.erb:3 app/views/bookmark/list.html.erb:7
 #: app/views/search/share_file_search.html.erb:17
-#: app/views/search/entry_search.html.erb:26
+#: app/views/search/entry_search.html.erb:27
 #: app/views/mypage/_record_post.html.erb:5
 #: app/views/mypage/_record_post.html.erb:11
 #: app/views/bookmarks/index.html.erb:32
@@ -5353,7 +5361,7 @@ msgid "Search in Internet"
 msgstr ""
 
 #: app/views/search/share_file_search.html.erb:23
-#: app/views/search/entry_search.html.erb:32
+#: app/views/search/entry_search.html.erb:33
 #: app/views/bookmarks/index.html.erb:38
 msgid "Search result"
 msgstr ""
@@ -6468,12 +6476,16 @@ msgstr ""
 msgid "Usable."
 msgstr ""
 
+#: app/views/group/_form.html.erb:65
+msgid "Use the Stock Entry Function ?"
+msgstr ""
+
 #: app/controllers/admin/users_controller.rb:204
 msgid "User %{username} has already been registered."
 msgstr ""
 
 #: app/helpers/user_helper.rb:68 app/controllers/admin/users_controller.rb:62
-#: app/controllers/admin/users_controller.rb:80 app/models/board_entry.rb:196
+#: app/controllers/admin/users_controller.rb:80 app/models/board_entry.rb:200
 msgid "User does not exist."
 msgstr ""
 
@@ -7073,7 +7085,7 @@ msgstr ""
 msgid "Write about your current and past jobs, your interests and concerns."
 msgstr ""
 
-#: app/views/group/_form.html.erb:43
+#: app/views/group/_form.html.erb:43 app/views/group/_form.html.erb:66
 msgid "Yes"
 msgstr ""
 
@@ -7347,7 +7359,7 @@ msgstr ""
 msgid "[Get download history in CSV]"
 msgstr ""
 
-#: app/models/share_file.rb:287 app/models/board_entry.rb:448
+#: app/models/share_file.rb:287 app/models/board_entry.rb:452
 msgid "[Group members only]"
 msgstr ""
 
@@ -7363,7 +7375,7 @@ msgstr ""
 msgid "[Hints on writing entries]"
 msgstr ""
 
-#: app/models/board_entry.rb:792
+#: app/models/board_entry.rb:796
 msgid "[Link does not exist...%s>]"
 msgstr ""
 
@@ -7384,7 +7396,7 @@ msgstr "[Next]"
 msgid "[Next]"
 msgstr ""
 
-#: app/models/share_file.rb:281 app/models/board_entry.rb:442
+#: app/models/share_file.rb:281 app/models/board_entry.rb:446
 msgid "[Open to all]"
 msgstr ""
 
@@ -7392,7 +7404,7 @@ msgstr ""
 msgid "[Other users: %{count} users]"
 msgstr ""
 
-#: app/models/share_file.rb:285 app/models/board_entry.rb:446
+#: app/models/share_file.rb:285 app/models/board_entry.rb:450
 msgid "[Owner only]"
 msgstr ""
 
