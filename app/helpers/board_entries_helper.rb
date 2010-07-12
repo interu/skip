@@ -153,4 +153,12 @@ module BoardEntriesHelper
     parent_title = parent_entry ? _("Create stock entry under the '%s'") % parent_entry.title  : _('This is the top of stock entry.')
     parent_title
   end
+
+  def link_to_stock_entry stock_entry, current_user
+    if (stock_entry.publication_type == 'private' && stock_entry.user_id != current_user.id)
+      _('Private')
+    else
+      link_to_unless_current stock_entry.title, stock_entry.get_url_hash
+    end
+  end
 end

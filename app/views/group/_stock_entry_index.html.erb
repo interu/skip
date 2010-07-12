@@ -9,7 +9,7 @@
       <% root_stock_entry = stock_entry if stock_entry.parent_id.blank? -%>
     <% end -%>
     <ul>
-      <li><%= link_to_unless_current root_stock_entry.title, root_stock_entry.get_url_hash %></li>
+      <li><%= link_to_stock_entry root_stock_entry, current_user %></li>
       <ul><%= render :partial => 'group/stock_entries', :locals => { :stock_entries => BoardEntry.children(root_stock_entry).aim_type('stock_entry') } %></ul>
     </ul>
   </div>
