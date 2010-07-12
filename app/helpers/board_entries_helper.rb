@@ -155,7 +155,7 @@ module BoardEntriesHelper
   end
 
   def link_to_stock_entry stock_entry, current_user
-    if (stock_entry.publication_type == 'private' && stock_entry.user_id != current_user.id)
+    if (stock_entry.publication_type == "protected" and stock_entry.publication_symbols_value != "uid:#{current_user.uid}" and stock_entry.user_id != current_user.id)
       _('Private')
     else
       link_to_unless_current stock_entry.title, stock_entry.get_url_hash

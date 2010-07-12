@@ -271,7 +271,9 @@
 <div id="stock_entry_wrapper">
   <% if entry.aim_type == "stock_entry" -%>
     <% stock_entries = BoardEntry.owned(entry.load_owner).stock_entry -%>
-    <%= render :partial => 'group/stock_entry_index', :locals => { :stock_entries => stock_entries }  %>
+    <div id="stock_entry" class="ui-corner-all">
+      <%= render :partial => 'group/stock_entry_index', :locals => { :stock_entries => stock_entries }  %>
+    </div>
     <div class="button"><%= link_to(content_tag('span', _("Create stock entry under the '%s'") % entry.title ), {:controller => 'group', :action => "new_stock_entry", :parent_id => entry.id}, {:class => "rounded", :method => :post}) %></div>
   <% end -%>
 </div>

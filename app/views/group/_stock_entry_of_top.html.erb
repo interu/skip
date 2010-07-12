@@ -1,15 +1,13 @@
-<div id="sock_entry_wapper">
-  <% stock_entries = BoardEntry.owned(@group).stock_entry -%>
-  <% unless stock_entries.blank? -%>
-    <% root_stock_entry = BoardEntry.owned(@group).stock_entry.find_by_parent_id(nil) %>
-    <div id="stock_entry">
-      <div class="header"><%= root_stock_entry.title %></div>
+<div id="stock_entry_wrapper">
+  <div id="stock_entry" class="ui-corner-all">
+    <% stock_entries = BoardEntry.owned(@group).stock_entry -%>
+    <% unless stock_entries.blank? -%>
+      <% root_stock_entry = BoardEntry.owned(@group).stock_entry.find_by_parent_id(nil) %>
+      <div class="title"><h1><%= root_stock_entry.title %></h1></div>
       <div class="contents"><%= root_stock_entry.contents %></div>
-    </div>
-    <%= render :partial => 'group/stock_entry_index', :locals => { :stock_entries => stock_entries } %>
-  <% else -%>
-    <div id="stock_entry" class="ui-corner-all">
-      <div class="contents">
+      <%= render :partial => 'group/stock_entry_index', :locals => { :stock_entries => stock_entries } %>
+    <% else -%>
+      <div class="index">
         <p><%= _('The stock entry has not been registered yet.') %></p>
         <% if current_user.participating_group?(@group) -%>
           <%= link_to _('About stock entry') %>
@@ -18,6 +16,6 @@
           </div>
         <% end -%>
       </div>
-    </div>
-  <% end -%>
+    <% end -%>
+  </div>
 </div>
