@@ -2722,7 +2722,7 @@ msgstr "文書を作る"
 #: app/helpers/board_entries_helper.rb:153
 #: app/views/entries/_entry_detail.html.erb:275
 msgid "Create stock entry under the '%s'"
-msgstr "「%s」の下に文書を作る"
+msgstr "「%s」配下に文書を作る"
 
 #: app/controllers/edit_controller.rb:113
 msgid "Created successfully."

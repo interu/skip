@@ -158,7 +158,7 @@ module BoardEntriesHelper
     if (stock_entry.publication_type == "protected" and stock_entry.publication_symbols_value != "uid:#{current_user.uid}" and stock_entry.user_id != current_user.id)
       _('Private')
     else
-      link_to_unless_current stock_entry.title, stock_entry.get_url_hash
+      link_to_unless_current h(stock_entry.title), stock_entry.get_url_hash do content_tag 'b', h(stock_entry.title) end
     end
   end
 end

@@ -143,6 +143,7 @@ class GroupController < ApplicationController
                 :parent_id => params[:parent_id],
                 :send_mail => !!params[:send_mail],
                 :symbol => @group.symbol,
+                :editor_symbol => true,
                 :publication_type => @group.default_publication_type)
   end
 
