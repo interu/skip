@@ -3,8 +3,6 @@
     <% stock_entries = BoardEntry.owned(@group).stock_entry -%>
     <% unless stock_entries.blank? -%>
       <% root_stock_entry = BoardEntry.owned(@group).stock_entry.find_by_parent_id(nil) %>
-      <div class="title"><h1><%= root_stock_entry.title %></h1></div>
-      <div class="contents"><%= root_stock_entry.contents %></div>
       <%= render :partial => 'group/stock_entry_index', :locals => { :stock_entries => stock_entries } %>
     <% else -%>
       <div class="index">

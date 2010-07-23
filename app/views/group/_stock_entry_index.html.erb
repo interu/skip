@@ -4,7 +4,10 @@
 <div class="index">
     <% root_stock_entry = nil -%>
     <% stock_entries.each do |stock_entry| -%>
-      <% root_stock_entry = stock_entry if stock_entry.parent_id.blank? -%>
+      <% if stock_entry.parent_id.blank? -%>
+        <% root_stock_entry = stock_entry -%>
+        <div class="contents"><%= root_stock_entry.contents %></div>
+      <% end -%>
     <% end -%>
     <ul>
       <li><%= link_to_stock_entry root_stock_entry, current_user %></li>
