@@ -1,10 +1,17 @@
 <div id="stock_entry_wrapper">
-  <div id="stock_entry" class="ui-corner-all">
-    <% stock_entries = BoardEntry.owned(@group).stock_entry -%>
-    <% unless stock_entries.blank? -%>
-      <% root_stock_entry = BoardEntry.owned(@group).stock_entry.find_by_parent_id(nil) %>
+  <% stock_entries = BoardEntry.owned(@group).stock_entry -%>
+  <% unless stock_entries.blank? -%>
+    <% root_stock_entry = BoardEntry.owned(@group).stock_entry.find_by_parent_id(nil) %>
+    <div id="stock_entry" class="ui-corner-all">
       <%= render :partial => 'group/stock_entry_index', :locals => { :stock_entries => stock_entries } %>
-    <% else -%>
+    </div>
+    <div class="button">
+      <% if current_user.participating_group?(@group) -%>
+        <%= link_to(content_tag('span', _("Create stock entry under the '%s'") % root_stock_entry.title ), {:controller => 'group', :action => "new_stock_entry", :parent_id => root_stock_entry.id}, {:class => "rounded", :method => :post}) %>
+      <% end -%>
+    </div>
+  <% else -%>
+    <div id="stock_entry" class="ui-corner-all">
       <div class="index">
         <p><%= _('The stock entry has not been registered yet.') %></p>
         <% if current_user.participating_group?(@group) -%>
@@ -14,6 +21,6 @@
           </div>
         <% end -%>
       </div>
-    <% end -%>
-  </div>
+    </div>
+  <% end -%>
 </div>

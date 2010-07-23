@@ -111,7 +111,11 @@ class EditController < ApplicationController
       @board_entry.send_contact_mails
 
       flash[:notice] = _('Created successfully.')
-      redirect_to @board_entry.get_url_hash
+      if @board_entry.aim_type == "stock_entry" and @board_entry.parent_id == nil
+        redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.load_owner.gid
+      else
+        redirect_to @board_entry.get_url_hash
+      end
     else
       setup_layout @board_entry
       render :action => 'index'
@@ -226,7 +230,12 @@ class EditController < ApplicationController
     @board_entry.send_contact_mails
 
     flash[:notice] = _('Entry was successfully updated.')
-    redirect_to @board_entry.get_url_hash
+
+    if @board_entry.aim_type == "stock_entry" and @board_entry.parent_id == nil
+      redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.load_owner.gid
+    else
+      redirect_to @board_entry.get_url_hash
+    end
   rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotSaved => e
     setup_layout @board_entry
     render :action => 'edit'

@@ -42,6 +42,7 @@ div.input_line textarea {
   <div style="clear: left"></div>
 </div>
 <% else -%>
+  <% if (!params[:parent_id].blank? or !@board_entry.parent_id.blank?) -%>
 <div class="input_line">
   <div class="input_label"><%= label(:board_entry, :aim_type, _('level')) %></div>
   <% parent_id = params[:parent_id] || @board_entry.parent_id %>
@@ -49,15 +50,21 @@ div.input_line textarea {
   <div class="input_value"><%= parent_title %></div>
   <div class="clear_left"></div>
 </div>
+  <% end -%>
 <%= hidden_field 'board_entry', 'aim_type' %>
 <%= hidden_field 'board_entry', 'parent_id', 'value' => params[:parent_id] %>
 <% end -%>
 
+<% if ((params[:aim_type] == 'stock_entry' or @board_entry.aim_type == 'stock_entry') and (!params[:parent_id].blank? or !@board_entry.parent_id.blank?)) -%>
 <div class="input_line">
   <div class="input_label"><%= label(:board_entry, :title, _('Title')) -%></div>
   <div class="input_value"><%= text_field 'board_entry', 'title', :size =>60 %></div>
   <div style="clear: left"></div>
 </div>
+<% else -%>
+  <%= hidden_field 'board_entry', 'title', 'value' => (@board_entry.title || @board_entry.load_owner.name + _('(TopPage)')) %>
+<% end -%>
+
 
 <div class="input_line">
   <div class="input_label"><%= label_tag 'contents_hiki', _('Contents') %></div>
