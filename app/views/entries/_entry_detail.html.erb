@@ -272,6 +272,9 @@
   <div id="stock_entry_wrapper">
     <% stock_entries = BoardEntry.owned(entry.load_owner).stock_entry -%>
     <div id="stock_entry" class="ui-corner-all">
+      <div class="header">
+        <span style="margin: 2px; font-size: 15px; font-weight: bold;"><%= _('index') %></span>
+      </div>
       <%= render :partial => 'group/stock_entry_index', :locals => { :stock_entries => stock_entries }  %>
     </div>
     <div class="button"><%= link_to(content_tag('span', _("Create stock entry under the '%s'") % entry.title ), {:controller => 'group', :action => "new_stock_entry", :parent_id => entry.id}, {:class => "rounded", :method => :post}) %></div>

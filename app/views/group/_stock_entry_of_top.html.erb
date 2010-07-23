@@ -3,6 +3,13 @@
   <% unless stock_entries.blank? -%>
     <% root_stock_entry = BoardEntry.owned(@group).stock_entry.find_by_parent_id(nil) %>
     <div id="stock_entry" class="ui-corner-all">
+      <div class="header">
+        <div>
+          <span style="margin: 2px; font-size: 15px; font-weight: bold;"><%= _('index') %></span>
+          <span style="position: absolute; right: 2px;"><%= link_to _('[Edit]'), {:controller=> "edit", :action => "edit", :id => root_stock_entry }%></span>
+        </div>
+      </div>
+      <div class="contents"><%= root_stock_entry.contents if root_stock_entry %></div>
       <%= render :partial => 'group/stock_entry_index', :locals => { :stock_entries => stock_entries } %>
     </div>
     <div class="button">

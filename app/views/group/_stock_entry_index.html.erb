@@ -1,17 +1,9 @@
 <% root_stock_entry = stock_entries.select{ |entry| entry.parent_id.blank? }.first -%>
-
 <% unless root_stock_entry.blank? -%>
-<div class="header">
-  <div>
-    <span style="margin: 2px; font-size: 15px; font-weight: bold;"><%= _('index') %></span>
-    <span style="position: absolute; right: 2px;"><%= link_to _('[Edit]'), {:controller=> "edit", :action => "edit", :id => root_stock_entry }%></span>
-  </div>
-</div>
-<div class="index">
-    <div class="contents"><%= root_stock_entry.contents if root_stock_entry %></div>
+  <div class="index">
     <ul>
       <li><%= link_to_unless_current h(root_stock_entry.title), {:controller => 'group', :action => 'show', :gid => @group.gid } do content_tag 'b', h(root_stock_entry.title) end %></li>
       <ul><%= render :partial => 'group/stock_entries', :locals => { :stock_entries => BoardEntry.children(root_stock_entry).aim_type('stock_entry') } %></ul>
     </ul>
-</div>
+  </div>
 <% end -%>
