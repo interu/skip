@@ -256,6 +256,12 @@ class EditController < ApplicationController
     # 権限チェック
     redirect_to_with_deny_auth and return unless authorize_to_edit_board_entry? @board_entry
 
+    if BoardEntry.children(@board_entry).aim_type('stock_entry').size != 0
+      flash[:warn] = _("This stock entry cannot be deleted since it has been nested.")
+      redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.load_owner.gid
+      return
+    end
+
     # FIXME [#855][#907]Rails2.3.2のバグでcounter_cacheと:dependent => destoryを併用すると常にStaleObjectErrorとなる
     # SKIPではBoardEntryとBoardEntryCommentの関係が該当する。Rails2.3.5でFixされたら以下を修正すること
     # 詳細は http://dev.openskip.org/redmine/issues/show/855
@@ -264,9 +270,15 @@ class EditController < ApplicationController
 
     @board_entry.destroy
     flash[:notice] = _('Deletion complete.')
-    # そのユーザのブログ一覧画面に遷移する
-    # TODO: この部分をメソッド化した方がいいかも(by mat_aki)
-    redirect_to owner_entries_path(@board_entry)
+
+    if @board_entry.aim_type == "stock_entry"
+      redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.load_owner.gid
+    else
+      # そのユーザのブログ一覧画面に遷移する
+      # TODO: この部分をメソッド化した方がいいかも(by mat_aki)
+      redirect_to owner_entries_path(@board_entry)
+    end
+
   rescue ActiveRecord::StaleObjectError => e
     flash[:warn] = _("Update on the same entry from other users detected. Please try again.")
     setup_layout @board_entry
