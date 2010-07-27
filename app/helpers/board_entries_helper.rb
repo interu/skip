@@ -155,7 +155,8 @@ module BoardEntriesHelper
   end
 
   def link_to_stock_entry stock_entry, current_user
-    if (stock_entry.publication_type == "protected" and stock_entry.publication_symbols_value != "uid:#{current_user.uid}" and stock_entry.user_id != current_user.id)
+    accessible_entry = BoardEntry.accessible(current_user).scoped( :conditions => ['board_entries.id IN (?)', stock_entry.id])
+    if accessible_entry.blank?
       _('Private')
     else
       link_to_unless_current h(stock_entry.title), stock_entry.get_url_hash do content_tag 'b', h(stock_entry.title) end
