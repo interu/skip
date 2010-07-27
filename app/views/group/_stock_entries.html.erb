@@ -1,4 +1,4 @@
-<% stock_entries.each do |stock_entry| -%>
+<% stock_entries.sort_by(&:title).each do |stock_entry| -%>
   <li><%= link_to_stock_entry stock_entry, current_user %></li>
   <ul><%= render :partial => 'group/stock_entries', :locals => {:stock_entries => BoardEntry.children(stock_entry).aim_type('stock_entry') } %></ul>
 <% end -%>
