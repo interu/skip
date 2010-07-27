@@ -6,7 +6,7 @@
       <div class="header">
         <div>
           <span style="margin: 2px; font-size: 15px; font-weight: bold;"><%= _('index') %></span>
-          <span style="position: absolute; right: 2px;"><%= link_to _('[Edit]'), {:controller=> "edit", :action => "edit", :id => root_stock_entry }%></span>
+          <span style="position: absolute; right: 2px;"><%= link_to(icon_tag('page_edit', :title => _('Edit')) + _('Edit'), {:controller=> "edit", :action => "edit", :id => root_stock_entry })%></span>
         </div>
       </div>
       <div class="contents"><%= root_stock_entry.contents if root_stock_entry %></div>
