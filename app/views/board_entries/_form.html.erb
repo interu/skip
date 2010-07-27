@@ -245,6 +245,21 @@ div.input_line textarea {
         changePublicationType();
     });
 
+    <% if @board_entry.aim_type == "stock_entry" -%>
+      var changeEditorSymbol = function() {
+        if ($j('#editor_symbol:checked').length > 0) {
+          $j('#editor_status').text("<%= _('Enable group members') %>");
+        } else {
+          $j('#editor_status').text("<%= _('Enable owner only') %>");
+        }
+      };
+      changeEditorSymbol();
+
+      $j('#editor_symbol').live('click', function(){
+        changeEditorSymbol();
+      });
+    <% end -%>
+
     // タグsuggestのスライド表示
     $j('#board_entry_category')
     .focus(function(){

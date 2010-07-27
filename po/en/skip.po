@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: skip 1.8.2\n"
-"POT-Creation-Date: 2010-07-26 09:51+0900\n"
+"POT-Creation-Date: 2010-07-27 18:01+0900\n"
 "PO-Revision-Date: 2009-06-29 13:31+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1707,7 +1707,7 @@ msgstr ""
 msgid "All Term"
 msgstr ""
 
-#: app/views/board_entries/_form.html.erb:276
+#: app/views/board_entries/_form.html.erb:291
 msgid "All changes will be discarded if you navigate away from this page."
 msgstr ""
 
@@ -1825,7 +1825,7 @@ msgstr ""
 #: app/views/group/_manage_info.html.erb:22
 #: app/views/board_entries/_board_entry_comment.html.erb:14
 #: app/views/entries/_entry_detail.html.erb:316
-#: app/views/edit/edit.html.erb:28 app/views/bookmark/list.html.erb:58
+#: app/views/edit/edit.html.erb:32 app/views/bookmark/list.html.erb:58
 msgid "Are you sure to delete?"
 msgstr ""
 
@@ -2624,7 +2624,7 @@ msgstr ""
 #: app/views/admin/openid_identifiers/new.html.erb:17
 #: app/views/admin/user_profile_master_categories/new.html.erb:8
 #: app/views/admin/user_profile_masters/new.html.erb:8
-#: app/views/chains/new.html.erb:6 app/views/edit/index.html.erb:7
+#: app/views/chains/new.html.erb:6 app/views/edit/index.html.erb:10
 msgid "Create"
 msgstr ""
 
@@ -2755,7 +2755,7 @@ msgstr ""
 
 #: app/views/pictures/_pictures.html.erb:28
 #: app/views/board_entries/_board_entry_comment.html.erb:14
-#: app/views/admin/pictures/index.html.erb:19 app/views/edit/edit.html.erb:20
+#: app/views/admin/pictures/index.html.erb:19 app/views/edit/edit.html.erb:24
 #: app/views/bookmark/list.html.erb:58 app/views/bookmark/show.html.erb:48
 msgid "Delete"
 msgstr ""
@@ -2855,6 +2855,7 @@ msgstr ""
 msgid "Driving"
 msgstr ""
 
+#: app/views/group/_stock_entry_of_top.html.erb:9
 #: app/views/user/show.html.erb:16
 #: app/views/board_entries/_board_entry_comment.html.erb:13
 #: app/views/admin/group_categories/_index.html.erb:23
@@ -2970,6 +2971,14 @@ msgstr ""
 
 #: app/views/admin/settings/_main.html.erb:34
 msgid "Embeds"
+msgstr ""
+
+#: app/views/board_entries/_form.html.erb:251
+msgid "Enable group members"
+msgstr ""
+
+#: app/views/board_entries/_form.html.erb:253
+msgid "Enable owner only"
 msgstr ""
 
 #: app/controllers/monta_controller.rb:66
@@ -4179,7 +4188,7 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: app/views/edit/edit.html.erb:13
+#: app/views/edit/edit.html.erb:17
 msgid "Minor update"
 msgstr ""
 
@@ -5415,6 +5424,10 @@ msgstr ""
 msgid "Selected"
 msgstr ""
 
+#: app/views/edit/edit.html.erb:13 app/views/edit/index.html.erb:8
+msgid "Selected edit authority"
+msgstr ""
+
 #: app/views/edit/edit.html.erb:11 app/views/edit/index.html.erb:6
 msgid "Selected publication type"
 msgstr ""
@@ -6385,7 +6398,7 @@ msgstr ""
 #: app/views/admin/user_profile_master_categories/edit.html.erb:9
 #: app/views/admin/user_profile_masters/edit.html.erb:8
 #: app/views/admin/user_profiles/edit.html.erb:10
-#: app/views/chains/edit.html.erb:6 app/views/edit/edit.html.erb:12
+#: app/views/chains/edit.html.erb:6 app/views/edit/edit.html.erb:16
 msgid "Update"
 msgstr ""
 
@@ -7355,10 +7368,8 @@ msgstr ""
 msgid "[Edit profile]"
 msgstr ""
 
-#: app/helpers/share_file_helper.rb:25
-#: app/views/group/_stock_entry_of_top.html.erb:9
-#: app/views/user/show.html.erb:16 app/views/wiki/show.html.erb:14
-#: app/views/shared/_chapter_menu.html.erb:6
+#: app/helpers/share_file_helper.rb:25 app/views/user/show.html.erb:16
+#: app/views/wiki/show.html.erb:14 app/views/shared/_chapter_menu.html.erb:6
 msgid "[Edit]"
 msgstr ""
 
