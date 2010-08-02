@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: skip 1.8.2\n"
-"POT-Creation-Date: 2010-08-02 16:26+0900\n"
+"POT-Creation-Date: 2010-08-02 18:19+0900\n"
 "PO-Revision-Date: 2009-11-27 16:12+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -280,10 +280,6 @@ msgid "(This screen is to avoid security risks related to direct downloading)"
 msgstr ""
 "（この画面は、直ダウンロードによるセキュリティ上の懸念を解消するために表示し"
 "ています）"
-
-#: app/views/board_entries/_form.html.erb:65
-msgid "(TopPage)"
-msgstr " / トップページ"
 
 #: app/views/bookmark/new.html.erb:17
 msgid "(Will open as a new window)"
@@ -6447,6 +6443,10 @@ msgstr "トップ"
 msgid "Top 10 tags: "
 msgstr "みんながよく使うタグ（人気の10件）："
 
+#: app/views/board_entries/_form.html.erb:65
+msgid "TopPage"
+msgstr "トップページ"
+
 #: app/views/board_entries/_form.html.erb:118
 msgid "Topic Entry"
 msgstr "話題の記事"
@@ -8278,6 +8278,9 @@ msgstr ""
 #: app/views/chapters/_page_content.html.erb:188
 msgid "« Previous"
 msgstr "« 前"
+
+#~ msgid "(TopPage)"
+#~ msgstr " / トップページ"
 
 #~ msgid "(Unknown topic entry found. However, this has been ignored)"
 #~ msgstr "（話題元の記事が不明でしたが無視しました）"

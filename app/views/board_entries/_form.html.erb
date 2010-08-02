@@ -62,7 +62,7 @@ div.input_line textarea {
   <div style="clear: left"></div>
 </div>
 <% else -%>
-  <%= hidden_field 'board_entry', 'title', 'value' => (@board_entry.title || @board_entry.load_owner.name + _('(TopPage)')) %>
+  <%= hidden_field 'board_entry', 'title', 'value' => (@board_entry.title || _('TopPage')) %>
 <% end -%>
 
 
