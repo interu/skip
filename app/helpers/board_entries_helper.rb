@@ -162,4 +162,8 @@ module BoardEntriesHelper
       link_to_unless_current h(stock_entry.title), stock_entry.get_url_hash do content_tag 'b', h(stock_entry.title) end
     end
   end
+
+  def link_to_what_is_stock_entry
+    link_to _('About stock entry'), "http://help.skipaas.jp/contents/60"
+  end
 end

@@ -24,7 +24,7 @@
       <div class="index">
         <p><%= _('The stock entry has not been registered yet.') %></p>
         <% if current_user.participating_group?(@group) -%>
-          <%= link_to _('About stock entry') %>
+          <%= link_to_what_is_stock_entry %>
           <div class="button">
             <%= link_to(content_tag('span', _('Create stock entry')), {:controller => 'group', :action => "new_stock_entry"}, {:class => "rounded", :method => :post}) %>
           </div>
