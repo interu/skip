@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: skip 1.8.2\n"
-"POT-Creation-Date: 2010-08-02 15:02+0900\n"
+"POT-Creation-Date: 2010-08-02 16:26+0900\n"
 "PO-Revision-Date: 2009-06-29 13:31+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -344,7 +344,7 @@ msgstr ""
 msgid "About Users"
 msgstr ""
 
-#: app/views/group/_stock_entry_of_top.html.erb:25
+#: app/helpers/board_entries_helper.rb:167
 msgid "About stock entry"
 msgstr ""
 
@@ -2661,12 +2661,12 @@ msgstr ""
 msgid "Create my new bookmark"
 msgstr ""
 
-#: app/views/group/_stock_entry_of_top.html.erb:27
+#: app/views/group/_stock_entry_of_top.html.erb:29
 msgid "Create stock entry"
 msgstr ""
 
 #: app/helpers/board_entries_helper.rb:153
-#: app/views/group/_stock_entry_of_top.html.erb:17
+#: app/views/group/_stock_entry_of_top.html.erb:19
 #: app/views/entries/_entry_detail.html.erb:280
 msgid "Create stock entry under the '%s'"
 msgstr ""
@@ -2860,7 +2860,7 @@ msgstr ""
 msgid "Driving"
 msgstr ""
 
-#: app/views/group/_stock_entry_of_top.html.erb:9
+#: app/views/group/_stock_entry_of_top.html.erb:10
 #: app/views/user/show.html.erb:16
 #: app/views/board_entries/_board_entry_comment.html.erb:13
 #: app/views/admin/group_categories/_index.html.erb:23
@@ -4914,6 +4914,13 @@ msgstr ""
 msgid "Please input search query."
 msgstr ""
 
+#: app/views/board_entries/_edit_contents.html.erb:19
+#: app/views/board_entries/_edit_contents.html.erb:27
+msgid ""
+"Please input the introduction of this stock entry. This is displayed on a "
+"top of group."
+msgstr ""
+
 #: app/views/group/_manage_participations.html.erb:114
 msgid "Please input valid user or group"
 msgstr ""
@@ -6126,7 +6133,7 @@ msgid ""
 "the request with another address."
 msgstr ""
 
-#: app/views/group/_stock_entry_of_top.html.erb:23
+#: app/views/group/_stock_entry_of_top.html.erb:25
 msgid "The stock entry has not been registered yet."
 msgstr ""
 
@@ -7478,7 +7485,7 @@ msgstr ""
 msgid "[See all]"
 msgstr ""
 
-#: app/views/board_entries/_edit_contents.html.erb:21
+#: app/views/board_entries/_edit_contents.html.erb:25
 msgid "[See preview]"
 msgstr ""
 

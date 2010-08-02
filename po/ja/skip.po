@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: skip 1.8.2\n"
-"POT-Creation-Date: 2010-08-02 15:02+0900\n"
+"POT-Creation-Date: 2010-08-02 16:26+0900\n"
 "PO-Revision-Date: 2009-11-27 16:12+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -361,7 +361,7 @@ msgstr "このサイトについて"
 msgid "About Users"
 msgstr "紹介したユーザ"
 
-#: app/views/group/_stock_entry_of_top.html.erb:25
+#: app/helpers/board_entries_helper.rb:167
 msgid "About stock entry"
 msgstr "文書とは？"
 
@@ -2720,12 +2720,12 @@ msgstr "記事の公開範囲によらず全体公開のブログとして新し
 msgid "Create my new bookmark"
 msgstr "自分もブックマークする"
 
-#: app/views/group/_stock_entry_of_top.html.erb:27
+#: app/views/group/_stock_entry_of_top.html.erb:29
 msgid "Create stock entry"
 msgstr "目次を作る"
 
 #: app/helpers/board_entries_helper.rb:153
-#: app/views/group/_stock_entry_of_top.html.erb:17
+#: app/views/group/_stock_entry_of_top.html.erb:19
 #: app/views/entries/_entry_detail.html.erb:280
 msgid "Create stock entry under the '%s'"
 msgstr "「%s」配下に文書を作る"
@@ -2929,7 +2929,7 @@ msgstr "お酒"
 msgid "Driving"
 msgstr "ドライブ"
 
-#: app/views/group/_stock_entry_of_top.html.erb:9
+#: app/views/group/_stock_entry_of_top.html.erb:10
 #: app/views/user/show.html.erb:16
 #: app/views/board_entries/_board_entry_comment.html.erb:13
 #: app/views/admin/group_categories/_index.html.erb:23
@@ -5028,6 +5028,13 @@ msgstr "OpenID URLを入力してください。"
 msgid "Please input search query."
 msgstr "検索したいキーワードを入力してください"
 
+#: app/views/board_entries/_edit_contents.html.erb:19
+#: app/views/board_entries/_edit_contents.html.erb:27
+msgid ""
+"Please input the introduction of this stock entry. This is displayed on a "
+"top of group."
+msgstr "文書管理の紹介文を入力してください。グループのトップに表示されます。"
+
 #: app/views/group/_manage_participations.html.erb:114
 msgid "Please input valid user or group"
 msgstr "正しいユーザ/グループを入力してください"
@@ -6271,7 +6278,7 @@ msgstr ""
 "既に登録されているメールアドレスです。メールアドレスの変更をやり直してくださ"
 "い。"
 
-#: app/views/group/_stock_entry_of_top.html.erb:23
+#: app/views/group/_stock_entry_of_top.html.erb:25
 msgid "The stock entry has not been registered yet."
 msgstr "まだ文書は登録されていません。"
 
@@ -7656,7 +7663,7 @@ msgstr "[ユーザを探す]"
 msgid "[See all]"
 msgstr "[全てを見る]"
 
-#: app/views/board_entries/_edit_contents.html.erb:21
+#: app/views/board_entries/_edit_contents.html.erb:25
 msgid "[See preview]"
 msgstr "【プレビューで確認する】"
 
