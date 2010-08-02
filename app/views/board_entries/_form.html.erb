@@ -67,7 +67,17 @@ div.input_line textarea {
 
 
 <div class="input_line">
-  <div class="input_label"><%= label_tag 'contents_hiki', _('Contents') %></div>
+  <div class="input_label">
+    <% if (params[:aim_type] == 'stock_entry' or @board_entry.aim_type == 'stock_entry') -%>
+      <% if (params[:parent_id] or @board_entry.parent_id) -%>
+        <%= label_tag 'contents_hiki', _('Contents') %>
+      <% else -%>
+        <%= label_tag 'contents_hiki', _('Description of index') %>
+      <% end -%>
+    <% else -%>
+      <%= label_tag 'contents_hiki', _('Contents') %>
+    <% end -%>
+  </div>
   <%= render :partial => "board_entries/edit_contents" %>
 </div>
 

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: skip 1.8.2\n"
-"POT-Creation-Date: 2010-07-27 18:01+0900\n"
+"POT-Creation-Date: 2010-08-02 15:02+0900\n"
 "PO-Revision-Date: 2009-11-27 16:12+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -259,7 +259,7 @@ msgstr ""
 msgid "(Got %{point} %{point_button})"
 msgstr "(%{point} %{point_button} 頂きました)"
 
-#: app/views/board_entries/_form.html.erb:112
+#: app/views/board_entries/_form.html.erb:122
 msgid "(Provide page IDs in comma separated format. e.g. 1123,1124)"
 msgstr "（カンマ区切りでページのIDを入力してください。ex:1123,1234）"
 
@@ -1746,7 +1746,7 @@ msgstr "全て(%{num})"
 msgid "All Term"
 msgstr "全期間"
 
-#: app/views/board_entries/_form.html.erb:291
+#: app/views/board_entries/_form.html.erb:301
 msgid "All changes will be discarded if you navigate away from this page."
 msgstr "移動すると編集内容が破棄されます。"
 
@@ -1870,7 +1870,7 @@ msgstr "関連するコメントも一緒に削除されますが、よろしい
 #: app/views/group/_manage_info.html.erb:22
 #: app/views/board_entries/_board_entry_comment.html.erb:14
 #: app/views/entries/_entry_detail.html.erb:316
-#: app/views/edit/edit.html.erb:32 app/views/bookmark/list.html.erb:58
+#: app/views/edit/edit.html.erb:36 app/views/bookmark/list.html.erb:58
 msgid "Are you sure to delete?"
 msgstr "本当に削除しますか?"
 
@@ -1886,7 +1886,7 @@ msgstr "グループを退会しますがよろしいですか?"
 msgid "Are you sure to send activation email to target user?"
 msgstr "対象ユーザに利用開始通知メールを送信しますが宜しいですか?"
 
-#: app/views/board_entries/_form.html.erb:179
+#: app/views/board_entries/_form.html.erb:189
 msgid "Are you sure to send email to all users? (%s users)"
 msgstr "全ユーザ(%s人)にメールが送信されますが、宜しいですか?"
 
@@ -2642,7 +2642,8 @@ msgstr "リビジョン%{from}の内容"
 msgid "Content of rev.%{to}"
 msgstr "リビジョン%{to}の内容"
 
-#: app/views/board_entries/_form.html.erb:70
+#: app/views/board_entries/_form.html.erb:73
+#: app/views/board_entries/_form.html.erb:78
 msgid "Contents"
 msgstr "内容"
 
@@ -2721,7 +2722,7 @@ msgstr "自分もブックマークする"
 
 #: app/views/group/_stock_entry_of_top.html.erb:27
 msgid "Create stock entry"
-msgstr "文書を作る"
+msgstr "目次を作る"
 
 #: app/helpers/board_entries_helper.rb:153
 #: app/views/group/_stock_entry_of_top.html.erb:17
@@ -2780,7 +2781,7 @@ msgstr "対象データが見つかりません。"
 msgid "Data of this month not available."
 msgstr "この月のデータはありません。"
 
-#: app/views/board_entries/_form.html.erb:75
+#: app/views/board_entries/_form.html.erb:85
 msgid "Date"
 msgstr "日付"
 
@@ -2814,7 +2815,7 @@ msgstr "文書機能の利用"
 
 #: app/views/pictures/_pictures.html.erb:28
 #: app/views/board_entries/_board_entry_comment.html.erb:14
-#: app/views/admin/pictures/index.html.erb:19 app/views/edit/edit.html.erb:24
+#: app/views/admin/pictures/index.html.erb:19 app/views/edit/edit.html.erb:25
 #: app/views/bookmark/list.html.erb:58 app/views/bookmark/show.html.erb:48
 msgid "Delete"
 msgstr "削除"
@@ -2833,6 +2834,10 @@ msgstr "削除しました。"
 #: app/controllers/bookmark_controller.rb:114
 msgid "Deletion completed."
 msgstr "削除しました。"
+
+#: app/views/board_entries/_form.html.erb:75
+msgid "Description of index"
+msgstr "目次の説明文"
 
 #: app/views/admin/group_categories/_index.html.erb:24
 #: app/views/admin/users/index.html.erb:62
@@ -2950,7 +2955,7 @@ msgstr "グループ情報変更"
 msgid "Edit Profile"
 msgstr "プロフィール変更"
 
-#: app/views/board_entries/_form.html.erb:99
+#: app/views/board_entries/_form.html.erb:109
 msgid "Edit by Members Allowed"
 msgstr "参加者の編集可"
 
@@ -3042,11 +3047,11 @@ msgstr ""
 msgid "Embeds"
 msgstr "埋め込みタグ"
 
-#: app/views/board_entries/_form.html.erb:251
+#: app/views/board_entries/_form.html.erb:261
 msgid "Enable group members"
 msgstr "参加者も編集可能"
 
-#: app/views/board_entries/_form.html.erb:253
+#: app/views/board_entries/_form.html.erb:263
 msgid "Enable owner only"
 msgstr "あなたのみ可能"
 
@@ -3685,7 +3690,7 @@ msgstr ""
 "<br />運営担当者の方々が受信可能なメールアドレス(メーリングリスト等)を入力し"
 "てください。<br />その他は、必要に応じて変更してください。<br />"
 
-#: app/views/board_entries/_form.html.erb:79
+#: app/views/board_entries/_form.html.erb:89
 msgid "Hide Time"
 msgstr "時刻は表示しない"
 
@@ -3762,7 +3767,7 @@ msgstr "ホーム"
 msgid "Human Resources"
 msgstr "人事"
 
-#: app/views/board_entries/_form.html.erb:158
+#: app/views/board_entries/_form.html.erb:168
 msgid ""
 "Illegal format in \"Topic entry\". List the page IDs and separate each other "
 "by commas."
@@ -4280,7 +4285,7 @@ msgstr "参加者"
 
 #: app/helpers/application_helper.rb:235 app/helpers/application_helper.rb:260
 #: app/helpers/share_file_helper.rb:19 app/views/group/_form.html.erb:51
-#: app/views/board_entries/_form.html.erb:95
+#: app/views/board_entries/_form.html.erb:105
 msgid "Members Only"
 msgstr "参加者のみ"
 
@@ -4527,7 +4532,7 @@ msgid "No user information registered in %s."
 msgstr "%sにユーザ情報が登録されていません。"
 
 #: app/views/share_file/_form.html.erb:82
-#: app/views/board_entries/_form.html.erb:169
+#: app/views/board_entries/_form.html.erb:179
 msgid "No user selected. Are you sure to make this open to all users?"
 msgstr ""
 "ユーザの指定がされていません。このままだと、「全体に公開」になりますがよろし"
@@ -4700,7 +4705,8 @@ msgstr "質問中"
 #: app/helpers/application_helper.rb:231 app/helpers/application_helper.rb:253
 #: app/views/share_file/_form.html.erb:35
 #: app/views/share_file/new_ajax_upload.html.erb:19
-#: app/views/group/_form.html.erb:50 app/views/board_entries/_form.html.erb:93
+#: app/views/group/_form.html.erb:50
+#: app/views/board_entries/_form.html.erb:103
 msgid "Open to All"
 msgstr "全体に公開"
 
@@ -4862,7 +4868,7 @@ msgstr "activation_codeを上書きしました。初期管理者登録用URLは
 
 #: app/helpers/application_helper.rb:235 app/helpers/application_helper.rb:260
 #: app/helpers/share_file_helper.rb:19
-#: app/views/board_entries/_form.html.erb:95
+#: app/views/board_entries/_form.html.erb:105
 msgid "Owner Only"
 msgstr "下書き"
 
@@ -5090,11 +5096,11 @@ msgid "Print"
 msgstr "印刷する"
 
 #: app/views/share_file/_form.html.erb:31
-#: app/views/board_entries/_form.html.erb:89
+#: app/views/board_entries/_form.html.erb:99
 msgid "Privacy Settings"
 msgstr "公開範囲"
 
-#: app/helpers/board_entries_helper.rb:159 app/views/bookmark/show.html.erb:45
+#: app/helpers/board_entries_helper.rb:160 app/views/bookmark/show.html.erb:45
 msgid "Private"
 msgstr "非公開"
 
@@ -5732,7 +5738,7 @@ msgstr "詳細"
 msgid "Show %{model}"
 msgstr "%{model}の詳細"
 
-#: app/views/board_entries/_form.html.erb:85
+#: app/views/board_entries/_form.html.erb:95
 msgid "Show Option"
 msgstr "[オプションを表示]"
 
@@ -5959,7 +5965,7 @@ msgstr "指定の話題のリンクを削除しました"
 
 #: app/helpers/application_helper.rb:233 app/helpers/application_helper.rb:257
 #: app/views/share_file/_form.html.erb:38
-#: app/views/board_entries/_form.html.erb:96
+#: app/views/board_entries/_form.html.erb:106
 msgid "Specify Directly"
 msgstr "直接指定"
 
@@ -6334,7 +6340,7 @@ msgstr "質問を終了すると全ユーザのマイページから表示され
 msgid "This site is not allowed"
 msgstr "このサイトでは、OpenID認証が許可されていません。"
 
-#: app/controllers/edit_controller.rb:260
+#: app/controllers/edit_controller.rb:260 app/views/edit/edit.html.erb:28
 msgid "This stock entry cannot be deleted since it has been nested."
 msgstr "この文書には子文書があるため、削除できません。"
 
@@ -6434,7 +6440,7 @@ msgstr "トップ"
 msgid "Top 10 tags: "
 msgstr "みんながよく使うタグ（人気の10件）："
 
-#: app/views/board_entries/_form.html.erb:108
+#: app/views/board_entries/_form.html.erb:118
 msgid "Topic Entry"
 msgstr "話題の記事"
 
@@ -7655,7 +7661,7 @@ msgid "[See preview]"
 msgstr "【プレビューで確認する】"
 
 #: app/views/share_file/_form.html.erb:19
-#: app/views/board_entries/_form.html.erb:78
+#: app/views/board_entries/_form.html.erb:88
 msgid "[Set current time]"
 msgstr "[現在時刻を設定]"
 
