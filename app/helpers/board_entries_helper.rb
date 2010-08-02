@@ -164,6 +164,6 @@ module BoardEntriesHelper
   end
 
   def link_to_what_is_stock_entry
-    link_to _('About stock entry'), "http://help.skipaas.jp/contents/60"
+    link_to _('About stock entry'), "http://help.skipaas.jp/contents/60", :target => '_blank'
   end
 end
