@@ -112,7 +112,7 @@ class EditController < ApplicationController
 
       flash[:notice] = _('Created successfully.')
       if @board_entry.aim_type == "stock_entry" and @board_entry.parent_id == nil
-        redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.load_owner.gid
+        redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.symbol_id
       else
         redirect_to @board_entry.get_url_hash
       end
@@ -232,7 +232,7 @@ class EditController < ApplicationController
     flash[:notice] = _('Entry was successfully updated.')
 
     if @board_entry.aim_type == "stock_entry" and @board_entry.parent_id == nil
-      redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.load_owner.gid
+      redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.symbol_id
     else
       redirect_to @board_entry.get_url_hash
     end
@@ -258,7 +258,7 @@ class EditController < ApplicationController
 
     if BoardEntry.children(@board_entry).aim_type('stock_entry').size != 0
       flash[:warn] = _("This stock entry cannot be deleted since it has been nested.")
-      redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.load_owner.gid
+      redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.symbol_id
       return
     end
 
@@ -272,7 +272,7 @@ class EditController < ApplicationController
     flash[:notice] = _('Deletion complete.')
 
     if @board_entry.aim_type == "stock_entry"
-      redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.load_owner.gid
+      redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.symbol_id
     else
       # そのユーザのブログ一覧画面に遷移する
       # TODO: この部分をメソッド化した方がいいかも(by mat_aki)

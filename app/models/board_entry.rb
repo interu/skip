@@ -52,6 +52,7 @@ class BoardEntry < ActiveRecord::Base
   ANTENNA_AIM_TYPES = %w(notice).freeze
   HIDABLE_AIM_TYPES = %w(question).freeze
   TIMLINE_AIM_TYPES = %w(entry).freeze
+  # stock_entryについては、編集画面の種類に表示させたくないため
   validates_inclusion_of :aim_type, :in => %w(entry question notice stock_entry)
 
   named_scope :accessible, proc { |user|
