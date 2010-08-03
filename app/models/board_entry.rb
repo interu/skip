@@ -52,7 +52,7 @@ class BoardEntry < ActiveRecord::Base
   ANTENNA_AIM_TYPES = %w(notice).freeze
   HIDABLE_AIM_TYPES = %w(question).freeze
   TIMLINE_AIM_TYPES = %w(entry).freeze
-  validates_inclusion_of :aim_type, :in => %w(entry question notice stock_entry).freeze
+  validates_inclusion_of :aim_type, :in => %w(entry question notice stock_entry)
 
   named_scope :accessible, proc { |user|
     { :conditions => ['entry_publications.symbol in (:publication_symbols)',
