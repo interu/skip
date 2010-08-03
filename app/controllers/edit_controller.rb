@@ -42,6 +42,7 @@ class EditController < ApplicationController
     @board_entry.title = params[:title]
     @board_entry.category = params[:category]
     @board_entry.aim_type = params[:aim_type]
+    @board_entry.parent_id = params[:parent_id]
     if owner
       if owner.is_a?(Group)
         @board_entry.send_mail = (@board_entry.is_question? && SkipEmbedded::InitialSettings['mail']['default_send_mail_of_question']) || owner.default_send_mail
