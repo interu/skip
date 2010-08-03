@@ -45,7 +45,6 @@ div.input_line textarea {
   <% unless @board_entry.is_root_stock_entry? -%>
 <div class="input_line">
   <div class="input_label"><%= label(:board_entry, :aim_type, _('level')) %></div>
-  <%# 下記でparent_idではなく、@board_entryを渡せるのなら、parent_stock_entry_titleメソッドのaccessibleをreadable?に変更すること -%>
   <% parent_title = parent_stock_entry_title(@board_entry.parent_id) unless @board_entry.parent_id.blank? %>
   <div class="input_value"><%= parent_title %></div>
   <div class="clear_left"></div>
