@@ -726,6 +726,14 @@ class BoardEntry < ActiveRecord::Base
     end
   end
 
+  def is_stock_entry?
+    self.aim_type == "stock_entry"
+  end
+
+  def is_root_stock_entry?
+    ( self.is_stock_entry? and self.parent_id.blank? )
+  end
+
   def self.enable_aim_types
     if SkipEmbedded::InitialSettings['notice_entry'] && SkipEmbedded::InitialSettings['notice_entry']['enable']
       AIM_TYPES

@@ -21,7 +21,7 @@ div.input_line textarea {
 <%= hidden_field 'board_entry', 'symbol' %>
 <%= hidden_field 'board_entry', 'lock_version' %>
 
-<% unless (@board_entry.aim_type == 'stock_entry') -%><%# 文書でないなら %>
+<% unless @board_entry.is_stock_entry? -%><%# 文書でないなら %>
 <div class="input_line">
   <div class="input_label"><%= label(:board_entry, :aim_type, _('Types')) %></div>
   <% aim_types = BoardEntry.enable_aim_types.map{|type| [s_("BoardEntry|Aim type|Desc|#{type}"), type]} -%>
@@ -42,7 +42,7 @@ div.input_line textarea {
   <div style="clear: left"></div>
 </div>
 <% else -%>
-  <% unless @board_entry.parent_id.blank? -%><%# 子文書なら %>
+  <% unless @board_entry.is_root_stock_entry? -%>
 <div class="input_line">
   <div class="input_label"><%= label(:board_entry, :aim_type, _('level')) %></div>
   <%# 下記でparent_idではなく、@board_entryを渡せるのなら、parent_stock_entry_titleメソッドのaccessibleをreadable?に変更すること -%>
@@ -55,20 +55,20 @@ div.input_line textarea {
 <%= hidden_field 'board_entry', 'parent_id', 'value' => @board_entry.parent_id %>
 <% end -%>
 
-<% if (@board_entry.aim_type == 'stock_entry' and !@board_entry.parent_id.blank?) -%><%# 子文書なら %>
+<% if @board_entry.is_root_stock_entry? -%>
+  <%= hidden_field 'board_entry', 'title', 'value' => (@board_entry.title || _('TopPage')) %>
+<% else -%>
 <div class="input_line">
   <div class="input_label"><%= label(:board_entry, :title, _('Title')) -%></div>
   <div class="input_value"><%= text_field 'board_entry', 'title', :size =>60 %></div>
   <div style="clear: left"></div>
 </div>
-<% else -%>
-  <%= hidden_field 'board_entry', 'title', 'value' => (@board_entry.title || _('TopPage')) %>
 <% end -%>
 
 
 <div class="input_line">
   <div class="input_label">
-    <% if (@board_entry.aim_type == 'stock_entry' and @board_entry.parent_id.blank?) -%><%# 親文書なら %>
+    <% if @board_entry.is_root_stock_entry? -%>
       <%= label_tag 'contents_hiki', _('Description of index') %>
     <% else -%>
       <%= label_tag 'contents_hiki', _('Contents') %>
