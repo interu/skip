@@ -112,7 +112,7 @@ class EditController < ApplicationController
       @board_entry.send_contact_mails
 
       flash[:notice] = _('Created successfully.')
-      if @board_entry.aim_type == "stock_entry" and @board_entry.parent_id == nil
+      if @board_entry.is_root_stock_entry?
         redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.symbol_id
       else
         redirect_to @board_entry.get_url_hash
@@ -232,7 +232,7 @@ class EditController < ApplicationController
 
     flash[:notice] = _('Entry was successfully updated.')
 
-    if @board_entry.aim_type == "stock_entry" and @board_entry.parent_id == nil
+    if @board_entry.is_root_stock_entry?
       redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.symbol_id
     else
       redirect_to @board_entry.get_url_hash
@@ -272,7 +272,7 @@ class EditController < ApplicationController
     @board_entry.destroy
     flash[:notice] = _('Deletion complete.')
 
-    if @board_entry.aim_type == "stock_entry"
+    if @board_entry.is_stock_entry?
       redirect_to :controller => 'group', :action => 'show', :gid => @board_entry.symbol_id
     else
       # そのユーザのブログ一覧画面に遷移する
